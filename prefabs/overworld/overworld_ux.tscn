@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhta1exb5x52b"]
+
+[ext_resource type="Script" uid="uid://d28uobhtkndmd" path="res://scripts/overworld/fade.gd" id="1_0d1ti"]
+
+[node name="OverworldUx" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_0d1ti")

@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://k303pop6m6j6"]
+
+[ext_resource type="PackedScene" uid="uid://c7issx27yo5ur" path="res://prefabs/player/player.tscn" id="1_u80x2"]
+[ext_resource type="PackedScene" uid="uid://vxp546mltkyh" path="res://prefabs/camera/camera.tscn" id="2_bodal"]
+[ext_resource type="PackedScene" uid="uid://b5tuvdy240a1s" path="res://prefabs/overworld/overworld.tscn" id="3_bodal"]
+[ext_resource type="Texture2D" uid="uid://bah70voh28q0p" path="res://prefabs/overworld/image.png" id="4_kdmts"]
+[ext_resource type="Script" uid="uid://7u14okimioal" path="res://scripts/typer/typer.gd" id="5_0auqf"]
+[ext_resource type="FontFile" uid="uid://camk2gs6uip32" path="res://font/MS Gothic.ttf" id="5_y16t7"]
+
+[sub_resource type="GDScript" id="GDScript_y16t7"]
+script/source = "extends Node2D
+func _ready() -> void:
+	$RichTextLabel.start_typing(\"[wave] HEEE... [pulse][font_size=36]HEEHEEEHEEEHEAAAAA!!![/pulse]\",0)
+func _unhandled_input(event: InputEvent) -> void:
+	var resource = load(\"res://dialogues/untitled.dialogue\")
+# then
+	var dialogue_line = await DialogueManager.show_example_dialogue_balloon(resource, \"start\")
+	print(dialogue_line)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y16t7"]
+size = Vector2(19, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bodal"]
+size = Vector2(88, 21)
+
+[node name="Start" type="Node2D"]
+y_sort_enabled = true
+script = SubResource("GDScript_y16t7")
+
+[node name="Overworld" parent="." instance=ExtResource("3_bodal")]
+z_index = 999
+fade_in = 5.0
+fade_out = 5.0
+
+[node name="Camera" parent="." node_paths=PackedStringArray("follow") instance=ExtResource("2_bodal")]
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 960
+editor_draw_limits = true
+editor_draw_drag_margin = true
+follow = NodePath("../player")
+
+[node name="player" parent="." instance=ExtResource("1_u80x2")]
+position = Vector2(79, 128)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 190.0
+offset_bottom = 79.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(48.5, 157)
+disable_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_y16t7")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(146.5, 17.5)
+shape = SubResource("RectangleShape2D_bodal")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(196, 149)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_kdmts")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -2.0
+offset_top = 51.0
+offset_right = 323.0
+offset_bottom = 274.0
+theme_override_fonts/normal_font = ExtResource("5_y16t7")
+theme_override_font_sizes/normal_font_size = 2
+bbcode_enabled = true
+text = "Godot text"
+autowrap_mode = 1
+script = ExtResource("5_0auqf")
