@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://040a8oerms48"]
+
+[ext_resource type="Script" uid="uid://bew6pkyksld3i" path="res://utils/globals/vfx/vfx.gd" id="1_xrf5y"]
+
+[node name="VFX" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_xrf5y")

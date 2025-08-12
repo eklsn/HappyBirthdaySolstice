@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://e8s4yooj1trg"]
+
+[ext_resource type="Script" uid="uid://cplb13r4nun3j" path="res://utils/interaction/area/interact_on_enter/interact_on_enter.gd" id="1_ahn3w"]
+
+[node name="InteractOnPress" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_ahn3w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

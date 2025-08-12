@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctqh8jqt4x25r"]
+
+[ext_resource type="Script" uid="uid://djtd1nhynkpmg" path="res://entities/player/player.gd" id="1_4dohe"]
+[ext_resource type="PackedScene" uid="uid://bgk82wh11djgk" path="res://ui/menus/main_menu/main_menu.tscn" id="2_sglur"]
+[ext_resource type="SpriteFrames" uid="uid://bgsgl18vedeks" path="res://entities/player/solstice_yellow_spritesheet.tres" id="3_iys33"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4dohe"]
+radius = 4.5
+height = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
+size = Vector2(6, 32.5)
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_4dohe")
+main_menu_scene = ExtResource("2_sglur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_4dohe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_iys33")
+animation = &"sitting_front_eyes_open"
+autoplay = "idle_down"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 28.75)
+shape = SubResource("RectangleShape2D_sglur")
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]

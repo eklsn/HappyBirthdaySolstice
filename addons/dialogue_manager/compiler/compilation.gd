@@ -186,7 +186,7 @@ func import_content(path: String, prefix: String, imported_line_map: Dictionary,
 					else:
 						content[i] = "%s=>< %s/%s" % [line.split("=>< ")[0], title_hash, bits[1]]
 
-				elif not jump in ["END", "END!"] and not jump.begins_with("{{"):
+				elif not jump in ["END", "END!"]:
 					content[i] = "%s=>< %s/%s" % [line.split("=>< ")[0], str(path.hash()), jump]
 
 			elif "=> " in line:
@@ -199,7 +199,7 @@ func import_content(path: String, prefix: String, imported_line_map: Dictionary,
 					else:
 						content[i] = "%s=> %s/%s" % [line.split("=> ")[0], title_hash, bits[1]]
 
-				elif not jump in ["END", "END!"] and not jump.begins_with("{{"):
+				elif not jump in ["END", "END!"]:
 					content[i] = "%s=> %s/%s" % [line.split("=> ")[0], str(path.hash()), jump]
 
 		imported_paths.append(path)
@@ -841,10 +841,10 @@ func parse_character_and_dialogue(tree_line: DMTreeLine, line: DMCompiledLine, s
 	for replacement in line.text_replacements:
 		if replacement.has("error"):
 			result = add_error(tree_line.line_number, replacement.index, replacement.error)
-
+	
 	# Replace any newlines.
-	text = text.replace("\\n", "\n").strip_edges()
-
+	text = text.replace("\\n", "\n")
+	
 	# If there was no manual translation key then just use the text itself (unless this is a
 	# child dialogue below another dialogue line).
 	if not tree_line.is_nested_dialogue and line.translation_key == "":

@@ -1,0 +1,2 @@
+class_name MiningTileLayer
+extends TileMapLayer

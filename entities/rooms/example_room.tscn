@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3j7jtq2wj0sv"]
+
+[ext_resource type="Script" uid="uid://bfb5iw7nbagou" path="res://room_base.gd" id="1_nk2em"]
+[ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_5vrou"]
+[ext_resource type="PackedScene" uid="uid://bmmob71yacfgg" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance.tscn" id="3_s0t5e"]
+[ext_resource type="PackedScene" uid="uid://e8s4yooj1trg" path="res://utils/interaction/area/interact_on_enter/interact_on_enter.tscn" id="4_byvya"]
+[ext_resource type="Script" uid="uid://dqf74lpvpii77" path="res://entities/interaction/non_specific/teleport/teleport.gd" id="5_ca15y"]
+
+[sub_resource type="Resource" id="Resource_lyk4x"]
+script = ExtResource("5_ca15y")
+room_path = &"uid://cmb11ijocpwhy"
+room_entrance_loc = 3
+metadata/_custom_type_script = "uid://dqf74lpvpii77"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrjco"]
+size = Vector2(88, 39.5)
+
+[sub_resource type="Resource" id="Resource_yrjco"]
+script = ExtResource("5_ca15y")
+room_path = &"uid://bsc1ic4vj64i0"
+room_entrance_loc = 2
+metadata/_custom_type_script = "uid://dqf74lpvpii77"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tfmm"]
+size = Vector2(88, 39.5)
+
+[node name="ExampleRoom" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_nk2em")
+camera_limit_left = 0
+camera_limit_top = 0
+camera_limit_right = 560
+camera_limit_bottom = 880
+
+[node name="RoomEntranceLocations" parent="." instance=ExtResource("2_5vrou")]
+
+[node name="RoomEntrance" parent="RoomEntranceLocations" instance=ExtResource("3_s0t5e")]
+position = Vector2(279, 854)
+room_entrance_loc = 3
+
+[node name="RoomEntrance2" parent="RoomEntranceLocations" instance=ExtResource("3_s0t5e")]
+position = Vector2(278, 204)
+room_entrance_loc = 2
+
+[node name="InteractOnEnter" parent="." instance=ExtResource("4_byvya")]
+position = Vector2(318, 338)
+interaction = SubResource("Resource_lyk4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractOnEnter"]
+position = Vector2(-40, -165.75)
+shape = SubResource("RectangleShape2D_yrjco")
+
+[node name="InteractOnEnter2" parent="." instance=ExtResource("4_byvya")]
+position = Vector2(284, 905)
+interaction = SubResource("Resource_yrjco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractOnEnter2"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_1tfmm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(318, 338)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(225, 443)
+build_mode = 1
+polygon = PackedVector2Array(-427, -385, -508, -464, -507, -561, -463, -590, -308, -587, -311, -646, -217, -644, -226, -587, -64, -590, -23, -564, -20, -461, -98, -386, -61, -386, -62, -320, -101, -320, -102, -161, -64, -163, -61, -106, -22, -105, -22, -56, -100, 22, -181, 22, -221, 60, -220, 124, -305, 124, -305, 60, -344, 17, -425, 20, -503, -57, -507, -105, -467, -102, -463, -163, -424, -162, -426, -319, -469, -320, -469, -384)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(225, 443)
+build_mode = 1
+polygon = PackedVector2Array(-435, -532, -389, -569, -137, -568, -90, -532, -96, -507, -179, -441, -181, -508, -342, -503, -346, -434, -433, -508)

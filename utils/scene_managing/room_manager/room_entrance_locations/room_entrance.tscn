@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmmob71yacfgg"]
+
+[ext_resource type="Script" uid="uid://bhl40s5wrx6lf" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance.gd" id="1_5f8pn"]
+
+[node name="RoomEntrance" type="Marker2D"]
+script = ExtResource("1_5f8pn")

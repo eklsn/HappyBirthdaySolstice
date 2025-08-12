@@ -94,10 +94,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 ## Start typing out the text
-func type_out() -> void:
+func type_out(vis_characters :int = 0) -> void:
 	text = dialogue_line.text
-	visible_characters = 0
 	visible_ratio = 0
+	visible_characters = vis_characters
 	_waiting_seconds = 0
 	_last_wait_index = -1
 	_last_mutation_index = -1

@@ -1,0 +1,47 @@
+~ start
+
+do GlobalVar.player.set_sprite("sitting_front_eyes_open")
+
+Solstice: "They say that looking at the Earth from space can cause a cognitive shift and bring a state of awe that expands your personal boundaries and makes you feel one with Earth as a whole.
+It's compared to spiritual experiences, and it can change your perception of yourself, your values, attitude, and behaviors for the better."
+
+
+
+
+
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+
+
+
+
+The protagonist, Solstice (or just Sol), is sitting on the surface of the moon, facing the "camera" and briefly introducing herself. For now, the half-bust sprites are not shown.
+
+
+
+The "camera" is now at her back, and in front of her there's the planet Earth, with some of its continents on fire.
+
+"So what would you do if you woke up on the Moon, and the first thing you saw was the planet Earth catching fire?
+
+I'm Solstice, an angel sent from Heaven to Earth, and while life down there could be perishing in their last mass extinction...
+
+I don't feel anything.
+
+And anyway..."
+
+
+
+
+
+
+
+
+=> END

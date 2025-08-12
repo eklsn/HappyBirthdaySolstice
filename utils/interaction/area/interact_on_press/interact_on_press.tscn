@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca1rws5jjv5jv"]
+
+[ext_resource type="Script" uid="uid://1i56voi8wy2k" path="res://utils/interaction/area/interact_on_press/interact_on_press.gd" id="1_qgvqj"]
+
+[node name="InteractOnPress" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_qgvqj")

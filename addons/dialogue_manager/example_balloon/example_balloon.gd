@@ -1,4 +1,4 @@
-class_name DialogueManagerExampleBalloon extends CanvasLayer
+extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue
@@ -89,6 +89,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
+	
 	mutation_cooldown.stop()
 
 	is_waiting_for_input = false
@@ -99,6 +100,8 @@ func apply_dialogue_line() -> void:
 	character_label.text = tr(dialogue_line.character, "dialogue")
 
 	dialogue_label.hide()
+	var prev_dialogue_line = dialogue_label.dialogue_line
+	
 	dialogue_label.dialogue_line = dialogue_line
 
 	responses_menu.hide()
@@ -110,7 +113,16 @@ func apply_dialogue_line() -> void:
 
 	dialogue_label.show()
 	if not dialogue_line.text.is_empty():
-		dialogue_label.type_out()
+		
+		
+		if prev_dialogue_line != null && dialogue_line.tags.has("append"):
+			
+			dialogue_label.dialogue_line.text = (prev_dialogue_line.text + dialogue_line.text)
+			
+			dialogue_label.type_out(prev_dialogue_line.text.length())
+		else:
+			dialogue_label.type_out()
+		
 		await dialogue_label.finished_typing
 
 	# Wait for input
@@ -151,7 +163,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
-		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
+		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action) || event.is_action_pressed(next_action)
 		if mouse_was_clicked or skip_button_was_pressed:
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()

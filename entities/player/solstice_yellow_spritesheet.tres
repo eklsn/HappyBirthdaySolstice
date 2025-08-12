@@ -1,0 +1,144 @@
+[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://bgsgl18vedeks"]
+
+[ext_resource type="Texture2D" uid="uid://bcsg64v2nb1c7" path="res://entities/player/assets/solstice_yellow/Solstice_Front1.png" id="1_ngwkn"]
+[ext_resource type="Texture2D" uid="uid://dqdg3luslcxcf" path="res://entities/player/assets/solstice_yellow/Solstice_Left1.png" id="2_wqm6r"]
+[ext_resource type="Texture2D" uid="uid://bcscasdrmwe3s" path="res://entities/player/assets/solstice_yellow/Solstice_Right1.png" id="3_m1eke"]
+[ext_resource type="Texture2D" uid="uid://dwhi13viwgaad" path="res://entities/player/assets/solstice_yellow/Solstice_Back1.png" id="4_rxwai"]
+[ext_resource type="Texture2D" uid="uid://b13ch7mapnnw1" path="res://entities/player/assets/solstice_yellow/Sol_suit_sitting_back.png" id="5_23mtn"]
+[ext_resource type="Texture2D" uid="uid://ds6g24jgm2h84" path="res://entities/player/assets/solstice_yellow/Sol_suit_sitting_eyesclosed.png" id="6_kh0wi"]
+[ext_resource type="Texture2D" uid="uid://1c7lgncunqnw" path="res://entities/player/assets/solstice_yellow/Sol_suit_sitting_eyesopen.png" id="7_1uf3j"]
+[ext_resource type="Texture2D" uid="uid://ctlkfo0ad0v4t" path="res://entities/player/assets/solstice_yellow/Solstice_Front2.png" id="8_8t565"]
+[ext_resource type="Texture2D" uid="uid://ptw15xwwgbwk" path="res://entities/player/assets/solstice_yellow/Solstice_Front3.png" id="9_602fx"]
+[ext_resource type="Texture2D" uid="uid://tw6ggkayb8ne" path="res://entities/player/assets/solstice_yellow/Solstice_Left2.png" id="10_lpm3v"]
+[ext_resource type="Texture2D" uid="uid://yv83lnmhalxa" path="res://entities/player/assets/solstice_yellow/Solstice_Left3.png" id="11_12d00"]
+[ext_resource type="Texture2D" uid="uid://br3tqldhl2kc6" path="res://entities/player/assets/solstice_yellow/Solstice_Right2.png" id="12_ljufu"]
+[ext_resource type="Texture2D" uid="uid://dx7xjgxvrujk" path="res://entities/player/assets/solstice_yellow/Solstice_Right3.png" id="13_ey8jm"]
+[ext_resource type="Texture2D" uid="uid://c8l418px0mq7a" path="res://entities/player/assets/solstice_yellow/Solstice_Back2.png" id="14_w7x78"]
+[ext_resource type="Texture2D" uid="uid://mexampl8mesr" path="res://entities/player/assets/solstice_yellow/Solstice_Back3.png" id="15_h4owy"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ngwkn")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wqm6r")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_m1eke")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rxwai")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_23mtn")
+}],
+"loop": true,
+"name": &"sitting_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kh0wi")
+}],
+"loop": true,
+"name": &"sitting_front_eyes_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_1uf3j")
+}],
+"loop": true,
+"name": &"sitting_front_eyes_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ngwkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8t565")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ngwkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_602fx")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wqm6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lpm3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wqm6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_12d00")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_m1eke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ljufu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m1eke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ey8jm")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rxwai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_w7x78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rxwai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h4owy")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]

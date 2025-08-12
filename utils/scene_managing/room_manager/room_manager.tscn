@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b28ucq72rnd44"]
+
+[ext_resource type="Script" uid="uid://cph4mokbiyw7t" path="res://utils/scene_managing/room_manager/room_manager.gd" id="1_28yn1"]
+[ext_resource type="PackedScene" uid="uid://ctqh8jqt4x25r" path="res://entities/player/player.tscn" id="3_70hsh"]
+
+[node name="RoomManager" type="Node"]
+script = ExtResource("1_28yn1")
+starting_room_path = &"uid://bn5ksb5artyi4"
+
+[node name="Player" parent="." instance=ExtResource("3_70hsh")]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MiningGem" load_steps=2 format=3 uid="uid://b3tijewe3ljie"]
+
+[ext_resource type="Script" uid="uid://5huc65ftr6x8" path="res://utils/mining/assets/mining_gems/mining_gem.gd" id="1_0341j"]
+
+[resource]
+script = ExtResource("1_0341j")
+gem_name = &"Sans"
+gem_value = 0.0
+gem_shape_tile_map_pos_dict = Dictionary[Vector2i, Vector2i]({
+Vector2i(0, 0): Vector2i(4, 0),
+Vector2i(0, 1): Vector2i(4, 1),
+Vector2i(1, 0): Vector2i(5, 0),
+Vector2i(1, 1): Vector2i(5, 1)
+})
+metadata/_custom_type_script = "uid://5huc65ftr6x8"

@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bafwh7j21fm4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ci82a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24q3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmmo2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ru1r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1uk1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oblph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v11j8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i7ek"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxqhr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcxlh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_csr5i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80nxt"]
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_ci82a")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_24q3n")
+Button/styles/focus = SubResource("StyleBoxEmpty_vmmo2")
+Button/styles/hover = SubResource("StyleBoxEmpty_0ru1r")
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_t1uk1")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_oblph")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_v11j8")
+Button/styles/normal = SubResource("StyleBoxEmpty_5i7ek")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_uxqhr")
+Button/styles/pressed = SubResource("StyleBoxEmpty_tcxlh")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_csr5i")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_80nxt")
