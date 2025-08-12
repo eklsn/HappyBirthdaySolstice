@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cbwienwo3lkln"
+path="res://.godot/imported/new_beggining_2.dialogue-ffb200ba7c7bb0371f220acfa75d8059.tres"
+
+[deps]
+
+source_file="res://entities/rooms/mutual_assured_destruction/assets/new_beggining_2.dialogue"
+dest_files=["res://.godot/imported/new_beggining_2.dialogue-ffb200ba7c7bb0371f220acfa75d8059.tres"]
+
+[params]
+
+defaults=true

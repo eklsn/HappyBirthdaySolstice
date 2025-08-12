@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmpn8eoohc1t5"]
+
+[ext_resource type="Script" uid="uid://brt4tlgyq3bqe" path="res://entities/rooms/mutual_assured_destruction/mutual_assured_destruction.gd" id="1_pip27"]
+[ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_d3fev"]
+[ext_resource type="PackedScene" uid="uid://bmmob71yacfgg" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance.tscn" id="3_jvjc0"]
+[ext_resource type="PackedScene" uid="uid://c3cmx7rohus72" path="res://entities/player/npc/npc.tscn" id="5_jvjc0"]
+[ext_resource type="SpriteFrames" uid="uid://crvpo7m5p01fv" path="res://entities/player/assets/sh/overworld/shito_sprite_frames.tres" id="6_sgfx0"]
+
+[node name="MutualAssuredDestruction" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_pip27")
+
+[node name="RoomEntranceLocations" parent="." instance=ExtResource("2_d3fev")]
+
+[node name="RoomEntrance2" parent="RoomEntranceLocations" instance=ExtResource("3_jvjc0")]
+position = Vector2(278, 204)
+room_entrance_loc = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 233.0
+offset_top = 30.0
+offset_right = 330.0
+offset_bottom = 53.0
+text = "Earth on fire"
+
+[node name="Shito" parent="." instance=ExtResource("5_jvjc0")]
+unique_name_in_owner = true
+position = Vector2(656, 205)
+sprite_frames = ExtResource("6_sgfx0")
+current_animation = &"idle_left"
+
+[node name="ShitoSitPosition" type="Marker2D" parent="."]
+position = Vector2(335, 204)
+
+[node name="DialogueTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

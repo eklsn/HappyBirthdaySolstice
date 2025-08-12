@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dllel4wxacax2"]
+[gd_scene load_steps=6 format=3 uid="uid://dllel4wxacax2"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_x8ehw"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_e1enk"]
 [ext_resource type="FontFile" uid="uid://cj0kthldsmip8" path="res://ui/fonts/8bitoperator_jve.ttf" id="3_o7h1k"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="4_pswe3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwjq4"]
+bg_color = Color(0, 0, 0, 0.658824)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
 
 [node name="MainTextbox" type="CanvasLayer"]
 layer = 100
@@ -19,6 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Balloon"]
+visible = false
 layout_mode = 0
 offset_left = 83.0
 offset_top = 308.0
@@ -26,43 +34,21 @@ offset_right = 574.0
 offset_bottom = 448.0
 color = Color(0, 0, 0, 1)
 
-[node name="DialogueLabel" parent="Balloon" instance=ExtResource("2_e1enk")]
-unique_name_in_owner = true
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-offset_left = 121.0
-offset_top = 320.0
-offset_right = 518.0
-offset_bottom = 465.0
-grow_horizontal = 1
-size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("3_o7h1k")
-theme_override_fonts/mono_font = ExtResource("3_o7h1k")
-theme_override_fonts/italics_font = ExtResource("3_o7h1k")
-theme_override_fonts/bold_italics_font = ExtResource("3_o7h1k")
-theme_override_fonts/bold_font = ExtResource("3_o7h1k")
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-text = "Dialogue...  ssaaaaa hrshrsh"
-
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon"]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
-offset_left = 84.0
-offset_top = 290.0
-offset_right = 571.0
-offset_bottom = 306.0
+offset_left = 60.0
+offset_top = 284.0
+offset_right = 579.0
+offset_bottom = 307.0
 mouse_filter = 1
 bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon"]
 unique_name_in_owner = true
@@ -85,6 +71,47 @@ script = ExtResource("4_pswe3")
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
 layout_mode = 2
 text = "Response Example"
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 308
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwjq4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer" instance=ExtResource("2_e1enk")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_o7h1k")
+theme_override_fonts/mono_font = ExtResource("3_o7h1k")
+theme_override_fonts/italics_font = ExtResource("3_o7h1k")
+theme_override_fonts/bold_italics_font = ExtResource("3_o7h1k")
+theme_override_fonts/bold_font = ExtResource("3_o7h1k")
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+text = "\"They say that looking at the Earth from space can cause a cognitive shift and bring a state of awe that expands your personal boundaries and makes you feel one with Earth as a whole. "
+fit_content = false
+horizontal_alignment = 1
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

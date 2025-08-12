@@ -10,10 +10,6 @@ script = ExtResource("1_4xq5g")
 
 [node name="RoomEntranceLocations" parent="." instance=ExtResource("2_tsa7x")]
 
-[node name="RoomEntrance" parent="RoomEntranceLocations" instance=ExtResource("3_qt68h")]
-position = Vector2(279, 854)
-room_entrance_loc = 3
-
 [node name="RoomEntrance2" parent="RoomEntranceLocations" instance=ExtResource("3_qt68h")]
 position = Vector2(278, 204)
 room_entrance_loc = 2

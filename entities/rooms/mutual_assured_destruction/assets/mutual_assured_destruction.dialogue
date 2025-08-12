@@ -1,0 +1,53 @@
+~ start
+
+#do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito_sit_position.global_position)
+#do GlobalVar.current_room.shito.set_sprite("sitting_back")
+
+do GlobalVar.player.set_sprite("sitting_back")
+do wait(0.3)
+Solstice: Why do you look like me... to some extent?
+???: My creators wanted me to replicate you and your angelic power, beep-boop.
+Solstice: Huh? Are they stupid? I have no powers whatsoever, that's the whole reason why I got dumped on that planet!
+???: No smart person would've created a robot to imitate an angel, beep-boop.
+Solstice: ... That much is very true.
+Solstice: So, do you have a name? I'm Solstice, but just Sol is fine.
+SH-170: I'm SH-170, beep-boop
+Solstice: SH-170... Shito... wait, that's just the japanese pronunciation for- [next=0.65]
+SH-170: My name means "apostle" in that language, beep-boop.
+Solstice: You don't have to say beep-boop every time.
+SH-170: It's hardcoded in my firmware, beep-boop.
+
+=> mutual_destruction_2
+
+~ mutual_destruction_2
+
+Solstice: How long have I been out? The last thing I remember is some men in black grabbing me and throwing me in a car. I'm still wearing the same clothes, ugh.
+SH-170: It's been three days since we landed, beep-boop.
+
+Solstice: Do you have any idea what happened on Earth? Although I got a hunch.
+
+SH-170: It appears that major superpowers began nuclear warfare against each other and it quickly ended in mutual assured destruction, beep-boop.
+
+Solstice: Yeah, guessed so. What do we do now?
+
+SH-170: My main purpose is object synthesis: I'm able to create copies of everything I have in my database. That is, everything from everyday objects to every piece of art and culture ever archived. Beep-boop.
+
+Solstice: At least they left me stranded on the Moon in the best possible conditions.
+
+Solstice: Ahh, I don't want to go to work tomorrow...
+
+SH-170: We can't get back to Earth, and your office- [next=0.6]
+
+Solstice: Wait a minute... there's no work anymore...
+
+Solstice: DUDE, I'M FINALLY FREE!!!
+Solstice: BURN, HUMANS, BURN! I'M NOT CAGED ANYMORE!!!
+
+SH-170: That is not a nice thing to say, beep-boop.
+
+Solstice: Oh, shut up, this is my new beginning!
+
+
+Solstice: Let's look around for now, you don't get to walk on the Moon every day.
+
+=> END

@@ -1,0 +1,53 @@
+~ start
+#The free walking ends, Sol and Shito face each other.
+do GlobalVar.player.set_sprite("idle_right")
+do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(60.0,0.0))
+do GlobalVar.current_room.shito.set_sprite("idle_left")
+Solstice: We need a place to stay, Shito. Build us a house or whatever.
+
+SH-170: I can't, beep-boop.
+
+Solstice: What?! You said you can create everything!
+
+SH-170: That is true; however, I lack the necessary materials, beep-boop.
+
+Solstice: Sigh, what can you even build right now?
+
+SH-170: I can offer a bouncing ball, a spinning top, or a yo-yo, beeb-boop.
+
+Solstice: ... I'll take the yo-yo.
+
+SH-170: The creation of the selected item requires 3 units of quartz crystals that need to be harvested from moon rocks, beep-boop.
+
+Solstice: Go gather those rocks, then.
+
+SH-170: I lack appendages that allow me to grab those rocks myself, so you'll have to extract the minerals yourself, beep-boop.
+
+Solstice: I'm gonna throw those rocks at you until they break.
+
+SH-170: Please don't, beep-boop.
+
+Solstice: Well, it's not like I can crush those rocks with my hands.
+
+SH-170: I can sacrifice some of my energy to fuse silica powder from the soil into a rock hammer, as long as you are willing to wait for me to recharge my batteries, beep-boop.
+
+Solstice: What's the alternative?
+
+SH-170: Boredom, beep-boop.
+do wait(3.0)
+#Three seconds pass before the next dialogue.
+
+Solstice: Give me that hammer.
+do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito.global_position + Vector2(50.0,0.0))
+do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito.global_position - Vector2(50.0,0.0))
+do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito.global_position + Vector2(50.0,0.0))
+do wait(5.0)
+do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito.global_position - Vector2(50.0,0.0))
+#Shito buzzes and its eyes and screen flash, walking in circles three times. Then it stays still for 5 seconds, before giving the hammer to Sol.
+
+Solstice: The hammer's durability is limited, and hitting with more force damages it more, so when it gets too damaged, bring it to me with some quartz. I can use silica if you can't get any quartz, but I'll have to take a break again, beep-boop.
+
+Solstice: Fine, fine, do your thing while I break these rocks.
+
+#The player then walks to nearby rocks, and the mining minigame begins until enough quartz is collected.
+=> END

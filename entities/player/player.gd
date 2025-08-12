@@ -4,9 +4,10 @@ extends CharacterBody2D
 @export var main_menu_scene: PackedScene
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var camera_2d: Camera2D = $Camera2D
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var menu_layer: CanvasLayer = $MenuLayer
+
+@onready var camera_2d: GameCamera = $Camera2D
 
 var run_counter := 0.0
 var last_dir := "down"
@@ -23,6 +24,8 @@ var is_running := false
 func _ready() -> void:
 	GlobalVar.player = self
 	
+	DialogueManager.dialogue_started.connect(func(_resource: DialogueResource): set_idle(true))
+	DialogueManager.dialogue_ended.connect(func(_resource: DialogueResource): set_idle(false))
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -67,7 +70,7 @@ func interact()->void:
 func _physics_process(delta: float) -> void:
 	# Update animation
 	
-	if movement_stopped || menu:
+	if movement_stopped || menu || DialogueManager.dialogue_playing:
 		return
 	
 	
@@ -77,8 +80,7 @@ func _physics_process(delta: float) -> void:
 	var speed_multiplier = 1.0 + (RUN_SUM / SPEED) * (1.0 + int(run_counter)) if run_counter > 0.0 else 1.0
 	velocity = input_direction * SPEED * speed_multiplier
 	
-	if input_direction != Vector2.ZERO:
-		_update_animation()
+	_update_animation()
 		
 	move_and_slide()
 	
@@ -117,6 +119,8 @@ func set_idle(idle: bool) -> void:
 	movement_stopped = idle
 	collision_shape_2d.set_deferred("disabled", idle)
 	
+	if not anim.animation.begins_with("idle_"):
+		_update_animation()
 
 func teleport(loc: Vector2) -> void:
 	global_position = loc

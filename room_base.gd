@@ -16,8 +16,9 @@ signal teleport_player(room_location : SwitchRoomEffect.RoomLocation)
 var room_manager : RoomManager
 
 func _ready() -> void:
-	room_manager = get_parent()
-	load_room()
+	GlobalVar.current_room = self
+	
+	
 	
 	if get_viewport().get_camera_2d():
 		get_viewport().get_camera_2d().limit_bottom = camera_limit_bottom
@@ -33,6 +34,8 @@ func _ready() -> void:
 		return
 	
 	
+	room_manager = get_parent()
+	load_room()
 	
 
 

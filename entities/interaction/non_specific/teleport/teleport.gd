@@ -29,7 +29,7 @@ func interact()->void:
 	var loaded_room : Room = ResourceLoader.load(room_path).instantiate()
 	await room_trans.animation_finished
 	
-	SwitchRoomEffect.new().switch_room(room.room_manager,loaded_room,room_entrance_loc,room)
+	SwitchRoomEffect.switch_room(room.room_manager,loaded_room,room_entrance_loc,room)
 	
 	await room_trans.fade_out()
 	

@@ -7,7 +7,7 @@ var current_room : Room
 
 
 func _ready() -> void:
-	
+	GlobalVar.room_manager = self
 	
 	on_switch_room(load(starting_room_path).instantiate(),SwitchRoomEffect.RoomLocation.WEST)
 

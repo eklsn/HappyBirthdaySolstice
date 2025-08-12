@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://da1es03l8ci2m"
+path="res://.godot/imported/new_beggining_filler_2.dialogue-fe4bf42575dcaab231dda121e3d3dca6.tres"
+
+[deps]
+
+source_file="res://entities/rooms/mutual_assured_destruction/assets/new_beggining_filler_2.dialogue"
+dest_files=["res://.godot/imported/new_beggining_filler_2.dialogue-fe4bf42575dcaab231dda121e3d3dca6.tres"]
+
+[params]
+
+defaults=true

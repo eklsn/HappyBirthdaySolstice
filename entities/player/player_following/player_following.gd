@@ -1,14 +1,13 @@
-class_name FollowerNPC2
-extends CharacterBody2D
+@tool
+class_name FollowerNPC
+extends NPC
 
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 var target_player: Player
 var position_history: Array[Vector2] = []
 var direction_history: Array[String] = []
 var speed_history: Array[float] = []
-var last_dir := "down"
 
 # Following parameters
 const MAX_HISTORY_SIZE := 10
@@ -17,11 +16,18 @@ const MIN_DISTANCE_TO_MOVE := 5.0  # Only move if target is this far away
 
 var is_moving := true
 
+
+var follow_player : bool = true
+
+var is_idle : bool = false
+
 func _ready():
+	
+	DialogueManager.dialogue_started.connect(func(_resource: DialogueResource): set_idle(true))
+	DialogueManager.dialogue_ended.connect(func(_resource: DialogueResource): set_idle(false))
+	
 	# Find the player in the scene
 	target_player = GlobalVar.player
-	if not target_player:
-		push_error("No player found! Make sure player is in 'player' group")
 
 func _physics_process(_delta: float):
 	if not target_player or not is_moving:
@@ -29,17 +35,22 @@ func _physics_process(_delta: float):
 		return
 	
 	#queue_redraw()
-	_follow_player()
-	_update_animation()
+	if not DialogueManager.dialogue_playing:
+		_follow_player()
+		
+		_update_animation()
 
 func _follow_player():
+	if is_idle:
+		velocity = Vector2.ZERO
+		return
 	var target_pos: Vector2
 	var target_speed: float
 	
 	# If we don't have enough history yet, follow the player directly
 	if position_history.size() <= HISTORY_STEPS_BACK:
 		target_pos = target_player.global_position
-		target_speed = target_player.velocity.length()
+		target_speed = target_player.velocity.length() + 20
 		last_dir = target_player.last_dir
 	else:
 		# Use historical position for delayed following
@@ -62,13 +73,29 @@ func _follow_player():
 	move_and_slide()
 
 func _update_animation():
+	if position_history.size() <= HISTORY_STEPS_BACK:
+		var direction = (target_player.global_position - global_position).normalized()
+		
+		var anim_dir = last_dir
+		if direction.length() > 0.1:  # Only update if there's significant movement
+			if abs(direction.y) > abs(direction.x):
+				anim_dir = "down" if direction.y > 0 else "up"
+			else:
+				anim_dir = "right" if direction.x > 0 else "left"
+			last_dir = anim_dir
+			
+		
+		anim.play("walk_" + anim_dir)
+		
+		return
+		
 	var is_moving_now = velocity.length() > 10.0
 	
 	var anim_name = "idle_"
-	if is_moving_now:
+	if is_moving_now && not is_idle:
 		anim_name = "walk_"
-		if target_player.is_running:
-			anim_name = "run_"
+		#if target_player.is_running:
+		#	anim_name = "run_"
 	
 	anim.play(anim_name + last_dir)
 
@@ -95,3 +122,9 @@ func _on_position_recording_timeout():
 			position_history.pop_front()
 			direction_history.pop_front()
 			speed_history.pop_front()
+
+func set_idle(idle : bool)->void:
+	is_idle = idle
+	
+	_update_animation()
+	

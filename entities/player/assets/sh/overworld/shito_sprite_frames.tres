@@ -1,0 +1,144 @@
+[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://crvpo7m5p01fv"]
+
+[ext_resource type="Texture2D" uid="uid://c18qs2g60gixr" path="res://entities/player/assets/sh/overworld/movement/front1.png" id="1_g6d4i"]
+[ext_resource type="Texture2D" uid="uid://j1ms6p2m2n61" path="res://entities/player/assets/sh/overworld/movement/left1.png" id="2_b2xbf"]
+[ext_resource type="Texture2D" uid="uid://ctto6qngb1f2p" path="res://entities/player/assets/sh/overworld/movement/right1.png" id="3_t0wp7"]
+[ext_resource type="Texture2D" uid="uid://bnt344k4jq6gj" path="res://entities/player/assets/sh/overworld/movement/back1.png" id="4_c66ns"]
+[ext_resource type="Texture2D" uid="uid://drrhbunihseoa" path="res://entities/player/assets/sh/overworld/Sitting.png" id="5_u56qq"]
+[ext_resource type="Texture2D" uid="uid://ds6g24jgm2h84" path="res://entities/player/assets/solstice/overworld/solstice_yellow/Sol_suit_sitting_eyesclosed.png" id="6_mor56"]
+[ext_resource type="Texture2D" uid="uid://1c7lgncunqnw" path="res://entities/player/assets/solstice/overworld/solstice_yellow/Sol_suit_sitting_eyesopen.png" id="7_5ditq"]
+[ext_resource type="Texture2D" uid="uid://1pc1eonu41jk" path="res://entities/player/assets/sh/overworld/movement/front2.png" id="8_xxkoj"]
+[ext_resource type="Texture2D" uid="uid://c6eeyidyj173b" path="res://entities/player/assets/sh/overworld/movement/front3.png" id="9_cuh57"]
+[ext_resource type="Texture2D" uid="uid://ydiqw7ct35cu" path="res://entities/player/assets/sh/overworld/movement/left2.png" id="10_ls56m"]
+[ext_resource type="Texture2D" uid="uid://vg1mexwn41u6" path="res://entities/player/assets/sh/overworld/movement/left3.png" id="11_n47kg"]
+[ext_resource type="Texture2D" uid="uid://d2daqrcqya0w6" path="res://entities/player/assets/sh/overworld/movement/right2.png" id="12_raxwj"]
+[ext_resource type="Texture2D" uid="uid://b815gvaycd0ew" path="res://entities/player/assets/sh/overworld/movement/right3.png" id="13_xnq0a"]
+[ext_resource type="Texture2D" uid="uid://bpmsrsa41tlby" path="res://entities/player/assets/sh/overworld/movement/back2.png" id="14_0jiin"]
+[ext_resource type="Texture2D" uid="uid://s4toflxm7tdt" path="res://entities/player/assets/sh/overworld/movement/back3.png" id="15_565xk"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g6d4i")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b2xbf")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t0wp7")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c66ns")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_u56qq")
+}],
+"loop": true,
+"name": &"sitting_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mor56")
+}],
+"loop": true,
+"name": &"sitting_front_eyes_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5ditq")
+}],
+"loop": true,
+"name": &"sitting_front_eyes_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g6d4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xxkoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_g6d4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cuh57")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b2xbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ls56m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b2xbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_n47kg")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t0wp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_raxwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t0wp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xnq0a")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c66ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0jiin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c66ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_565xk")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
