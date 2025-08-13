@@ -41,16 +41,16 @@ func on_enter_room()->void:
 	if DialogueManager.dialogue_playing:
 		await DialogueManager.dialogue_ended
 		
-	#DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, MUTUAL_ASSURED_DESTRUCTION)
+	DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, MUTUAL_ASSURED_DESTRUCTION)
 	
-	#await DialogueManager.dialogue_ended
+	await DialogueManager.dialogue_ended
 	var prev_pos : Vector2 = shito.global_position
 	shito.queue_free()
 	shito = PLAYER_FOLLOWING.instantiate()
 	add_child(shito)
 	shito.global_position = prev_pos
 	
-	dialogue_counter=5
+	#dialogue_counter=5
 	dialogue_timer.start(DIALOGUE_FILLER_WAIT_TIME)
 	
 	

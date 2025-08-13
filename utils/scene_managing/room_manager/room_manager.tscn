@@ -5,7 +5,7 @@
 
 [node name="RoomManager" type="Node"]
 script = ExtResource("1_28yn1")
-starting_room_path = &"uid://bmpn8eoohc1t5"
+starting_room_path = &"uid://bn5ksb5artyi4"
 
 [node name="Player" parent="." instance=ExtResource("3_70hsh")]
 

@@ -119,7 +119,7 @@ func set_idle(idle: bool) -> void:
 	movement_stopped = idle
 	collision_shape_2d.set_deferred("disabled", idle)
 	
-	if not anim.animation.begins_with("idle_"):
+	if anim.animation.begins_with("walk_"):
 		_update_animation()
 
 func teleport(loc: Vector2) -> void:

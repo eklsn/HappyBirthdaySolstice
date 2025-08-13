@@ -1,5 +1,5 @@
 ~ start
-
+do! GlobalVar.player.camera_2d.move_to_relative(Vector2(0.0,-80.0),1)
 do GlobalVar.player.set_sprite("sitting_front_eyes_open")
 do wait(1.7)
 Solstice: They say that looking at Earth from space can cause a cognitive shift and bring a state of awe that expands your personal boundaries, making you feel one with Earth as a whole. 
