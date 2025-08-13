@@ -1,0 +1,34 @@
+~ start
+# The couple stands before the rocket. If the asset is missing, the dialogues can play over a black screen.
+
+Solstice: Are we forgetting anything?  
+
+SH-170: We didn't bring anything here in the first place, beep-boop.  
+
+Solstice: That's true.  
+
+SH-170: Sol, what will you do if everyone is dead?  
+
+Solstice: I'll have my fun alone in the world, and then watch some weird animal evolve into a smarter race than humans, I guess.  
+
+SH-170: What will you do if there's still people, but Sophie or your family are dead?  
+
+Solstice: I don't care about my family, but I'll cry for Sophie, and then I'll try to be a better person and meet new friends.  
+
+SH-170: What if everyone is still alive, including them?  
+
+Solstice: I'll ignore my family, and try to fix the world with Sophie, while meeting new friends.  
+Solstice: Also, what happened to the "beep-boop"?  
+
+SH-170: What do you mean? Beep-boop.  
+
+Solstice: Yeah, whatever. I'm ready when you are, Shito.  
+
+# If not already black, the screen fades to black.  
+
+# Countdown sequence  
+Departure in 10... 9... 8...  
+
+The End.
+
+=> END

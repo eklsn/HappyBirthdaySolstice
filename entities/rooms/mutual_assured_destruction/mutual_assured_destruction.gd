@@ -4,12 +4,14 @@ const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xbbs7euvm7rw")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 
 @onready var shito: CharacterBody2D = %Shito
+@onready var flash : ColorRect = %new3_flash
 @onready var shito_sit_position: Marker2D = $ShitoSitPosition
 @onready var dialogue_timer: Timer = $DialogueTimer
 
 const DIALOGUE_FILLER_WAIT_TIME : float = 4.0
 
-var dialogue_counter : int = 0
+var plot : int = 0
+var dialogue_counter : int = 6
 
 const PLAYER_FOLLOWING :PackedScene = preload("uid://cjbftteb7m838")
 
@@ -36,6 +38,7 @@ NEW_BEGGINING_FILLER_7,
 ]
 
 const NEW_BEGGINING_2 :Resource = preload("uid://cbwienwo3lkln")
+const NEW_BEGGINING_3 :Resource = preload("uid://b22wylte268oi")
 
 func on_enter_room()->void:
 	if DialogueManager.dialogue_playing:
@@ -57,16 +60,26 @@ func on_enter_room()->void:
 
 
 func _on_dialogue_timer_timeout() -> void:
-	var current_filler : Resource = fillers[dialogue_counter]
-	
-	DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_filler)
-	
+	var wait_time : float
+	if plot < 1:
+		var current_filler : Resource = fillers[dialogue_counter]
+		wait_time = DIALOGUE_FILLER_WAIT_TIME
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_filler)
+	if plot == 1:
+		match dialogue_counter:
+			0:
+				wait_time = 0.0
+				DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, NEW_BEGGINING_2)
+			1:
+				wait_time = 0.0
+				DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, NEW_BEGGINING_3)
 	
 	await DialogueManager.dialogue_ended
 	dialogue_counter+=1
 	if fillers.size() == dialogue_counter:
-		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, NEW_BEGGINING_2)
-		
+		dialogue_counter = 0
+		plot = 1
+		_on_dialogue_timer_timeout()
 		return
-	dialogue_timer.start(DIALOGUE_FILLER_WAIT_TIME)
+	dialogue_timer.start(wait_time)
 	

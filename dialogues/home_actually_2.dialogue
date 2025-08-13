@@ -1,0 +1,32 @@
+~ start
+# The needed materials are 3 quartz, 1 titanium, 1 rhodium, 1 platinum. The quartz is relatively easy to find, but the last two will take some time.  
+
+# Between a rock and another, some dialogues will trigger, telling some of Solstice's backstory. An easy way to make sure to have all the dialogues before completing the mining is to generate the last item after all the dialogues have been told.  
+
+Solstice: To think that I had to get to the Moon to break free of the expectations that humans forced on me. I'm even having a hard time realizing how much I've been conditioned by them.  
+Solstice: Just because they have the label of "mother" and "father" on them, they think they can plan the entire life of their children and constrain them into a shape that doesn't belong to them. It's disgusting.  
+Solstice: "Go study electronic engineering, Solstice, you'll make a lot of money!" Not only did I not make much money in the first place, but now my savings got nuked, too. What a waste of time.  
+Solstice: They always made everything sound like a suggestion, but it was just their way to order me to do what they wanted. You could see their personalities twist and become unbearable when things didn't go as they wanted.  
+Solstice: My human parents used me as a toy, and whoever was tasked with overseeing me from heaven just abandoned me, too. Wish they could throw a nuke up there too. They would survive, sadly.  
+Solstice: I just wanted to make music and enjoy playing with other people like me.  
+
+# When she has everything, one last line of dialogue triggers.  
+
+Solstice: I'm gonna turn things around.  
+
+# They walk toward the home, and the camera then fades to black, without fading back in.  
+
+Solstice: This gray works for the top, then this blue for the shirt. Let me make a tiny change to the skirt... yes, this is it!  
+Solstice: Now, one last thing. Someone had to come from heaven from time to time to make me look older, but this is the one thing I can do to my appearance.  
+Solstice: Focus, Sol, focus...  
+Solstice: Okay, I'm opening my eyes now.  
+
+# The screen fades back in, with Sol with brown hair and in her new clothes standing before the mirror, where she sees her new appearance for the first time.  
+
+Solstice: Yeah... this is how I was always supposed to be...!  
+SH-170: It suits you very well, beep-boop.  
+Solstice: Sure as hell does. Recycle that suit or burn it, I don't care. I just don't wanna see it anymore.  
+
+# [[Every me 1]]  
+
+=> END

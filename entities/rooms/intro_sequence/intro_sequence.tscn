@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://bn5ksb5artyi4"]
 
-[ext_resource type="Script" uid="uid://fb5xpo268enx" path="res://entities/rooms/intro_sequence/intro_sequence.gd" id="1_4xq5g"]
+[ext_resource type="Script" uid="uid://fb5xpo268enx" path="res://entities/rooms/intro_sequence/intro_sequence.gd" id="1_qt68h"]
 [ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_tsa7x"]
 [ext_resource type="PackedScene" uid="uid://bmmob71yacfgg" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance.tscn" id="3_qt68h"]
 [ext_resource type="Texture2D" uid="uid://dvu81dgba3ghl" path="res://entities/rooms/assets/overworld_mining_tiles.png" id="5_bi1pp"]
@@ -28,7 +28,7 @@ sources/0 = SubResource("TileSetAtlasSource_wk1kr")
 
 [node name="IntroSequence" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_4xq5g")
+script = ExtResource("1_qt68h")
 
 [node name="RoomEntranceLocations" parent="." instance=ExtResource("2_tsa7x")]
 

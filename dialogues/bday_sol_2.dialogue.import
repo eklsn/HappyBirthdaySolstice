@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bydktk58t3yn0"
+path="res://.godot/imported/bday_sol_2.dialogue-a05ef649e28370bbf7604821e1dd444a.tres"
+
+[deps]
+
+source_file="res://dialogues/bday_sol_2.dialogue"
+dest_files=["res://.godot/imported/bday_sol_2.dialogue-a05ef649e28370bbf7604821e1dd444a.tres"]
+
+[params]
+
+defaults=true

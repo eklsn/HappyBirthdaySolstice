@@ -1,0 +1,34 @@
+~ start
+# Waking up in the tent, Sol walks outside, finding a decently-sized house next to the tent.  
+
+Solstice: Whoa, this is not really what I was expecting.  
+SH-170: Is it not to your liking? Beep-boop.  
+Solstice: No, it's better than I thought. I had this cartoonish little house in mind, I didn't think I would've gotten so much space.  
+SH-170: You're free to go inside while I take down the tent and recycle the materials, beep-boop.  
+
+# The player can walk around the house and interact with some items until Sol interacts with a wardrobe in the bedroom.  
+
+Solstice: I guess it didn't think of making any suits for me, I'll ask it to make some.  
+Solstice: ...  
+Solstice: ...  
+Solstice: Wait.  
+Solstice: There's no reason for me to get stuck with these clothes.  
+
+# Sol looks at herself in the mirror.  
+
+Solstice: ...  
+Solstice: ...  
+Solstice: Sigh.  
+Solstice: ...  
+Solstice: Alright, I made up my mind.  
+
+# At that moment, Shito walks inside.  
+
+SH-170: Is the room of your liking, Sol? Beep-boop.  
+Solstice: Shito, I have an order of clothes for you.  
+
+# The screen fades to black, and it fades back in with them looking for materials, with the receipt on screen.  
+
+# [[Home, actually 2]]  
+
+=> END

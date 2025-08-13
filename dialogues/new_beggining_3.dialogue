@@ -1,0 +1,39 @@
+~ start
+do GlobalVar.player.set_sprite("idle_right")
+do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(60.0,0.0))
+do GlobalVar.current_room.shito.set_sprite("idle_left")
+Solstice: Is this enough?  
+SH-170: It is, beep-boop. Do you confirm "kendama" as your choice, beep-boop?  
+Solstice: Yes, whatever, just give me something to play with.  
+
+do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(120.0,0.0))
+do GlobalVar.current_room.shito.set_sprite("idle_right")
+do GlobalVar.current_room.flash.start()
+# Shito buzzes and its eyes and screen flash for some time, before giving the hammer to Sol.  
+do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(60.0,0.0))
+do GlobalVar.current_room.shito.set_sprite("idle_left")
+SH-170: Yo-yo: synthesis complete, beep-boop.  
+Solstice: Whoa, this is real wood, isn't it? How do you even make wood from quartz?  
+SH-170: This information is confidential, which means that it's not in my database. The synthesis machine simply complies with my requests, beep-boop.  
+Solstice: Whatever that means. We still need a place to stay, though, even if there's nothing that can kill me.  
+SH-170: I can offer a tent, beep-boop.  
+Solstice: It'll work, as long as it's large enough.  
+SH-170: I can make a large tent with 12 quartz crystal units and 1 ilmenite unit as a titanium source; however, the latter is gonna be harder to find, beep-boop.  
+Solstice: At least I have something to do. Hey, you charged up quite quickly.  
+SH-170: The Moon is abundant with helium-3, it takes less than a minute to completely refuel my internal reactor, beep-boop.  
+Solstice: You made it sound like such a big deal. Anyway, how did you gather the silica in the first place?  
+SH-170: I was fitted with vacuum cleaners inside my feet, that's why I don't have propellers there, beep-boop.  
+
+# The player will then proceed to gather the necessary materials by mining moon rocks, and this time Shito follows them to repair the hammer as necessary.  
+# The player brings the materials to Shito, and the screen fades with some construction sounds, before reappearing with a tent on the ground.  
+
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://cuje73oplrwyo").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+SH-170: Tent: synthesis complete, beep-boop.  
+Solstice: Please don't be bare inside.  
+
+# The player moves inside the tent.  
+do GlobalVar.player.set_sprite("idle_up")
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+
+=> END

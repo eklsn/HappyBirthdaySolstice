@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bmpn8eoohc1t5"]
+[gd_scene load_steps=12 format=4 uid="uid://bmpn8eoohc1t5"]
 
 [ext_resource type="Script" uid="uid://brt4tlgyq3bqe" path="res://entities/rooms/mutual_assured_destruction/mutual_assured_destruction.gd" id="1_pip27"]
 [ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_d3fev"]
@@ -15,6 +15,43 @@ texture = ExtResource("2_oq5u3")
 
 [sub_resource type="TileSet" id="TileSet_6frt0"]
 sources/0 = SubResource("TileSetAtlasSource_vpqdv")
+
+[sub_resource type="GDScript" id="GDScript_e4dc0"]
+script/source = "extends ColorRect
+
+var enabled : bool = false
+
+@export var min_alpha : float = 0.5
+@export var max_alpha : float = 1.0
+@export var min_wait : float = 0.0
+@export var max_wait : float = 0.55
+@export var flash_duration : float = 0.05
+@export var flashes : int = 10
+
+var cur_alpha : float = 0.5
+
+func start() -> void:
+	enabled  = true
+	color = Color(1.0,1.0,1.0,0.0)
+	position = get_node(\"../Player\").position - Vector2(320,320) # i get the terminal vibes from node management bruh
+	size = Vector2(640,480)
+	visible = true
+	var i : int
+	while i < flashes:
+		cur_alpha = max_alpha
+		await get_tree().create_timer(flash_duration).timeout
+		cur_alpha = min_alpha
+		await get_tree().create_timer(randf_range(min_wait,max_wait)).timeout
+		i+=1
+	enabled = false
+
+func _process(delta: float) -> void:
+	if !enabled:
+		color.a = lerp(color.a,0.0,0.01)
+	else:
+		color.a = lerp(color.a,cur_alpha,0.1)
+		
+"
 
 [node name="MutualAssuredDestruction" type="Node2D"]
 y_sort_enabled = true
@@ -65,5 +102,11 @@ position = Vector2(335, 204)
 [node name="DialogueTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="new3_flash" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = 100
+color = Color(1, 1, 1, 0)
+script = SubResource("GDScript_e4dc0")
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

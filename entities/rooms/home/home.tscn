@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuje73oplrwyo"]
+
+[ext_resource type="Script" uid="uid://dd4livqhlwyeg" path="res://entities/rooms/home/home.gd" id="1_iir7s"]
+[ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="5_mv7da"]
+[ext_resource type="PackedScene" uid="uid://bmmob71yacfgg" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance.tscn" id="6_gdout"]
+[ext_resource type="PackedScene" uid="uid://c3cmx7rohus72" path="res://entities/player/npc/npc.tscn" id="7_6sq84"]
+[ext_resource type="SpriteFrames" uid="uid://crvpo7m5p01fv" path="res://entities/player/assets/sh/overworld/shito_sprite_frames.tres" id="8_5lngx"]
+
+[sub_resource type="GDScript" id="GDScript_e4dc0"]
+script/source = "extends ColorRect
+
+var enabled : bool = false
+
+@export var min_alpha : float = 0.5
+@export var max_alpha : float = 1.0
+@export var min_wait : float = 0.0
+@export var max_wait : float = 0.55
+@export var flash_duration : float = 0.05
+@export var flashes : int = 10
+
+var cur_alpha : float = 0.5
+
+func start() -> void:
+	enabled  = true
+	color = Color(1.0,1.0,1.0,0.0)
+	position = get_node(\"../Player\").position - Vector2(320,320) # i get the terminal vibes from node management bruh
+	size = Vector2(640,480)
+	visible = true
+	var i : int
+	while i < flashes:
+		cur_alpha = max_alpha
+		await get_tree().create_timer(flash_duration).timeout
+		cur_alpha = min_alpha
+		await get_tree().create_timer(randf_range(min_wait,max_wait)).timeout
+		i+=1
+	enabled = false
+
+func _process(delta: float) -> void:
+	if !enabled:
+		color.a = lerp(color.a,0.0,0.01)
+	else:
+		color.a = lerp(color.a,cur_alpha,0.1)
+		
+"
+
+[node name="MutualAssuredDestruction" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_iir7s")
+
+[node name="RoomEntranceLocations" parent="." instance=ExtResource("5_mv7da")]
+
+[node name="RoomEntrance2" parent="RoomEntranceLocations" instance=ExtResource("6_gdout")]
+position = Vector2(278, 204)
+room_entrance_loc = 2
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 233.0
+offset_top = 30.0
+offset_right = 330.0
+offset_bottom = 53.0
+text = "Earth on fire"
+
+[node name="Shito" parent="." instance=ExtResource("7_6sq84")]
+unique_name_in_owner = true
+position = Vector2(305, 285)
+sprite_frames = ExtResource("8_5lngx")
+current_animation = &"idle_up"
+
+[node name="ShitoSitPosition" type="Marker2D" parent="."]
+position = Vector2(335, 204)
+
+[node name="DialogueTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="new3_flash" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = 100
+color = Color(1, 1, 1, 0)
+script = SubResource("GDScript_e4dc0")
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

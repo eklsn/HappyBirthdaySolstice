@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bel5yo6m2nn2p"
+path="res://.godot/imported/still_hope_2.dialogue-bee5bf04c8c6f1e000a4ccdd7d8e1b01.tres"
+
+[deps]
+
+source_file="res://dialogues/still_hope_2.dialogue"
+dest_files=["res://.godot/imported/still_hope_2.dialogue-bee5bf04c8c6f1e000a4ccdd7d8e1b01.tres"]
+
+[params]
+
+defaults=true

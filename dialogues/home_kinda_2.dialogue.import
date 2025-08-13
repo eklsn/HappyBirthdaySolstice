@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bjjtp5rbo3nwk"
+path="res://.godot/imported/home_kinda_2.dialogue-88a52c03956ff850e3a06cc177e63b7b.tres"
+
+[deps]
+
+source_file="res://dialogues/home_kinda_2.dialogue"
+dest_files=["res://.godot/imported/home_kinda_2.dialogue-88a52c03956ff850e3a06cc177e63b7b.tres"]
+
+[params]
+
+defaults=true

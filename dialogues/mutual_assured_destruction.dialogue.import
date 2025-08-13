@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://xsjcuqwqpafb"
+path="res://.godot/imported/mutual_assured_destruction.dialogue-56b85dfb9f0dd32aef4ff54bbb3899ee.tres"
+
+[deps]
+
+source_file="res://dialogues/mutual_assured_destruction.dialogue"
+dest_files=["res://.godot/imported/mutual_assured_destruction.dialogue-56b85dfb9f0dd32aef4ff54bbb3899ee.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,21 @@
+~ start
+SH-170: To build a house, we need: 500 grams of asteroid rocks, 25 quartz crystal units, 10 titanium units from ilmenite, 5 osmium units, 5 ruthenium units, 3 rhodium units, 3 platinum units. Beep-boop.  
+Solstice: Give me something to writ-  
+SH-170: Printing a receipt, beep-boop.  
+Solstice: I guess giving you a printer was easier than actual hands.  
+
+# Sol and Shito will wander around the map to look for the necessary materials, and may occasionally find easter eggs like a sun-bleached american flag that, if interacted with, get snark comments by Sol: "Still in better conditions here than on Earth."  
+
+# When all the materials are collected, Shito will say it's time to go back to Shito, and they walk back to the tent automatically.  
+
+SH-170: Good job, nothing is missing. You must be tired, beep-boop.  
+Solstice: Indeed, I really want to take some rest.  
+SH-170: You can sleep while I go build the house, beep-boop.  
+Solstice: Alright, see you.  
+SH-170: Good rest, Sol. Beep-boop.  
+
+# The screen fades to black, then back in.  
+
+# [[Home, actually 1]]  
+
+=> END

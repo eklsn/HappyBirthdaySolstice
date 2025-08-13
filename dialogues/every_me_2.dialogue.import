@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://mxwgqrtred5l"
+path="res://.godot/imported/every_me_2.dialogue-212cd53dd65cd20ed88ae756fdb65103.tres"
+
+[deps]
+
+source_file="res://dialogues/every_me_2.dialogue"
+dest_files=["res://.godot/imported/every_me_2.dialogue-212cd53dd65cd20ed88ae756fdb65103.tres"]
+
+[params]
+
+defaults=true
