@@ -1,6 +1,6 @@
 extends Control
 
-const INTRO = preload("uid://bgy1iwkrr681h")
+const INTRO = preload("uid://8bljbfosdksn")
 
 const NO_TEXTBOX_BALLOON = preload("uid://de3j0chg2tig1")
 @onready var intro_image: TextureRect = $IntroImage

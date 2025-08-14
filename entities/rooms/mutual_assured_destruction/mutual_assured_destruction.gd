@@ -1,6 +1,6 @@
 extends Room
 
-const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xbbs7euvm7rw")
+const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 
 @onready var shito: CharacterBody2D = %Shito
@@ -10,18 +10,17 @@ const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 
 const DIALOGUE_FILLER_WAIT_TIME : float = 4.0
 
-var plot : int = 0
-var dialogue_counter : int = 6
+var dialogue_counter : int = 0
 
 const PLAYER_FOLLOWING :PackedScene = preload("uid://cjbftteb7m838")
 
-const NEW_BEGGINING_FILLER_1 :Resource = preload("uid://bcd76lon0v2sj")
-const NEW_BEGGINING_FILLER_2 :Resource = preload("uid://da1es03l8ci2m")
-const NEW_BEGGINING_FILLER_3 :Resource = preload("uid://bx8eb557e4lt5")
-const NEW_BEGGINING_FILLER_4 :Resource = preload("uid://qug2udfkfle4")
-const NEW_BEGGINING_FILLER_5 :Resource = preload("uid://1mbai0567w21")
-const NEW_BEGGINING_FILLER_6 :Resource = preload("uid://b20xxnelyyff4")
-const NEW_BEGGINING_FILLER_7 :Resource = preload("uid://cgld5fhhu1dcq")
+const NEW_BEGGINING_FILLER_1 :Resource = preload("uid://brej2kkku1c5b")
+const NEW_BEGGINING_FILLER_2 :Resource = preload("uid://blrnlm5yo38gu")
+const NEW_BEGGINING_FILLER_3 :Resource = preload("uid://defqt88yfk5fo")
+const NEW_BEGGINING_FILLER_4 :Resource = preload("uid://duhdxlq1te1h5")
+const NEW_BEGGINING_FILLER_5 :Resource = preload("uid://b1bgarxct3m5x")
+const NEW_BEGGINING_FILLER_6 :Resource = preload("uid://bbuu0gklcg842")
+const NEW_BEGGINING_FILLER_7 :Resource = preload("uid://dh7tio75ofw6r")
 
 
 var fillers : Array[Resource] = [
@@ -37,8 +36,8 @@ NEW_BEGGINING_FILLER_7,
 	
 ]
 
-const NEW_BEGGINING_2 :Resource = preload("uid://cbwienwo3lkln")
-const NEW_BEGGINING_3 :Resource = preload("uid://b22wylte268oi")
+const NEW_BEGGINING_2 :Resource = preload("uid://p2qpm517xoom")
+const NEW_BEGGINING_3 :Resource = preload("uid://cgvemca2np160")
 
 func on_enter_room()->void:
 	if DialogueManager.dialogue_playing:
@@ -61,11 +60,11 @@ func on_enter_room()->void:
 
 func _on_dialogue_timer_timeout() -> void:
 	var wait_time : float
-	if plot < 1:
+	if GlobalVar.plot < 1:
 		var current_filler : Resource = fillers[dialogue_counter]
 		wait_time = DIALOGUE_FILLER_WAIT_TIME
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_filler)
-	if plot == 1:
+	if GlobalVar.plot == 1:
 		match dialogue_counter:
 			0:
 				wait_time = 0.0
@@ -78,7 +77,7 @@ func _on_dialogue_timer_timeout() -> void:
 	dialogue_counter+=1
 	if fillers.size() == dialogue_counter:
 		dialogue_counter = 0
-		plot = 1
+		GlobalVar.plot = 1
 		_on_dialogue_timer_timeout()
 		return
 	dialogue_timer.start(wait_time)

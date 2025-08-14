@@ -1,11 +1,9 @@
 extends Room
 
-const HOME_KINDA_1 :Resource = preload("uid://cs2fogu8yulkn")
+const HOME_KINDA_1 :Resource = preload("uid://bfo1lg4o68pfv")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 
 @onready var shito: CharacterBody2D = %Shito
-@onready var flash : ColorRect = %new3_flash
-@onready var shito_sit_position: Marker2D = $ShitoSitPosition
 @onready var dialogue_timer: Timer = $DialogueTimer
 
 const DIALOGUE_FILLER_WAIT_TIME : float = 4.0
