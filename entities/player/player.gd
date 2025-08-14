@@ -23,7 +23,6 @@ var is_running := false
 
 func _ready() -> void:
 	GlobalVar.player = self
-	
 	DialogueManager.dialogue_started.connect(func(_resource: DialogueResource): set_idle(true))
 	DialogueManager.dialogue_ended.connect(func(_resource: DialogueResource): set_idle(false))
 
@@ -140,14 +139,15 @@ func walk_to(new_position: Vector2) -> void:
 	var duration = distance / SPEED
 	
 	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_trans(Tween.TRANS_LINEAR)
 	
 	tween.tween_method(_walk_to_update, start_pos, new_position, duration)
 	
 	await tween.finished
-	
-	set_idle(false)
+	if anim.animation.begins_with("walk_"):
+		var anim_dir : StringName = anim.animation.trim_prefix("walk_")
+		
+		anim.play("idle_" + anim_dir)
 
 
 func _walk_to_update(pos: Vector2) -> void:
@@ -163,12 +163,6 @@ func _walk_to_update(pos: Vector2) -> void:
 			anim_dir = "right" if direction.x > 0 else "left"
 		last_dir = anim_dir
 	
-	
-	match anim_dir:
-		"down": interaction_area.rotation_degrees = 0
-		"right": interaction_area.rotation_degrees = -90
-		"up": interaction_area.rotation_degrees = 180
-		"left": interaction_area.rotation_degrees = 90
 	
 	
 	anim.play("walk_" + anim_dir)

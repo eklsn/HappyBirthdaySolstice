@@ -10,7 +10,7 @@ extends CharacterBody2D
 var last_dir : String = "down"
 
 
-const SPEED : float = 100.0
+const SPEED : float = 130.0
 
 func _ready() -> void:
 	if sprite_frames:

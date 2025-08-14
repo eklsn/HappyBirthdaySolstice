@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmpn8eoohc1t5"]
+[gd_scene load_steps=18 format=3 uid="uid://bmpn8eoohc1t5"]
 
 [ext_resource type="Script" uid="uid://brt4tlgyq3bqe" path="res://entities/rooms/mutual_assured_destruction/mutual_assured_destruction.gd" id="1_pip27"]
 [ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_d3fev"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bcpse7muhb8hr" path="res://entities/rooms/assets/Earth.png" id="6_0nscy"]
 [ext_resource type="SpriteFrames" uid="uid://crvpo7m5p01fv" path="res://entities/player/assets/sh/overworld/shito_sprite_frames.tres" id="6_sgfx0"]
 [ext_resource type="Texture2D" uid="uid://cq2qj3fdlki8r" path="res://entities/rooms/assets/MoonGround.png" id="7_e4dc0"]
+[ext_resource type="Texture2D" uid="uid://ddb2mm6ng553m" path="res://entities/rooms/assets/tent/2d_lights_and_shadows_neutral_point_light.webp" id="10_6frt0"]
+[ext_resource type="Texture2D" uid="uid://ba3pif3cs4uqy" path="res://entities/rooms/assets/tent.png" id="10_vpqdv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpqdv"]
 texture = ExtResource("2_oq5u3")
@@ -74,6 +76,36 @@ func _process(delta: float) -> void:
 	else:
 		color.a = lerp(color.a,cur_alpha,0.1)
 		
+"
+
+[sub_resource type="GDScript" id="GDScript_dwv84"]
+script/source = "extends PointLight2D
+
+@export var min_energy : float = 0.75
+@export var max_energy : float = 3.25
+@export var min_scale : Vector2 = Vector2(1,1)
+@export var max_scale : Vector2 = Vector2(3,3)
+@export var scale_speed : float = 0.05
+@export var energy_speed : float = 0.05
+@export var script_enabled : bool = true
+
+var target_scale : Vector2 = max_scale
+var target_energy : float
+
+
+func _process(delta: float) -> void:
+	if script_enabled:
+		scale = lerp(scale, target_scale, scale_speed)
+		energy = lerp(energy, target_energy, energy_speed)
+	if scale >= max_scale-Vector2(0.01,0.01):
+		target_scale = min_scale
+	if scale <= min_scale+Vector2(0.01,0.01):
+		target_scale = max_scale
+	if energy >= max_energy-0.01:
+		target_energy = min_energy
+	if energy <= min_energy+0.01:
+		target_energy = max_energy
+	
 "
 
 [node name="MutualAssuredDestruction" type="Node2D"]
@@ -265,6 +297,198 @@ offset_right = 1013.0
 offset_bottom = 83.0
 color = Color(0, 0, 0.160784, 1)
 
+[node name="PointLight2D" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(37.5, -19)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D7" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(44.5, -19.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D8" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(44.5, -19.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D9" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(67.5, -16.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D10" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(28, -32.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D11" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(256, -24.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D12" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(256, -24.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D13" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(256, -24.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D14" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(308, -11)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D15" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(254.5, -7)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D16" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(254.5, -7)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D2" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(106, -17.5)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D3" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(141.5, -34)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D4" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(208, -33)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D5" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(225, -4)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
+[node name="PointLight2D6" type="PointLight2D" parent="Parallax2D"]
+z_index = 14
+position = Vector2(264.5, -24)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("10_6frt0")
+script = SubResource("GDScript_dwv84")
+max_energy = 2.0
+max_scale = Vector2(1.2, 1.2)
+
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 z_index = -100
 scale = Vector2(2, 2)
@@ -277,5 +501,16 @@ offset_top = -53.0
 offset_right = 320.0
 offset_bottom = 186.0
 color = Color(0.564706, 0.564706, 0.690196, 1)
+
+[node name="Tent" type="Sprite2D" parent="."]
+position = Vector2(-386, 193)
+scale = Vector2(2, 2)
+texture = ExtResource("10_vpqdv")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(278, 312)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(363, 312)
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

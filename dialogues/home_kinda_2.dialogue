@@ -1,42 +1,73 @@
 ~ start
-# The tent fades back in, but Shito is missing.  
-
+# The tent fades back in, but Shito is missing. 
+do GlobalVar.player.set_sprite("idle_down")
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
 Solstice: Great, where is that thing now?  
-
+do GlobalVar.player.walk_to(Vector2(320,272))
+do GlobalVar.player.walk_to(Vector2(320,560))
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do GlobalVar.current_room.shito.teleport(Vector2(-875,293))
+do GlobalVar.current_room.shito.set_sprite("idle_up")
+do GlobalVar.player.walk_to(Vector2(-386,293))
+do GlobalVar.player.walk_to(Vector2(-706,293))
 # Sol walks out of the tent, and she sees Shito looking at the sky.  
 
-Solstice: There you are. What are you doing?  
+Solstice: There you are. What are you doing?
+do GlobalVar.current_room.shito.set_sprite("idle_right")
 SH-170: I found a way to get the missing materials, beep-boop.  
 Solstice: So you can build a house, right? What is it?  
-SH-170: Please follow me, beep-boop.  
-
+SH-170: Please follow me, beep-boop.
+do GlobalVar.current_room.shito.walk_to(Vector2(-650,293))
+do! GlobalVar.player.walk_to(Vector2(333,293))
+do GlobalVar.current_room.shito.walk_to(Vector2(502,293))
 # Sol and Shito walk for a while to the right, getting some distance from the tent.  
-
-SH-170: I suggest you stay close to me to avoid getting hit, beep-boop.  
+do GlobalVar.current_room.shito.set_sprite("idle_left")
+SH-170: I suggest you stay close to me to avoid getting hit, beep-boop.
+do! GlobalVar.current_room.shito.walk_to(Vector2(502,204))
+do GlobalVar.player.set_sprite("idle_up")
 Solstice: I could survive sitting on that nuke on Earth, actually, but sure.  
-
+do GlobalVar.player.walk_to(Vector2(466,229))
+do GlobalVar.player.set_sprite("idle_up")
+k  a  b  o  o  m
+do GlobalVar.current_room.flash.start()
 # Shito buzzes and charges a laser from its eyes, before shooting a big, powerful ray towards space.  
-
+do GlobalVar.player.walk_to(Vector2(466,259))
+do GlobalVar.player.set_sprite("idle_up")
+do GlobalVar.current_room.shito.set_sprite("idle_down")
 SH-170: We'll soon be hit by asteroid pieces, beep-boop.  
 Solstice: Uhh, congrats?  
 SH-170: We'll be able to harvest harder rocks from them and use them to make bricks, other than some more elements like indium, platinum, osmium, ruthenium, and rhodium. Beep-boop.  
 Solstice: Ohh, that's good then!  
-
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
 # The screen fades out, then in as some pieces of asteroid fall like shooting stars in the background with appropriate sounds, and some pieces start appearing on the ground.  
-
+do GlobalVar.current_room.shito.teleport(Vector2(363,312))
+do GlobalVar.player.teleport(Vector2(279,312))
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do GlobalVar.player.set_sprite("idle_right")
 Solstice: Let's crack one open.  
 
 # The minigame starts, and the player gets one of each of the aforementioned elements.  
-
+do! GlobalVar.current_room.shito.walk_to(Vector2(363,262))
+do GlobalVar.player.walk_to(Vector2(279,262))
+do GlobalVar.player.set_sprite("idle_right")
+do GlobalVar.current_room.shito.set_sprite("idle_left")
 Solstice: Is this good?  
 SH-170: Yes, beep-boop. I shall synthesize you a pouch to keep the mined materials, beep-boop.  
-
+do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(120.0,0.0))
+do GlobalVar.current_room.shito.set_sprite("idle_right")
+do GlobalVar.current_room.flash.start()
+# Shito buzzes and its eyes and screen flash for some time, before giving the hammer to Sol.  
+do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(60.0,0.0))
+do GlobalVar.current_room.shito.set_sprite("idle_left")
 # Shito buzzes and its eyes and screen flash for some time, before giving a pouch to Sol.  
 
 Solstice: Isn't this thing small?  
 SH-170: The fabric lining on the inside allows the bag to manipulate and stretch space, so it can fit more items than it appears, beep-boop.  
 Solstice: So basically, you're Doraemon and this is his pocket, gotcha.  
-
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+set GlobalVar.plot = 2.3
 # [[Home, kinda 3]]  
 
 => END

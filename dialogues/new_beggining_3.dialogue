@@ -3,7 +3,7 @@ do GlobalVar.player.set_sprite("idle_right")
 do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(60.0,0.0))
 do GlobalVar.current_room.shito.set_sprite("idle_left")
 Solstice: Is this enough?  
-SH-170: It is, beep-boop. Do you confirm "kendama" as your choice, beep-boop?  
+SH-170: It is, beep-boop. Do you confirm "Yo-yo" as your choice, beep-boop?  
 Solstice: Yes, whatever, just give me something to play with.  
 
 do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vector2(120.0,0.0))
@@ -28,6 +28,7 @@ SH-170: I was fitted with vacuum cleaners inside my feet, that's why I don't hav
 # The player brings the materials to Shito, and the screen fades with some construction sounds, before reappearing with a tent on the ground.  
 
 do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+set GlobalVar.plot = 2
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://cuje73oplrwyo").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 SH-170: Tent: synthesis complete, beep-boop.  
 Solstice: Please don't be bare inside.  

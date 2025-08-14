@@ -4,7 +4,10 @@ Solstice: And bare it is. At least you put a tarp on the ground.
 SH-170: I can offer LED lighting and bedding, beep-boop.  
 Solstice: And you'll need...?  
 SH-170: 4 quartz crystal units, and very small amounts of yttrium; however, the latter will be hard for you to separate from the rest, so you can bring to me any rocks with a gray metallic streak, if you find any. Beep-boop.  
-
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+set GlobalVar.plot = 2.1
+do GlobalVar.current_room.plotcheck()
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
 # The two go outside to gather the necessary materials, and eventually one of the rocks will show a message about the yttrium: "A chunk came off with some metal streaks in it, maybe it's the yttrium we need."  
 # This can also happen when the last material is obtained.  
 
@@ -16,7 +19,8 @@ Solstice: Oh, right, that works too. I hate the idea of having to sleep in these
 do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
 SH-170: Have a good rest, beep-boop.  
 Solstice: Yeah.  
-do GlobalVar.plot = 2.2
+set GlobalVar.plot = 2.2
+do GlobalVar.current_room.plotcheck()
 # The light turns off and the screen fades to black to bring a new day.  
 # [[Home, kinda 2]]  
 
