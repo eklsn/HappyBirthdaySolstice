@@ -508,9 +508,9 @@ scale = Vector2(2, 2)
 texture = ExtResource("10_vpqdv")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(278, 312)
+position = Vector2(276, 290)
 
 [node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(363, 312)
+position = Vector2(361, 290)
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

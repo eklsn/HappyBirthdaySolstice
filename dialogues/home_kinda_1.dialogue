@@ -21,6 +21,7 @@ SH-170: Have a good rest, beep-boop.
 Solstice: Yeah.  
 set GlobalVar.plot = 2.2
 do GlobalVar.current_room.plotcheck()
+do wait(2.0)
 # The light turns off and the screen fades to black to bring a new day.  
 # [[Home, kinda 2]]  
 

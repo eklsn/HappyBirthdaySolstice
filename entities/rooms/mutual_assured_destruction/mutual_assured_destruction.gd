@@ -1,6 +1,7 @@
 extends Room
 
-const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
+#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
+const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://blrsffblcjybk")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 var current_dialogue : Resource
 
@@ -23,6 +24,7 @@ const NEW_BEGGINING_FILLER_5 :Resource = preload("uid://b1bgarxct3m5x")
 const NEW_BEGGINING_FILLER_6 :Resource = preload("uid://bbuu0gklcg842")
 const NEW_BEGGINING_FILLER_7 :Resource = preload("uid://dh7tio75ofw6r")
 
+const HOME_KINDA_3 : Resource = preload("uid://blrsffblcjybk")
 
 var fillers : Array[Resource] = [
 	
@@ -50,6 +52,11 @@ func plotcheck() -> void:
 			get_node("RoomEntranceLocations").enabled = false
 			get_node("RoomEntranceLocations/RoomEntrance2").position = Vector2(-386,203)
 			GlobalVar.player.position = Vector2(-386,203)
+		3.0:
+			get_node("Tent").visible = true
+			get_node("RoomEntranceLocations").enabled = false
+			get_node("RoomEntranceLocations/RoomEntrance2").position = Vector2(-386,203)
+			GlobalVar.player.position = Vector2(-386,203)
 func on_enter_room()->void:
 	plotcheck()
 	if DialogueManager.dialogue_playing:
@@ -57,17 +64,17 @@ func on_enter_room()->void:
 	if GlobalVar.plot == 0:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_dialogue)
 		await DialogueManager.dialogue_ended
-	var prev_pos : Vector2 = shito.global_position
-	shito.queue_free()
-	shito = PLAYER_FOLLOWING.instantiate()
-	add_child(shito)
-	shito.global_position = prev_pos
-	if GlobalVar.plot == 0:
+		var prev_pos : Vector2 = shito.global_position
+		shito.queue_free()
+		shito = PLAYER_FOLLOWING.instantiate()
+		add_child(shito)
+		shito.global_position = prev_pos
 		#dialogue_counter=5
 		dialogue_timer.start(DIALOGUE_FILLER_WAIT_TIME)
-	if GlobalVar.plot == 2.2:
-		GlobalVar.player.position = Vector2(-386,203)
-		
+	if GlobalVar.plot == 2.3:
+		current_dialogue = HOME_KINDA_3
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_dialogue)
+		await DialogueManager.dialogue_ended
 	
 	
 

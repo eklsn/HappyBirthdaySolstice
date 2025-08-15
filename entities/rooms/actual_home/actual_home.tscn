@@ -1,0 +1,177 @@
+[gd_scene load_steps=14 format=3 uid="uid://bokfkigaovrmp"]
+
+[ext_resource type="Script" uid="uid://dd4livqhlwyeg" path="res://entities/rooms/home/home.gd" id="1_rd01v"]
+[ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_yk0ww"]
+[ext_resource type="PackedScene" uid="uid://bmmob71yacfgg" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance.tscn" id="3_fpkie"]
+[ext_resource type="PackedScene" uid="uid://c3cmx7rohus72" path="res://entities/player/npc/npc.tscn" id="4_upe81"]
+[ext_resource type="SpriteFrames" uid="uid://crvpo7m5p01fv" path="res://entities/player/assets/sh/overworld/shito_sprite_frames.tres" id="5_vmsgm"]
+[ext_resource type="Texture2D" uid="uid://blblefayo2p6y" path="res://entities/rooms/assets/tent/TentDark.png" id="6_n5yms"]
+[ext_resource type="Texture2D" uid="uid://ckrs0008bjfcf" path="res://entities/rooms/assets/tent/BedDark.png" id="7_box52"]
+[ext_resource type="Texture2D" uid="uid://ddb2mm6ng553m" path="res://entities/rooms/assets/tent/2d_lights_and_shadows_neutral_point_light.webp" id="8_n2p1l"]
+[ext_resource type="Texture2D" uid="uid://dqpnhtwl3veh2" path="res://entities/rooms/assets/tent/led.png" id="9_w3kt7"]
+[ext_resource type="Texture2D" uid="uid://tdg7c01iamxu" path="res://entities/rooms/assets/tent/Tentlight.png" id="10_7ptph"]
+[ext_resource type="Texture2D" uid="uid://2fwor2j3064l" path="res://entities/rooms/assets/tent/Bedlight.png" id="11_5b2h8"]
+
+[sub_resource type="GDScript" id="GDScript_e4dc0"]
+script/source = "extends ColorRect
+
+var enabled : bool = false
+
+@export var min_alpha : float = 0.5
+@export var max_alpha : float = 1.0
+@export var min_wait : float = 0.0
+@export var max_wait : float = 0.55
+@export var flash_duration : float = 0.05
+@export var flashes : int = 10
+
+var cur_alpha : float = 0.5
+
+func start() -> void:
+	enabled  = true
+	color = Color(1.0,1.0,1.0,0.0)
+	position = get_node(\"../Player\").position - Vector2(320,320) # i get the terminal vibes from node management bruh
+	size = Vector2(640,480)
+	visible = true
+	var i : int
+	while i < flashes:
+		cur_alpha = max_alpha
+		await get_tree().create_timer(flash_duration).timeout
+		cur_alpha = min_alpha
+		await get_tree().create_timer(randf_range(min_wait,max_wait)).timeout
+		i+=1
+	enabled = false
+
+func _process(delta: float) -> void:
+	if !enabled:
+		color.a = lerp(color.a,0.0,0.01)
+	else:
+		color.a = lerp(color.a,cur_alpha,0.1)
+		
+"
+
+[sub_resource type="GDScript" id="GDScript_bh2li"]
+script/source = "extends PointLight2D
+
+@export var min_energy : float = 0.75
+@export var max_energy : float = 3.25
+@export var min_scale : Vector2 = Vector2(1,1)
+@export var max_scale : Vector2 = Vector2(3,3)
+@export var scale_speed : float = 0.05
+@export var energy_speed : float = 0.05
+@export var script_enabled : bool = true
+
+var target_scale : Vector2 = max_scale
+var target_energy : float
+
+
+func _process(delta: float) -> void:
+	if script_enabled:
+		scale = lerp(scale, target_scale, scale_speed)
+		energy = lerp(energy, target_energy, energy_speed)
+	if scale >= max_scale-Vector2(0.01,0.01):
+		target_scale = min_scale
+	if scale <= min_scale+Vector2(0.01,0.01):
+		target_scale = max_scale
+	if energy >= max_energy-0.01:
+		target_energy = min_energy
+	if energy <= min_energy+0.01:
+		target_energy = max_energy
+	
+"
+
+[node name="Home" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rd01v")
+camera_limit_left = 0
+camera_limit_top = 0
+camera_limit_right = 640
+camera_limit_bottom = 480
+
+[node name="RoomEntranceLocations" parent="." instance=ExtResource("2_yk0ww")]
+
+[node name="RoomEntrance2" parent="RoomEntranceLocations" instance=ExtResource("3_fpkie")]
+position = Vector2(366, 456)
+room_entrance_loc = 2
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 233.0
+offset_top = 30.0
+offset_right = 330.0
+offset_bottom = 53.0
+text = "Earth on fire"
+
+[node name="Shito" parent="." instance=ExtResource("4_upe81")]
+unique_name_in_owner = true
+position = Vector2(251, 464)
+sprite_frames = ExtResource("5_vmsgm")
+current_animation = &"idle_up"
+
+[node name="DialogueTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="new3_flash" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = 100
+color = Color(1, 1, 1, 0)
+script = SubResource("GDScript_e4dc0")
+
+[node name="TentDark" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("6_n5yms")
+
+[node name="BedDark" type="Sprite2D" parent="TentDark"]
+position = Vector2(-97, -21)
+texture = ExtResource("7_box52")
+
+[node name="lantern" type="Node2D" parent="TentDark"]
+
+[node name="PointLight2D" type="PointLight2D" parent="TentDark/lantern"]
+z_index = 21
+position = Vector2(0, 2)
+scale = Vector2(0.24, 0.24)
+color = Color(0.35881, 0.294533, 0.0154643, 1)
+energy = 3.25
+shadow_enabled = true
+texture = ExtResource("8_n2p1l")
+script = SubResource("GDScript_bh2li")
+min_scale = Vector2(0.75, 0.75)
+max_scale = Vector2(1.3, 1.3)
+scale_speed = 0.005
+energy_speed = 0.005
+
+[node name="Led" type="Sprite2D" parent="TentDark/lantern"]
+position = Vector2(0, 2)
+texture = ExtResource("9_w3kt7")
+
+[node name="darktint" type="ColorRect" parent="TentDark"]
+z_index = 20
+offset_left = -162.0
+offset_top = -126.0
+offset_right = 165.0
+offset_bottom = 126.0
+color = Color(0, 0, 0, 0.596078)
+
+[node name="coll" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="coll"]
+polygon = PackedVector2Array(79, 159, 561, 159, 561, 441, 443, 442, 442, 479, 641, 479, 638, -1, 2, 0, 1, 482, 199, 481, 198, 442, 80, 443)
+
+[node name="Tentlight" type="Sprite2D" parent="."]
+z_index = -6
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("10_7ptph")
+
+[node name="Bedlight" type="Sprite2D" parent="Tentlight"]
+position = Vector2(-97, -21)
+texture = ExtResource("11_5b2h8")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(320, 244)
+scale = Vector2(0.48, 0.48)
+
+[connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
