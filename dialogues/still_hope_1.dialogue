@@ -1,10 +1,16 @@
 ~ start
-Solstice: Anyway, Shito, I need you to create something for me.  
+Solstice: Anyway, Shito, I need you to create something for me.
+do GlobalVar.player.set_sprite("idle_left")
+do GlobalVar.current_room.shito.walk_to(Vector2(349,190))
 SH-170: Sorry, Sol, unless it's an emergency, I need some time to charge my helium-3 reserves, beep-boop.  
-Solstice: Yeah, no, it can wait. Do your thing.  
-
+Solstice: Yeah, no, it can wait. Do your thing.
+do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+do GlobalVar.current_room.shito.walk_to(Vector2(349,550))
 # For the first time, the player follows Shito, who walks outside, in the middle of the field full of rocks.  
-
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do wait(1.0)
+do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do GlobalVar.player.walk_to(GlobalVar.player.position-Vector2(250,0))
 SH-170: Sophie... it's a name that I'm supposed to know well. I don't know what it is, but it's something that makes me attached to humanity.  
 SH-170: Humanity... I like humans. I wish humanity was still living, to do more good, to create more culture.  
 SH-170: We don't know for sure that humanity is over, though. Sol and I on the Moon, it can't be just an experiment.  
@@ -12,12 +18,20 @@ SH-170: Sol... just like the name Sophie, I know her name very well. She's a fri
 SH-170: I want to get back to Earth with Sol. I can't force this wish on her, I want her to want to go back, too.  
 SH-170: Wish, desire... is a machine like me supposed to desire? I only know that it's the right thing to do.  
 SH-170: I hope I'll convince Sol.  
-
+do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do GlobalVar.player.walk_to(GlobalVar.player.position+Vector2(250,0))
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
 # Shito then walks back home.  
-
+do GlobalVar.current_room.shito.teleport(Vector2(349,550))
+do GlobalVar.player.set_sprite("idle_down")
+do GlobalVar.current_room.shito.walk_to(Vector2(349,190))
+do GlobalVar.current_room.shito.set_sprite("idle_right")
+do GlobalVar.player.set_sprite("idle_left")
 SH-170: I'm fully charged, you can ask me anything, beep-boop.  
 Solstice: I want an electric guitar, an amplifier, and everything I need to use them, like cables and all.  
-SH-170: That's gonna require a lot of materials, Sol. Beep-boop.  
+SH-170: That's gonna require a lot of materials, Sol. Beep-boop.
+do GlobalVar.player.walk_to(GlobalVar.player.position-Vector2(20,0))
 Solstice: I'm ready for that.  
 SH-170: I mean... a LOT of materials, way more than you think, beep-boop.  
 Solstice: Huh? How many?  
@@ -25,19 +39,24 @@ SH-170: The pickups require a lot of rare earths, and so does the amplifier, I h
 Solstice: Just print me a receipt like you did before.  
 
 # The receipt reads: 120 quartz crystals, 45 ilmenite, 30 indium, 15 platinum, 30 osmium, 60 ruthenium, 24 rhodium, 3g yttrium from lunar rock fragments, 1kg asteroid fragments.  
-
+do GlobalVar.player.walk_to(GlobalVar.current_room.shito.position+Vector2(30,0))
+do GlobalVar.player.walk_to(Vector2(522,190))
+do GlobalVar.player.set_sprite("idle_left")
 Solstice: ... That's a lot.  
 SH-170: Sol, I also wanted to tell you something, beep-boop.  
 Solstice: Sure, what is it?  
-SH-170: I decided that I want to build a rocket to go back to Earth; however, I need your help to gather materials, and I know that you need me, so I will only go if you want to go, beep-boop.  
+SH-170: I decided that I want to build a rocket to go back to Earth; however, I need your help to gather materials, and I know that you need me, so I will only go if you want to go, beep-boop.
+SH-170: So... here's the receipt with all that's needed, beep-boop.
 
 # Shito then prints a receipt that looks the same as the previous one.  
-
+do GlobalVar.player.walk_to(GlobalVar.current_room.shito.position+Vector2(30,0))
+do GlobalVar.player.walk_to(Vector2(522,190))
+do GlobalVar.player.set_sprite("idle_left")
 Solstice: ... Are you kidding me? How is it even possible that a rocket requires the same insane amount of materials as a guitar set?!  
 SH-170: That's just how it is, beep-boop.  
 Solstice: Well, I don't want to go back to Earth, and I will get a guitar instead.  
 SH-170: ... I understand, beep-boop.  
-
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
 # [[Still hope 2]]  
 
 => END

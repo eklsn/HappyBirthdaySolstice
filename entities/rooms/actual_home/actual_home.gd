@@ -8,19 +8,31 @@ var current_dialogue : Resource
 const PLAYER_FOLLOWING :PackedScene = preload("uid://cjbftteb7m838")
 
 const HOME_ACTUALLY_2 : Resource = preload("uid://dg5ego65iqh2")
-
+const STILL_HOPE_1 : Resource = preload("res://dialogues/still_hope_1.dialogue")
+const STILL_HOPE_2 : Resource = preload("res://dialogues/still_hope_2.dialogue")
 func plotcheck() -> void:
+	match GlobalVar.plot:
+		5.0:
+			get_node("RoomEntranceLocations/RoomEntrance2").position = Vector2(522,190)
+		5.1:
+			GlobalVar.player.get_node("AnimatedSprite2D").sprite_frames = preload("uid://du46w21f7iwoh")
+			get_node("RoomEntranceLocations/RoomEntrance2").position = Vector2(522,190)
 	pass
 			
 
 func on_enter_room()->void:
+	plotcheck()
 	if DialogueManager.dialogue_playing:
 		await DialogueManager.dialogue_ended
 	if GlobalVar.plot == 3.2:
 		shito.visible = true
 		GlobalVar.player.get_node("AnimatedSprite2D").sprite_frames = preload("uid://du46w21f7iwoh")
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, HOME_ACTUALLY_2)
-	plotcheck()
+	if GlobalVar.plot == 5.0:
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, STILL_HOPE_1)
+	if GlobalVar.plot == 5.1:
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, STILL_HOPE_2)
+	
 	await DialogueManager.dialogue_ended
 	var prev_pos : Vector2 = shito.global_position
 	shito.queue_free()

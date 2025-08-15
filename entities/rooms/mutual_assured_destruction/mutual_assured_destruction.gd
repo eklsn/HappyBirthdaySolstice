@@ -1,7 +1,7 @@
 extends Room
 
-const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
-#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://blrsffblcjybk")
+#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
+const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://cfc5t8u4mpmhq")
 #const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://musihwyk8sj4")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 var current_dialogue : Resource
@@ -62,6 +62,9 @@ func plotcheck() -> void:
 			get_node("RoomEntranceLocations").enabled = false
 			get_node("RoomEntranceLocations/RoomEntrance2").position = Vector2(-386,203)
 			GlobalVar.player.position = Vector2(-386,203)
+		5.0:
+			GlobalVar.player.get_node("AnimatedSprite2D").sprite_frames = preload("uid://crvpo7m5p01fv")
+			GlobalVar.plot = 5.1
 func on_enter_room()->void:
 	plotcheck()
 	if DialogueManager.dialogue_playing:

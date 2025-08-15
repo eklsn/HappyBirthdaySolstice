@@ -9,7 +9,13 @@ SH-170: ... Sophie...?
 Solstice: Anyway, I'll take back what was taken away from me. When I'm ready for it, I'll ask you for a computer and art supplies. I want to try again with art, graphic design, everything I couldn't do before, but I'm starting with music.  
 Solstice: I want to know every me that didn't get the chance to exist.
 do wait(1.0)
+set GlobalVar.plot = 5.0
 do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.5)
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do GlobalVar.current_room.shito.teleport(Vector2(118,190))
+do GlobalVar.current_room.shito.set_sprite("idle_down")
+do GlobalVar.player.set_sprite("idle_right")
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
 # The screen fades to inside the house.  
 
 # [[Still hope 1]]  

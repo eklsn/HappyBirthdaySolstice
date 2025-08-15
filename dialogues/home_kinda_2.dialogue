@@ -31,7 +31,6 @@ do GlobalVar.player.set_sprite("idle_up")
 Solstice: I could survive sitting on that nuke on Earth, actually, but sure.  
 do GlobalVar.player.walk_to(Vector2(466,229))
 do GlobalVar.player.set_sprite("idle_up")
-k  a  b  o  o  m
 do GlobalVar.current_room.flash.start()
 # Shito buzzes and charges a laser from its eyes, before shooting a big, powerful ray towards space.  
 do GlobalVar.player.walk_to(Vector2(466,259))
