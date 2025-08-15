@@ -1,6 +1,7 @@
 ~ start
 # Waking up in the tent, Sol walks outside, finding a decently-sized house next to the tent.  
 do GlobalVar.player.set_sprite("idle_down")
+do GlobalVar.player.teleport(Vector2(126,215))
 do wait(2.0)
 do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(2.0)
 do wait(2.0)

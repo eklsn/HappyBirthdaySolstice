@@ -1,7 +1,8 @@
 extends Room
 
-#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
-const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://blrsffblcjybk")
+const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
+#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://blrsffblcjybk")
+#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://musihwyk8sj4")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 var current_dialogue : Resource
 
@@ -12,7 +13,7 @@ var current_dialogue : Resource
 
 const DIALOGUE_FILLER_WAIT_TIME : float = 4.0
 
-var dialogue_counter : int = 6
+var dialogue_counter : int = 0
 
 const PLAYER_FOLLOWING :PackedScene = preload("uid://cjbftteb7m838")
 
@@ -25,6 +26,10 @@ const NEW_BEGGINING_FILLER_6 :Resource = preload("uid://bbuu0gklcg842")
 const NEW_BEGGINING_FILLER_7 :Resource = preload("uid://dh7tio75ofw6r")
 
 const HOME_KINDA_3 : Resource = preload("uid://blrsffblcjybk")
+
+const EVERY_ME_1 : Resource = preload("uid://musihwyk8sj4")
+const EVERY_ME_2 : Resource = preload("uid://mxwgqrtred5l")
+const EVERY_ME_3 : Resource = preload("uid://cfc5t8u4mpmhq")
 
 var fillers : Array[Resource] = [
 	
@@ -75,8 +80,13 @@ func on_enter_room()->void:
 		current_dialogue = HOME_KINDA_3
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_dialogue)
 		await DialogueManager.dialogue_ended
-	
-	
+	if GlobalVar.plot == 4:
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, EVERY_ME_1)
+		await DialogueManager.dialogue_ended
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, EVERY_ME_2)
+	if GlobalVar.plot == 4.3:
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, EVERY_ME_3)
+		await DialogueManager.dialogue_ended
 
 
 func _on_dialogue_timer_timeout() -> void:

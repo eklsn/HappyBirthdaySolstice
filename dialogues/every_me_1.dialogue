@@ -1,10 +1,11 @@
 ~ start
-# The screen fades to black, then to Solstice looking at the Earth again, alone, camera facing her back.  
-
+# The screen fades to black, then to Solstice looking at the Earth again, alone, camera facing her back.
 Solstice: I'm trying to think about the things I left there, and I can't think of anything I miss. Well, maybe the internet, but I never got as addicted as the people around me.  
 Solstice: I miss music, but I can always ask Shito to make me a smartphone full of music or a stereo and some CDs. Movies and all, too. It's gonna be okay, it'll be long until I run out of everything.  
 Solstice: I won't go as far as saying that I'm happy that Earth got destroyed, but I still feel relieved, and I can only blame it on humanity for sucking the life out of me.  
-
+do wait(3.0)
+do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito_sit_position.global_position)
+do GlobalVar.current_room.shito.set_sprite("sitting_back")
 # Shito appears close to her, the camera moves like in the first cutscene.  
 
 SH-170: Is everything okay? Beep-boop.  

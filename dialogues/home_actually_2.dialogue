@@ -37,7 +37,11 @@ do GlobalVar.player.set_sprite("idle_down")
 do wait(0.5)
 SH-170: It suits you very well, beep-boop.  
 Solstice: Sure as hell does. Recycle that suit or burn it, I don't care. I just don't wanna see it anymore.  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
 # [[Every me 1]]  
+set GlobalVar.plot = 4.0
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 
+do GlobalVar.player.set_sprite("sitting_back")
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
 => END

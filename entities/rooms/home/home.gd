@@ -30,15 +30,15 @@ func plotcheck() -> void:
 			get_node("TentDark").visible = false
 			DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_dialogue)
 		3.0:
-			get_node("Player").position = Vector2(126,215)
+			#get_node("Player").position = Vector2(126,215)
 			shito.visible = false
 			get_node("TentDark").visible = false
 			
 
 func on_enter_room()->void:
+	plotcheck()
 	if DialogueManager.dialogue_playing:
 		await DialogueManager.dialogue_ended
-	plotcheck()
 	if GlobalVar.plot == 2.0:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, HOME_KINDA_1)
 	if GlobalVar.plot == 3.0:

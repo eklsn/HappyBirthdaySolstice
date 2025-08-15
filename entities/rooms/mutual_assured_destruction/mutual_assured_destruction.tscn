@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmpn8eoohc1t5"]
+[gd_scene load_steps=23 format=3 uid="uid://bmpn8eoohc1t5"]
 
 [ext_resource type="Script" uid="uid://brt4tlgyq3bqe" path="res://entities/rooms/mutual_assured_destruction/mutual_assured_destruction.gd" id="1_pip27"]
 [ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_d3fev"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cq2qj3fdlki8r" path="res://entities/rooms/assets/MoonGround.png" id="7_e4dc0"]
 [ext_resource type="Texture2D" uid="uid://ddb2mm6ng553m" path="res://entities/rooms/assets/tent/2d_lights_and_shadows_neutral_point_light.webp" id="10_6frt0"]
 [ext_resource type="Texture2D" uid="uid://ba3pif3cs4uqy" path="res://entities/rooms/assets/tent.png" id="10_vpqdv"]
+[ext_resource type="Texture2D" uid="uid://cbtlxqvc32jw5" path="res://entities/rooms/fire/fire1.png" id="11_31722"]
+[ext_resource type="Texture2D" uid="uid://driygse5jsdd8" path="res://entities/rooms/fire/fire2.png" id="12_jpxvx"]
+[ext_resource type="Texture2D" uid="uid://rxypwkti7fm1" path="res://entities/rooms/fire/fire3.png" id="13_50b1r"]
+[ext_resource type="Texture2D" uid="uid://lkb1qk5s78os" path="res://entities/rooms/fire/fire4.png" id="14_rofgv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpqdv"]
 texture = ExtResource("2_oq5u3")
@@ -107,6 +111,26 @@ func _process(delta: float) -> void:
 		target_energy = max_energy
 	
 "
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksw2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_31722")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jpxvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_50b1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rofgv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="MutualAssuredDestruction" type="Node2D"]
 y_sort_enabled = true
@@ -285,6 +309,7 @@ scroll_scale = Vector2(0.05, 0.8)
 scroll_offset = Vector2(0, 25)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+visible = false
 z_index = -1
 position = Vector2(161, 14.75)
 texture = ExtResource("6_0nscy")
@@ -489,6 +514,12 @@ script = SubResource("GDScript_dwv84")
 max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Parallax2D"]
+position = Vector2(161, 14.75)
+sprite_frames = SubResource("SpriteFrames_ksw2m")
+autoplay = "default"
+frame_progress = 0.866619
+
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 z_index = -100
 scale = Vector2(2, 2)
@@ -512,5 +543,7 @@ position = Vector2(276, 290)
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2(361, 290)
+
+[node name="flashback" type="Node2D" parent="."]
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

@@ -1,4 +1,6 @@
 ~ start
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.0)
+do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(1.5)
 do! GlobalVar.player.camera_2d.move_to_relative(Vector2(0.0,-80.0),1)
 do GlobalVar.player.set_sprite("sitting_front_eyes_open")
 do wait(1.7)
