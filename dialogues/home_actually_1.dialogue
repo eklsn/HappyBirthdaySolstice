@@ -27,27 +27,53 @@ do GlobalVar.player.walk_to(Vector2(321,260))
 do wait(1.0)
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do wait(1.0)
+do GlobalVar.player.walk_to(Vector2(356,431))
+do GlobalVar.player.walk_to(Vector2(356,199))
+do GlobalVar.player.walk_to(Vector2(167,199))
+do GlobalVar.player.set_sprite("idle_up")
+do wait(1.0)
+do GlobalVar.player.walk_to(Vector2(120,199))
+do GlobalVar.player.set_sprite("idle_down")
+do wait(1.0)
+do GlobalVar.player.walk_to(Vector2(74,195))
+do GlobalVar.player.walk_to(Vector2(74,177))
+do GlobalVar.player.set_sprite("idle_up")
+do wait(5.0)
+do GlobalVar.player.walk_to(Vector2(74,195))
+do GlobalVar.player.walk_to(Vector2(455,195))
+do GlobalVar.player.walk_to(Vector2(455,178))
 # The player can walk around the house and interact with some items until Sol interacts with a wardrobe in the bedroom.  
-
-Solstice: I guess it didn't think of making any suits for me, I'll ask it to make some.  
+Solstice: ... 
+do GlobalVar.player.set_sprite("idle_left")
+Solstice: I guess it didn't think of making any suits for me, [do GlobalVar.player.set_sprite("idle_up")]I'll ask it to make some.  
 Solstice: ...  
 Solstice: ...  
-Solstice: Wait.  
-Solstice: There's no reason for me to get stuck with these clothes.  
-
+do GlobalVar.player.set_sprite("idle_left")
+Solstice: Wait.
+do GlobalVar.player.walk_to(Vector2(409,178))
+Solstice: There's no reason for me to get stuck with these clothes.
+do GlobalVar.player.set_sprite("idle_up")
 # Sol looks at herself in the mirror.  
-
+do wait(1.0)
 Solstice: ...  
-Solstice: ...  
-Solstice: Sigh.  
-Solstice: ...  
-Solstice: Alright, I made up my mind.  
-
+Solstice: ...
+do GlobalVar.player.set_sprite("idle_left") 
+Solstice: Sigh.
+do GlobalVar.player.set_sprite("idle_up")
+Solstice: ...
+do GlobalVar.player.set_sprite("idle_left")
+Solstice: Alright, I made up my mind.
+do wait(1.0)
+do GlobalVar.player.set_sprite("idle_down")
 # At that moment, Shito walks inside.  
-
-SH-170: Is the room of your liking, Sol? Beep-boop.  
-Solstice: Shito, I have an order of clothes for you.  
-
+do GlobalVar.current_room.shito.walk_to(Vector2(322, 415))
+do GlobalVar.current_room.shito.walk_to(Vector2(409,415))
+do GlobalVar.current_room.shito.walk_to(Vector2(409,264))
+SH-170: Is the room of your liking, Sol? Beep-boop.
+do GlobalVar.player.set_sprite("idle_left")
+Solstice: Shito, [do GlobalVar.player.set_sprite("idle_down")] I have an order of clothes for you.  
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
 # The screen fades to black, and it fades back in with them looking for materials, with the receipt on screen.  
 
 # [[Home, actually 2]]  

@@ -1,16 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://bokfkigaovrmp"]
+[gd_scene load_steps=22 format=3 uid="uid://bokfkigaovrmp"]
 
-[ext_resource type="Script" uid="uid://dd4livqhlwyeg" path="res://entities/rooms/home/home.gd" id="1_rd01v"]
+[ext_resource type="Script" uid="uid://bnc7b362cv3y7" path="res://entities/rooms/actual_home/actual_home.gd" id="1_fpkie"]
 [ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_yk0ww"]
 [ext_resource type="PackedScene" uid="uid://bmmob71yacfgg" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance.tscn" id="3_fpkie"]
 [ext_resource type="PackedScene" uid="uid://c3cmx7rohus72" path="res://entities/player/npc/npc.tscn" id="4_upe81"]
 [ext_resource type="SpriteFrames" uid="uid://crvpo7m5p01fv" path="res://entities/player/assets/sh/overworld/shito_sprite_frames.tres" id="5_vmsgm"]
-[ext_resource type="Texture2D" uid="uid://blblefayo2p6y" path="res://entities/rooms/assets/tent/TentDark.png" id="6_n5yms"]
-[ext_resource type="Texture2D" uid="uid://ckrs0008bjfcf" path="res://entities/rooms/assets/tent/BedDark.png" id="7_box52"]
-[ext_resource type="Texture2D" uid="uid://ddb2mm6ng553m" path="res://entities/rooms/assets/tent/2d_lights_and_shadows_neutral_point_light.webp" id="8_n2p1l"]
-[ext_resource type="Texture2D" uid="uid://dqpnhtwl3veh2" path="res://entities/rooms/assets/tent/led.png" id="9_w3kt7"]
-[ext_resource type="Texture2D" uid="uid://tdg7c01iamxu" path="res://entities/rooms/assets/tent/Tentlight.png" id="10_7ptph"]
-[ext_resource type="Texture2D" uid="uid://2fwor2j3064l" path="res://entities/rooms/assets/tent/Bedlight.png" id="11_5b2h8"]
+[ext_resource type="Texture2D" uid="uid://b6wp1vobtw0p8" path="res://entities/rooms/assets/house/Room.png" id="6_fpkie"]
+[ext_resource type="Texture2D" uid="uid://6dypdhhu8iyr" path="res://entities/rooms/assets/house/sink.png" id="7_upe81"]
+[ext_resource type="Texture2D" uid="uid://b4bmgisckgb7l" path="res://entities/rooms/assets/house/Refrigerator.png" id="8_vmsgm"]
+[ext_resource type="Texture2D" uid="uid://cktp1nbxfgf7x" path="res://entities/rooms/assets/house/counter.png" id="9_n5yms"]
+[ext_resource type="Texture2D" uid="uid://bqt4fycs10aq2" path="res://entities/rooms/assets/house/Bed.png" id="10_box52"]
+[ext_resource type="Texture2D" uid="uid://bn8jvl4vue414" path="res://entities/rooms/assets/house/dresser.png" id="11_n2p1l"]
+[ext_resource type="Texture2D" uid="uid://bten0dknks0or" path="res://entities/rooms/assets/house/chair.png" id="12_w3kt7"]
+[ext_resource type="Texture2D" uid="uid://ol65td1prid7" path="res://entities/rooms/assets/house/table.png" id="13_7ptph"]
 
 [sub_resource type="GDScript" id="GDScript_e4dc0"]
 script/source = "extends ColorRect
@@ -49,49 +51,34 @@ func _process(delta: float) -> void:
 		
 "
 
-[sub_resource type="GDScript" id="GDScript_bh2li"]
-script/source = "extends PointLight2D
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmsgm"]
+size = Vector2(52.5, 15.5)
 
-@export var min_energy : float = 0.75
-@export var max_energy : float = 3.25
-@export var min_scale : Vector2 = Vector2(1,1)
-@export var max_scale : Vector2 = Vector2(3,3)
-@export var scale_speed : float = 0.05
-@export var energy_speed : float = 0.05
-@export var script_enabled : bool = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5yms"]
+size = Vector2(84, 24)
 
-var target_scale : Vector2 = max_scale
-var target_energy : float
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpkie"]
+size = Vector2(77.5, 12.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_box52"]
+size = Vector2(32, 36)
 
-func _process(delta: float) -> void:
-	if script_enabled:
-		scale = lerp(scale, target_scale, scale_speed)
-		energy = lerp(energy, target_energy, energy_speed)
-	if scale >= max_scale-Vector2(0.01,0.01):
-		target_scale = min_scale
-	if scale <= min_scale+Vector2(0.01,0.01):
-		target_scale = max_scale
-	if energy >= max_energy-0.01:
-		target_energy = min_energy
-	if energy <= min_energy+0.01:
-		target_energy = max_energy
-	
-"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3kt7"]
+size = Vector2(105.5, 46.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upe81"]
+size = Vector2(20, 27.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2p1l"]
+size = Vector2(45, 32.5)
 
 [node name="Home" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_rd01v")
+script = ExtResource("1_fpkie")
 camera_limit_left = 0
 camera_limit_top = 0
 camera_limit_right = 640
 camera_limit_bottom = 480
-
-[node name="RoomEntranceLocations" parent="." instance=ExtResource("2_yk0ww")]
-
-[node name="RoomEntrance2" parent="RoomEntranceLocations" instance=ExtResource("3_fpkie")]
-position = Vector2(366, 456)
-room_entrance_loc = 2
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -100,12 +87,6 @@ offset_top = 30.0
 offset_right = 330.0
 offset_bottom = 53.0
 text = "Earth on fire"
-
-[node name="Shito" parent="." instance=ExtResource("4_upe81")]
-unique_name_in_owner = true
-position = Vector2(251, 464)
-sprite_frames = ExtResource("5_vmsgm")
-current_animation = &"idle_up"
 
 [node name="DialogueTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -117,61 +98,180 @@ z_index = 100
 color = Color(1, 1, 1, 0)
 script = SubResource("GDScript_e4dc0")
 
-[node name="TentDark" type="Sprite2D" parent="."]
-z_index = -5
-position = Vector2(320, 240)
-scale = Vector2(2, 2)
-texture = ExtResource("6_n5yms")
-
-[node name="BedDark" type="Sprite2D" parent="TentDark"]
-position = Vector2(-97, -21)
-texture = ExtResource("7_box52")
-
-[node name="lantern" type="Node2D" parent="TentDark"]
-
-[node name="PointLight2D" type="PointLight2D" parent="TentDark/lantern"]
-z_index = 21
-position = Vector2(0, 2)
-scale = Vector2(0.24, 0.24)
-color = Color(0.35881, 0.294533, 0.0154643, 1)
-energy = 3.25
-shadow_enabled = true
-texture = ExtResource("8_n2p1l")
-script = SubResource("GDScript_bh2li")
-min_scale = Vector2(0.75, 0.75)
-max_scale = Vector2(1.3, 1.3)
-scale_speed = 0.005
-energy_speed = 0.005
-
-[node name="Led" type="Sprite2D" parent="TentDark/lantern"]
-position = Vector2(0, 2)
-texture = ExtResource("9_w3kt7")
-
-[node name="darktint" type="ColorRect" parent="TentDark"]
-z_index = 20
-offset_left = -162.0
-offset_top = -126.0
-offset_right = 165.0
-offset_bottom = 126.0
-color = Color(0, 0, 0, 0.596078)
-
 [node name="coll" type="StaticBody2D" parent="."]
+z_index = 99
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="coll"]
-polygon = PackedVector2Array(79, 159, 561, 159, 561, 441, 443, 442, 442, 479, 641, 479, 638, -1, 2, 0, 1, 482, 199, 481, 198, 442, 80, 443)
-
-[node name="Tentlight" type="Sprite2D" parent="."]
-z_index = -6
-position = Vector2(320, 240)
-scale = Vector2(2, 2)
-texture = ExtResource("10_7ptph")
-
-[node name="Bedlight" type="Sprite2D" parent="Tentlight"]
-position = Vector2(-97, -21)
-texture = ExtResource("11_5b2h8")
+polygon = PackedVector2Array(1, -5, 638, -1, 640, 475, 361, 480, 359, 440, 602, 442, 601, 159, 41, 160, 40, 440, 280, 440, 280, 483, 4, 483)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(320, 244)
 scale = Vector2(0.48, 0.48)
+
+[node name="Room" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("6_fpkie")
+
+[node name="Sink" type="Sprite2D" parent="."]
+position = Vector2(86, 146)
+scale = Vector2(2, 2)
+texture = ExtResource("7_upe81")
+
+[node name="coll" type="StaticBody2D" parent="Sink"]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sink/coll"]
+position = Vector2(2.25, 19.25)
+shape = SubResource("RectangleShape2D_vmsgm")
+
+[node name="Refrigerator" type="Sprite2D" parent="."]
+position = Vector2(166, 135)
+scale = Vector2(2, 2)
+texture = ExtResource("8_vmsgm")
+
+[node name="coll" type="StaticBody2D" parent="Refrigerator"]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Refrigerator/coll"]
+position = Vector2(0.5, 20.5)
+shape = SubResource("RectangleShape2D_n5yms")
+
+[node name="Counter" type="Sprite2D" parent="."]
+position = Vector2(119, 218)
+scale = Vector2(2, 2)
+texture = ExtResource("9_n5yms")
+offset = Vector2(-0.5, 7.5)
+
+[node name="coll" type="StaticBody2D" parent="Counter"]
+position = Vector2(-1, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Counter/coll"]
+position = Vector2(0.25, 12.75)
+shape = SubResource("RectangleShape2D_fpkie")
+
+[node name="Bed" type="Sprite2D" parent="."]
+position = Vector2(568, 177)
+scale = Vector2(2, 2)
+texture = ExtResource("10_box52")
+
+[node name="coll" type="StaticBody2D" parent="Bed"]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed/coll"]
+position = Vector2(-2, 18.5)
+shape = SubResource("RectangleShape2D_box52")
+
+[node name="Dresser" type="Sprite2D" parent="."]
+position = Vector2(454, 131)
+scale = Vector2(2, 2)
+texture = ExtResource("11_n2p1l")
+
+[node name="coll" type="StaticBody2D" parent="Dresser"]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dresser/coll"]
+position = Vector2(17.75, 6.75)
+shape = SubResource("RectangleShape2D_w3kt7")
+
+[node name="Chair" type="Sprite2D" parent="."]
+position = Vector2(156, 344)
+scale = Vector2(2, 2)
+texture = ExtResource("12_w3kt7")
+offset = Vector2(-1, 1)
+
+[node name="coll" type="StaticBody2D" parent="Chair"]
+position = Vector2(0, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/coll"]
+position = Vector2(-0.5, 10)
+shape = SubResource("RectangleShape2D_upe81")
+
+[node name="Chair2" type="Sprite2D" parent="."]
+position = Vector2(298, 347)
+scale = Vector2(2, 2)
+texture = ExtResource("12_w3kt7")
+offset = Vector2(-0.5, -0.5)
+
+[node name="coll" type="StaticBody2D" parent="Chair2"]
+position = Vector2(0, -3.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2/coll"]
+position = Vector2(0.5, 10.625)
+shape = SubResource("RectangleShape2D_upe81")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(224, 337)
+scale = Vector2(2, 2)
+texture = ExtResource("13_7ptph")
+offset = Vector2(0.5, 5.5)
+
+[node name="coll" type="StaticBody2D" parent="Table"]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/coll"]
+position = Vector2(0, 14.75)
+shape = SubResource("RectangleShape2D_n2p1l")
+
+[node name="Shito" parent="." instance=ExtResource("4_upe81")]
+unique_name_in_owner = true
+position = Vector2(322, 553)
+sprite_frames = ExtResource("5_vmsgm")
+current_animation = &"idle_up"
+
+[node name="RoomEntranceLocations" parent="." instance=ExtResource("2_yk0ww")]
+
+[node name="RoomEntrance2" parent="RoomEntranceLocations" instance=ExtResource("3_fpkie")]
+position = Vector2(321, 433)
+room_entrance_loc = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_right = 40.0
+offset_bottom = 482.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 10
+offset_left = 600.0
+offset_top = -1.0
+offset_right = 640.0
+offset_bottom = 481.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+z_index = 10
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 603.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+z_index = 10
+offset_left = 31.0
+offset_top = 441.0
+offset_right = 280.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+z_index = 10
+offset_left = 361.0
+offset_top = 441.0
+offset_right = 610.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="coll2" type="StaticBody2D" parent="."]
+position = Vector2(290, 471)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coll2"]
+position = Vector2(32, 20.5)
+shape = SubResource("RectangleShape2D_n5yms")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(322, 415)
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
