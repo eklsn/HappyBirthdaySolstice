@@ -1,0 +1,140 @@
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://du46w21f7iwoh"]
+
+[ext_resource type="Texture2D" uid="uid://dyy5rfpitl718" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Right1.png" id="3_2m5ti"]
+[ext_resource type="Texture2D" uid="uid://dlren8hhekv2b" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Back1.png" id="4_e631n"]
+[ext_resource type="Texture2D" uid="uid://c3j6hfosnxlvc" path="res://entities/player/assets/solstice/overworld/solstice_brown/Sol_Brown_sitting_back.png" id="5_o4548"]
+[ext_resource type="Texture2D" uid="uid://ds6g24jgm2h84" path="res://entities/player/assets/solstice/overworld/solstice_yellow/Sol_suit_sitting_eyesclosed.png" id="6_kb2yn"]
+[ext_resource type="Texture2D" uid="uid://d3va8yi0x132q" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Front1.png" id="8_46m6s"]
+[ext_resource type="Texture2D" uid="uid://cihn1i1k2hak" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Front2.png" id="9_uqv46"]
+[ext_resource type="Texture2D" uid="uid://cicgdx1vgw37l" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Front3.png" id="10_csjgn"]
+[ext_resource type="Texture2D" uid="uid://di0d56j268jgl" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Right2.png" id="11_46m6s"]
+[ext_resource type="Texture2D" uid="uid://doey304ih2nhp" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Left1.png" id="11_83omw"]
+[ext_resource type="Texture2D" uid="uid://g5wrtvri8x10" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Left2.png" id="12_6vxro"]
+[ext_resource type="Texture2D" uid="uid://dtbl8elxysoeo" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Right3.png" id="12_uqv46"]
+[ext_resource type="Texture2D" uid="uid://c1ibi71cryje3" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Left3.png" id="13_3gy04"]
+[ext_resource type="Texture2D" uid="uid://cux0beja1ub0l" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Back2.png" id="13_csjgn"]
+[ext_resource type="Texture2D" uid="uid://cyla50ftl8sa7" path="res://entities/player/assets/solstice/overworld/solstice_brown/Solstice_Brown_Back3.png" id="14_83omw"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_46m6s")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_83omw")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2m5ti")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e631n")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o4548")
+}],
+"loop": true,
+"name": &"sitting_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kb2yn")
+}],
+"loop": true,
+"name": &"sitting_front_eyes_closed",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sitting_front_eyes_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_46m6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uqv46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_46m6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_csjgn")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_83omw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6vxro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_83omw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3gy04")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2m5ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_46m6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2m5ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uqv46")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e631n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_csjgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e631n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_83omw")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]

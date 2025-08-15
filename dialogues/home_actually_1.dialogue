@@ -75,7 +75,7 @@ do GlobalVar.player.set_sprite("idle_left")
 Solstice: Shito, [do GlobalVar.player.set_sprite("idle_down")] I have an order of clothes for you.  
 do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
 # The screen fades to black, and it fades back in with them looking for materials, with the receipt on screen.  
-
+set GlobalVar.plot = 3.2
 # [[Home, actually 2]]  
 
 => END

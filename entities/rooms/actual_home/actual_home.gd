@@ -7,6 +7,8 @@ var current_dialogue : Resource
 
 const PLAYER_FOLLOWING :PackedScene = preload("uid://cjbftteb7m838")
 
+const HOME_ACTUALLY_2 : Resource = preload("uid://dg5ego65iqh2")
+
 func plotcheck() -> void:
 	pass
 			
@@ -14,6 +16,10 @@ func plotcheck() -> void:
 func on_enter_room()->void:
 	if DialogueManager.dialogue_playing:
 		await DialogueManager.dialogue_ended
+	if GlobalVar.plot == 3.2:
+		shito.visible = true
+		GlobalVar.player.get_node("AnimatedSprite2D").sprite_frames = preload("uid://du46w21f7iwoh")
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, HOME_ACTUALLY_2)
 	plotcheck()
 	await DialogueManager.dialogue_ended
 	var prev_pos : Vector2 = shito.global_position
