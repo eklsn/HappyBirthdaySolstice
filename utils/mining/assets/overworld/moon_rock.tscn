@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk4b1cd2w7sfh"]
+
+[ext_resource type="PackedScene" uid="uid://ca1rws5jjv5jv" path="res://utils/interaction/area/interact_on_press/interact_on_press.tscn" id="1_ngpdf"]
+[ext_resource type="Resource" uid="uid://c3klvkapwud5c" path="res://utils/mining/assets/mining_setup/moon_rock_mining_setup.tres" id="2_4pouk"]
+[ext_resource type="Texture2D" uid="uid://hedupey6wle7" path="res://utils/mining/assets/overworld/moon_rock.png" id="2_hyr32"]
+[ext_resource type="Script" uid="uid://dtddfdb0fmn1s" path="res://entities/interaction/non_specific/create_mining_minigame_interaction/create_mining_minigame_interaction.gd" id="2_r67pb"]
+
+[sub_resource type="Resource" id="Resource_4pouk"]
+script = ExtResource("2_r67pb")
+textbox = &"uid://dllel4wxacax2"
+mining_setup = ExtResource("2_4pouk")
+metadata/_custom_type_script = "uid://dtddfdb0fmn1s"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyr32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r67pb"]
+size = Vector2(13, 13)
+
+[node name="MoonRock" type="Node2D"]
+
+[node name="InteractOnPress" parent="." instance=ExtResource("1_ngpdf")]
+position = Vector2(0, 3)
+interaction = SubResource("Resource_4pouk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractOnPress"]
+shape = SubResource("RectangleShape2D_hyr32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("2_hyr32")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_r67pb")

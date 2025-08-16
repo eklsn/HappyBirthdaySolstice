@@ -8,7 +8,7 @@
 Solstice: Maybe I was too hard on Shito...  
 
 # After gathering, they walk back home.  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 Solstice: Hey Shito, I... you know I'm not fond of humanity. I really want that guitar, it's something that was denied to me for so long, and I don't want to go back to a place where I can't be myself. Give me some time to think.  
 
 SH-170: I understand how you feel, don't worry about it, beep-boop.  
@@ -50,7 +50,7 @@ do GlobalVar.player.walk_to(Vector2(522,190))
 Solstice: Alright, screw you for being so tactless, but also, thank you, Shito. It's exactly because I sacrificed myself for this long that I don't want to give up on my guitar to go back to Earth. But... I'll still think about it.  
 
 SH-170: I can accept this much, beep-boop.  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+do Vfx.fade_in(1.0)
 set GlobalVar.plot = 6.0
 do GlobalVar.player.teleport(Vector2(569,183))
 do GlobalVar.player.set_sprite("idle_down")
@@ -58,5 +58,6 @@ do wait(1.0)
 # The screen fades to black.  
 
 # [[Happy birthday, Solstice 1]]  
+
 
 => END

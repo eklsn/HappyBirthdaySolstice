@@ -7,6 +7,13 @@ const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 var current_dialogue : Resource
 
+
+@onready var mining_tile_map_layer_moon_rocks: TileMapLayer = $MiningTileMapLayerMoonRocks
+
+const MINING_TILE_MAP_LAYER_METEORS : PackedScene = preload("uid://b601xibt52wdq")
+
+
+
 @onready var shito: CharacterBody2D = %Shito
 @onready var flash : ColorRect = %new3_flash
 @onready var shito_sit_position: Marker2D = $ShitoSitPosition
@@ -71,6 +78,9 @@ func plotcheck() -> void:
 		5.0:
 			GlobalVar.player.get_node("AnimatedSprite2D").sprite_frames = preload("uid://crvpo7m5p01fv")
 			GlobalVar.plot = 5.1
+
+
+
 func on_enter_room()->void:
 	plotcheck()
 	if DialogueManager.dialogue_playing:

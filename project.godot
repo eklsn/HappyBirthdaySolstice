@@ -33,7 +33,6 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/name="BogJamSummer2025"
 
@@ -105,7 +104,7 @@ run={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://entities/cutscenes/intro/intro_test.dialogue", "res://entities/rooms/home/assets/dialogue.dialogue", "res://dialogues/still_hope_2.dialogue", "res://dialogues/still_hope_1.dialogue", "res://dialogues/new_beggining_filler_7.dialogue", "res://dialogues/new_beggining_filler_6.dialogue", "res://dialogues/new_beggining_filler_5.dialogue", "res://dialogues/new_beggining_filler_4.dialogue", "res://dialogues/new_beggining_filler_3.dialogue", "res://dialogues/new_beggining_filler_2.dialogue", "res://dialogues/new_beggining_filler_1.dialogue", "res://dialogues/new_beggining_3.dialogue", "res://dialogues/new_beggining_2.dialogue", "res://dialogues/mutual_assured_destruction.dialogue", "res://dialogues/home_kinda_3.dialogue", "res://dialogues/home_kinda_2.dialogue", "res://dialogues/home_kinda_1.dialogue", "res://dialogues/home_actually_2.dialogue", "res://dialogues/home_actually_1.dialogue", "res://dialogues/every_me_3.dialogue", "res://dialogues/every_me_2.dialogue", "res://dialogues/every_me_1.dialogue", "res://dialogues/bday_sol_1.dialogue", "res://dialogues/bday_sol_2.dialogue", "res://dialogues/bday_sol_3.dialogue", "res://dialogues/bday_sol_4.dialogue", "res://dialogues/epilogue.dialogue", "res://dialogues/intro_sequence.dialogue", "res://entities/rooms/actual_home/assets/dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://entities/cutscenes/intro/intro_test.dialogue", "res://entities/rooms/home/assets/dialogue.dialogue", "res://dialogues/still_hope_2.dialogue", "res://dialogues/still_hope_1.dialogue", "res://dialogues/new_beggining_filler_7.dialogue", "res://dialogues/new_beggining_filler_6.dialogue", "res://dialogues/new_beggining_filler_5.dialogue", "res://dialogues/new_beggining_filler_4.dialogue", "res://dialogues/new_beggining_filler_3.dialogue", "res://dialogues/new_beggining_filler_2.dialogue", "res://dialogues/new_beggining_filler_1.dialogue", "res://dialogues/new_beggining_3.dialogue", "res://dialogues/new_beggining_2.dialogue", "res://dialogues/mutual_assured_destruction.dialogue", "res://dialogues/home_kinda_3.dialogue", "res://dialogues/home_kinda_2.dialogue", "res://dialogues/home_kinda_1.dialogue", "res://dialogues/home_actually_2.dialogue", "res://dialogues/home_actually_1.dialogue", "res://dialogues/every_me_3.dialogue", "res://dialogues/every_me_2.dialogue", "res://dialogues/every_me_1.dialogue", "res://dialogues/bday_sol_1.dialogue", "res://dialogues/bday_sol_2.dialogue", "res://dialogues/bday_sol_3.dialogue", "res://dialogues/bday_sol_4.dialogue", "res://dialogues/epilogue.dialogue", "res://dialogues/intro_sequence.dialogue", "res://entities/rooms/actual_home/assets/dialogue.dialogue", "res://utils/mining/assets/mining_dialogue_end.dialogue")
 
 [rendering]
 

@@ -1,7 +1,7 @@
 ~ start
 #do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito_sit_position.global_position)
 #do GlobalVar.current_room.shito.set_sprite("sitting_back")
-
+do wait(0.5)
 do GlobalVar.player.set_sprite("sitting_back")
 do wait(0.3)
 Solstice: Why do you look like me... to some extent?

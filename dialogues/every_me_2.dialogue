@@ -4,13 +4,13 @@ Solstice: Everyone kept calling me a genius for my grades, but I was advantaged 
 Solstice: Not her, though. She kept saying that I had this creative sparkle in me, and it was the only thing she cared about. Whenever we met, she would ask to go on the roof, but she had to settle for the balcony when she came over to my place.  
 Solstice: She's the only human who knew that I was an angel, besides those in the government, I guess. Not even my parents noticed my wings because I always took showers and dressed by myself. They never looked much at me anyway.  
 Solstice: She was a weird girl, but in a very good way.  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+do Vfx.fade_in(1.0)
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://dp700iwj4cdcf").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 do GlobalVar.player.teleport(Vector2(1280,960))
 do GlobalVar.current_room.shito.teleport(Vector2(1280,960))
 do wait(1.0)
 
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(2.0)
+do Vfx.fade_out(2.0)
 # The following part will be written as a cutscene of the two sitting on a roof; however, if there's no time for the necessary assets, it can be adapted to be told by Sol instead.  
 
 Friend: How's it going with your parents? Did you tell them that you want to learn guitar yet?  
@@ -23,14 +23,14 @@ Friend: I can't force you, but I think you should fight back a bit. You shouldn'
 Solstice: It's not that I hate the idea of being an electronic engineer, really. It's somewhat interesting, I guess.  
 Friend: I'm not gonna stick my nose, then. But I'm planning to become a computer scientist, so we should do everything we can to work together. It'd be a bit more bearable, right?  
 do wait(2.0)
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.5)
+do Vfx.fade_in(1.5)
 set GlobalVar.plot = 4.3
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 do GlobalVar.player.set_sprite("sitting_back")
 do GlobalVar.current_room.shito.teleport(GlobalVar.current_room.shito_sit_position.global_position)
 do GlobalVar.current_room.shito.set_sprite("sitting_back")
 do wait(0.5)
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(1.5)
+do Vfx.fade_out(1.5)
 
 # [[Every me 3]]  
 

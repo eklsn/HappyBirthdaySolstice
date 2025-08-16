@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MiningSetup" load_steps=5 format=3 uid="uid://c3klvkapwud5c"]
+
+[ext_resource type="Script" uid="uid://5huc65ftr6x8" path="res://utils/mining/assets/mining_gems/mining_gem.gd" id="1_qew4l"]
+[ext_resource type="Script" uid="uid://2xgfqbtnnbpp" path="res://utils/mining/assets/mining_setup/mining_setup.gd" id="2_nv6nw"]
+[ext_resource type="Resource" uid="uid://da5tbxi127k7f" path="res://utils/mining/assets/mining_gems/big_gems/quartz.tres" id="2_rmdhi"]
+[ext_resource type="Resource" uid="uid://ugi7i0evcrkl" path="res://utils/mining/assets/mining_gems/big_gems/ilmenite_titanium.tres" id="3_b1r31"]
+
+[resource]
+script = ExtResource("2_nv6nw")
+mining_gems = Array[ExtResource("1_qew4l")]([ExtResource("2_rmdhi"), ExtResource("3_b1r31"), ExtResource("2_rmdhi"), ExtResource("2_rmdhi"), ExtResource("2_rmdhi")])
+metadata/_custom_type_script = "uid://2xgfqbtnnbpp"

@@ -27,7 +27,7 @@ SH-170: I was fitted with vacuum cleaners inside my feet, that's why I don't hav
 # The player will then proceed to gather the necessary materials by mining moon rocks, and this time Shito follows them to repair the hammer as necessary.  
 # The player brings the materials to Shito, and the screen fades with some construction sounds, before reappearing with a tent on the ground.  
 
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do Vfx.fade_in(0.7)
 set GlobalVar.plot = 2
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://cuje73oplrwyo").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 SH-170: Tent: synthesis complete, beep-boop.  
@@ -35,6 +35,6 @@ Solstice: Please don't be bare inside.
 
 # The player moves inside the tent.  
 do GlobalVar.player.set_sprite("idle_up")
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 
 => END

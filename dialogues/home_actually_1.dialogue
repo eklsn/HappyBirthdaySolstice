@@ -3,13 +3,13 @@
 do GlobalVar.player.set_sprite("idle_down")
 do GlobalVar.player.teleport(Vector2(126,215))
 do wait(2.0)
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(2.0)
+do Vfx.fade_out(2.0)
 do wait(2.0)
 do GlobalVar.player.walk_to(Vector2(320,272))
-do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+do! Vfx.fade_in(1.0)
 do GlobalVar.player.walk_to(Vector2(320,560))
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 do GlobalVar.current_room.shito.teleport(Vector2(361,360))
 do GlobalVar.current_room.shito.set_sprite("idle_up")
 do GlobalVar.player.walk_to(Vector2(-386,293))
@@ -23,12 +23,12 @@ do GlobalVar.player.set_sprite("idle_right")
 Solstice: No, it's better than I thought. [do GlobalVar.player.set_sprite("idle_up")] I had this cartoonish little house in mind, I didn't think I would've gotten so much space.
 do GlobalVar.player.set_sprite("idle_right") 
 SH-170: You're free to go inside [do GlobalVar.player.set_sprite("idle_up")]while I take down the tent and[do GlobalVar.player.walk_to(Vector2(321,290))]recycle the materials, [do GlobalVar.current_room.shito.set_sprite("idle_up")]beep-boop.
-do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.5)
+do! Vfx.fade_in(0.5)
 do GlobalVar.player.walk_to(Vector2(321,260))
 do wait(1.0)
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 do wait(0.5)
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 do wait(1.0)
 do GlobalVar.player.walk_to(Vector2(356,431))
 do GlobalVar.player.walk_to(Vector2(356,199))
@@ -75,7 +75,7 @@ do GlobalVar.current_room.shito.walk_to(Vector2(409,264))
 SH-170: Is the room of your liking, Sol? Beep-boop.
 do GlobalVar.player.set_sprite("idle_left")
 Solstice: Shito, [do GlobalVar.player.set_sprite("idle_down")] I have an order of clothes for you.  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do Vfx.fade_in(0.7)
 # The screen fades to black, and it fades back in with them looking for materials, with the receipt on screen.  
 set GlobalVar.plot = 3.2
 # [[Home, actually 2]]  

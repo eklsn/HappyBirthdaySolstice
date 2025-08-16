@@ -23,7 +23,7 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_skyew")
 animation = &"idle_down"
 autoplay = "idle_down"
-frame_progress = 0.0627787
+frame_progress = 0.508193
 
 [node name="PositionRecording" type="Timer" parent="."]
 wait_time = 0.1

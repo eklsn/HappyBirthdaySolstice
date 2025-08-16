@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgk82wh11djgk"]
+[gd_scene load_steps=10 format=3 uid="uid://bgk82wh11djgk"]
 
 [ext_resource type="Script" uid="uid://cut1okcbae015" path="res://ui/menus/main_menu/main_menu.gd" id="1_0rrps"]
+[ext_resource type="Texture2D" uid="uid://bpyydg0pi4qdp" path="res://utils/mining/assets/tiles/gem_icons/Biggem1.png" id="2_6s8a2"]
+[ext_resource type="FontFile" uid="uid://cj0kthldsmip8" path="res://ui/fonts/8bitoperator_jve.ttf" id="2_ioe73"]
+[ext_resource type="Texture2D" uid="uid://cqhk6tolbrb5u" path="res://utils/mining/assets/tiles/gem_icons/Biggem5.png" id="4_0rrps"]
+[ext_resource type="Texture2D" uid="uid://dx75ktl3lkju4" path="res://utils/mining/assets/tiles/gem_icons/Biggem2.png" id="5_gpubi"]
+[ext_resource type="Texture2D" uid="uid://oxwtts8y57nn" path="res://utils/mining/assets/tiles/gem_icons/Biggem6.png" id="6_tn877"]
+[ext_resource type="Texture2D" uid="uid://bths43be3ri02" path="res://utils/mining/assets/tiles/gem_icons/Biggem3.png" id="7_30wi2"]
+[ext_resource type="Texture2D" uid="uid://dnhy61xb66ans" path="res://utils/mining/assets/tiles/gem_icons/Biggem7.png" id="8_vdhl0"]
+[ext_resource type="Texture2D" uid="uid://ddg6duiyes8p4" path="res://utils/mining/assets/tiles/gem_icons/Biggem4.png" id="9_r2gs1"]
 
 [node name="MainMenu" type="Control"]
 z_index = 10
@@ -11,3 +19,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0rrps")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.372549)
+
+[node name="ItemList" type="ItemList" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -140.0
+offset_right = 183.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ioe73")
+theme_override_font_sizes/font_size = 32
+item_count = 7
+item_0/text = "Ilmenite/titanium"
+item_0/icon = ExtResource("4_0rrps")
+item_0/selectable = false
+item_1/text = "Indium"
+item_1/icon = ExtResource("6_tn877")
+item_1/selectable = false
+item_2/text = "Osmium"
+item_2/icon = ExtResource("7_30wi2")
+item_2/selectable = false
+item_3/text = "Platinum"
+item_3/icon = ExtResource("5_gpubi")
+item_3/selectable = false
+item_4/text = "Quartz"
+item_4/icon = ExtResource("9_r2gs1")
+item_4/selectable = false
+item_5/text = "Rhodium"
+item_5/icon = ExtResource("8_vdhl0")
+item_5/selectable = false
+item_6/text = "Rhutenium"
+item_6/icon = ExtResource("2_6s8a2")
+item_6/selectable = false

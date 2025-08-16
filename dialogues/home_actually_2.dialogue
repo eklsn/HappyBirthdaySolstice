@@ -26,7 +26,7 @@ Solstice: Now, one last thing. Someone had to come from heaven from time to time
 Solstice: Focus, Sol, focus...  
 Solstice: Okay, I'm opening my eyes now.
 do GlobalVar.player.set_sprite("idle_up") 
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 # The screen fades back in, with Sol with brown hair and in her new clothes standing before the mirror, where she sees her new appearance for the first time.  
 
 Solstice: Yeah... this is how I was always supposed to be...!
@@ -39,9 +39,9 @@ SH-170: It suits you very well, beep-boop.
 Solstice: Sure as hell does. Recycle that suit or burn it, I don't care. I just don't wanna see it anymore.  
 # [[Every me 1]]  
 set GlobalVar.plot = 4.0
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do Vfx.fade_in(0.7)
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 
 do GlobalVar.player.set_sprite("sitting_back")
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 => END

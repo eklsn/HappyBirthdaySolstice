@@ -4,12 +4,12 @@ do GlobalVar.player.set_sprite("idle_left")
 do GlobalVar.current_room.shito.walk_to(Vector2(349,190))
 SH-170: Sorry, Sol, unless it's an emergency, I need some time to charge my helium-3 reserves, beep-boop.  
 Solstice: Yeah, no, it can wait. Do your thing.
-do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+do! Vfx.fade_in(1.0)
 do GlobalVar.current_room.shito.walk_to(Vector2(349,550))
 # For the first time, the player follows Shito, who walks outside, in the middle of the field full of rocks.  
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 do wait(1.0)
-do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do! Vfx.fade_out(0.7)
 do GlobalVar.player.walk_to(GlobalVar.player.position-Vector2(250,0))
 SH-170: Sophie... it's a name that I'm supposed to know well. I don't know what it is, but it's something that makes me attached to humanity.  
 SH-170: Humanity... I like humans. I wish humanity was still living, to do more good, to create more culture.  
@@ -18,10 +18,10 @@ SH-170: Sol... just like the name Sophie, I know her name very well. She's a fri
 SH-170: I want to get back to Earth with Sol. I can't force this wish on her, I want her to want to go back, too.  
 SH-170: Wish, desire... is a machine like me supposed to desire? I only know that it's the right thing to do.  
 SH-170: I hope I'll convince Sol.  
-do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do! Vfx.fade_in(0.7)
 do GlobalVar.player.walk_to(GlobalVar.player.position+Vector2(250,0))
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
-do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do! Vfx.fade_out(0.7)
 # Shito then walks back home.  
 do GlobalVar.current_room.shito.teleport(Vector2(349,550))
 do GlobalVar.player.set_sprite("idle_down")
@@ -56,7 +56,8 @@ Solstice: ... Are you kidding me? How is it even possible that a rocket requires
 SH-170: That's just how it is, beep-boop.  
 Solstice: Well, I don't want to go back to Earth, and I will get a guitar instead.  
 SH-170: ... I understand, beep-boop.  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do Vfx.fade_in(0.7)
 # [[Still hope 2]]  
+
 
 => END

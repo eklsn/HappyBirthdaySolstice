@@ -32,6 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
 		menu = main_menu_scene.instantiate()
 		menu_layer.add_child(menu)
+		
 	
 	elif event.is_action_pressed("ui_accept"):
 		interact()

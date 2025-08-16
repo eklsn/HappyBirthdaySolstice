@@ -11,7 +11,7 @@ do GlobalVar.current_room.shito.walk_to(GlobalVar.player.global_position + Vecto
 do GlobalVar.current_room.shito.set_sprite("idle_left")
 do GlobalVar.player.set_sprite("idle_up")
 Solstice: I guess giving you a printer was easier than actual hands.  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do Vfx.fade_in(0.7)
 # Sol and Shito will wander around the map to look for the necessary materials, and may occasionally find easter eggs like a sun-bleached american flag that, if interacted with, get snark comments by Sol: "Still in better conditions here than on Earth."  
 
 # When all the materials are collected, Shito will say it's time to go back to Shito, and they walk back to the tent automatically.  
@@ -26,5 +26,6 @@ SH-170: Good rest, Sol. Beep-boop.
 # The screen fades to black, then back in.  
 
 # [[Home, actually 1]]  
+
 
 => END

@@ -1,3 +1,4 @@
+class_name MiningGameplay
 extends Node
 
 
@@ -50,28 +51,31 @@ mineable_tiles_1,
 
 #endregion
 
+const ILMENITE_TITANIUM : MiningGem  = preload("uid://ugi7i0evcrkl")
+const PLATINUM : MiningGem  = preload("uid://burj3k8r83vs8")
+const RHUTENIUM : MiningGem  = preload("uid://q3a7408j4bsp")
+
 
 const OPAL : MiningGem = preload("uid://choxc80k5nmsu")
 const RUBY : MiningGem = preload("uid://cnv21encgt00m")
 const SANS : MiningGem  = preload("uid://b3tijewe3ljie")
 const STAR : MiningGem  = preload("uid://bc748uh3ddd2g")
 
-var MINING_GEMS : Array[MiningGem]=[
-	OPAL,
-	OPAL,
-	OPAL,
-	RUBY,
-	RUBY,
-	SANS,
-	STAR,
-	STAR,
+var mining_gems : Array[MiningGem]=[
+	ILMENITE_TITANIUM,
+	PLATINUM,
+	RHUTENIUM,
+	
+	
 ]
 
 var UNIQUE_GEMS : Array[MiningGem]=[
-	OPAL,
-	RUBY,
-	SANS,
-	STAR,
+	ILMENITE_TITANIUM,
+	PLATINUM,
+	RHUTENIUM,
+	
+	
+	
 ]
 
 
@@ -81,7 +85,7 @@ const GEM_TILE_SOURCE_ID : int = 0
 
 
 
-const GRID_SIZE :Vector2i = Vector2i(15, 15)
+const GRID_SIZE :Vector2i = Vector2i(14, 15)
 
 
 const MINING_MAX_AMOUNT : int = 60
@@ -89,7 +93,7 @@ const PRECISE_DURABILITY_DAMAGE : int = 1
 const BROAD_DURABILITY_DAMAGE : int = 4
 
 
-const GEM_MIN_AMOUNT : int = 3
+const GEM_MIN_AMOUNT : int = 5
 const CHANCE_TO_PLACE_GEM_PER_TILE : float = 0.02
 
 const CHANCE_TO_PLACE_UNDESCTRUCTIBLE_TILE_SHAPE_PER_TILE : float = 0.09
@@ -143,9 +147,9 @@ func _ready() -> void:
 	
 	
 	switch_mining_mode_button.pressed.connect(on_switch_mining_mode)
-	find_gems_button.pressed.connect(find_gems)
+	find_gems_button.pressed.connect(func():finished_mining.emit() )
 	
-	create_map()
+	#create_map() ## NOTE debug
 
 
 func on_switch_mining_mode()->void:
@@ -172,9 +176,6 @@ func create_map()->void:
 	
 	
 	
-	await get_tree().process_frame
-	
-	find_gems()
 	
 	
 
@@ -187,14 +188,20 @@ var placed_gem_amount : int = 0
 
 
 func place_gems()->void:
+	await get_tree().process_frame
 	placed_gem_amount = 0
 	
 	while placed_gem_amount < GEM_MIN_AMOUNT:
 		for x : int in range(GRID_SIZE.x):
 			for y : int in range(GRID_SIZE.y):
 				if randf() < CHANCE_TO_PLACE_GEM_PER_TILE:
+					print(str(mining_gems))
 					
-					var random_gem : MiningGem = MINING_GEMS.pick_random()
+					var random_gem = load("uid://ugi7i0evcrkl")
+					if random_gem is not MiningGem:
+						print(str(random_gem))
+						continue
+					
 					_place_gem(Vector2i(x, y),random_gem)
 					#place_shape(Vector2i(x, y), UNDESTRUCTIBLE_TILE_CORDS, random_shape, undestructible_tiles)
 					
@@ -233,19 +240,23 @@ func _place_gem(place_location : Vector2i, mining_gem : MiningGem)->void:
 	
 	placed_gem_amount+=1
 	
+#finished_mining.emit()
 
-
-func find_gems()->void:
-	
+func find_gems()-> Array[MiningGem]:
+	var gems : Array[MiningGem] = []
 	
 	for x : int in range(GRID_SIZE.x):
 		for y : int in range(GRID_SIZE.y):
 			for gem : MiningGem in UNIQUE_GEMS:
 				if _find_gem(Vector2i(x,y),gem):
-					print(gem.gem_name)
+					#print(gem.gem_name)
+					gems.append(gem)
 				
 			
-			
+		
+	
+	return gems
+	
 
 
 func _check_if_tile_is_covered(tile_cords : Vector2i)->bool:
@@ -420,9 +431,14 @@ func _find_top_tile_layer(tile_cords : Vector2i)->MiningTileLayer:
 
 
 
+signal mined
+
+signal finished_mining
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		
 		var mouse_pos: Vector2 = get_viewport().get_mouse_position()
 		var local_pos: Vector2 = mineable_tiles_6.to_local(mouse_pos)
 		var cell_coords: Vector2i = mineable_tiles_6.local_to_map(local_pos)
@@ -431,6 +447,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not _find_top_tile_layer(cell_coords):
 			return
 		
+		
+		if mining_amount <=0:
+			finished_mining.emit()
+			return
 		
 		match mining_mode:
 			MiningModes.PRECISE:
@@ -442,7 +462,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				mining_amount -=BROAD_DURABILITY_DAMAGE
 				
 		
-		
+		mined.emit()
 		
 	
 

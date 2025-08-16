@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MiningGem" load_steps=2 format=3 uid="uid://ce3pk3pdvq61n"]
+
+[ext_resource type="Script" uid="uid://5huc65ftr6x8" path="res://utils/mining/assets/mining_gems/mining_gem.gd" id="1_n4ia2"]
+
+[resource]
+script = ExtResource("1_n4ia2")
+gem_name = &"Osmium"
+gem_value = 0
+gem_shape_tile_map_pos_dict = Dictionary[Vector2i, Vector2i]({
+Vector2i(0, 0): Vector2i(8, 0),
+Vector2i(0, 1): Vector2i(8, 1),
+Vector2i(1, 0): Vector2i(9, 0),
+Vector2i(1, 1): Vector2i(9, 1)
+})
+metadata/_custom_type_script = "uid://5huc65ftr6x8"

@@ -1,14 +1,14 @@
 ~ start
 # The tent fades back in, but Shito is missing. 
 do GlobalVar.player.set_sprite("idle_down")
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 do wait(2.0)
 Solstice: Great, where is that thing now? 
 do GlobalVar.player.walk_to(Vector2(320,272))
-do! Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+do! Vfx.fade_in(1.0)
 do GlobalVar.player.walk_to(Vector2(320,560))
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 do GlobalVar.current_room.shito.teleport(Vector2(-875,293))
 do GlobalVar.current_room.shito.set_sprite("idle_up")
 do GlobalVar.player.walk_to(Vector2(-386,293))
@@ -40,11 +40,11 @@ SH-170: We'll soon be hit by asteroid pieces, beep-boop.
 Solstice: Uhh, congrats?  
 SH-170: We'll be able to harvest harder rocks from them and use them to make bricks, other than some more elements like indium, platinum, osmium, ruthenium, and rhodium. Beep-boop.  
 Solstice: Ohh, that's good then!  
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(0.7)
+do Vfx.fade_in(0.7)
 # The screen fades out, then in as some pieces of asteroid fall like shooting stars in the background with appropriate sounds, and some pieces start appearing on the ground.  
 do GlobalVar.current_room.shito.teleport(Vector2(363,312))
 do GlobalVar.player.teleport(Vector2(279,312))
-do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(0.7)
+do Vfx.fade_out(0.7)
 do GlobalVar.player.set_sprite("idle_right")
 Solstice: Let's crack one open.  
 
@@ -67,6 +67,12 @@ Solstice: Isn't this thing small?
 SH-170: The fabric lining on the inside allows the bag to manipulate and stretch space, so it can fit more items than it appears, beep-boop.  
 Solstice: So basically, you're Doraemon and this is his pocket, gotcha.  
 set GlobalVar.plot = 2.3
+# [[Home, kinda 3]]  
+
+#=> END
+#n it appears, beep-boop.  
+#Solstice: So basically, you're Doraemon and this is his pocket, gotcha.  
+#set GlobalVar.plot = 2.3
 # [[Home, kinda 3]]  
 
 => END

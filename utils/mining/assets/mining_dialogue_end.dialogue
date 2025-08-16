@@ -1,0 +1,3 @@
+~ start
+: {{GlobalVar.mined_gems_text}}
+=> END

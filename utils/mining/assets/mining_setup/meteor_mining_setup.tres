@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MiningSetup" load_steps=10 format=3 uid="uid://ctr0jnnk7fok4"]
+
+[ext_resource type="Script" uid="uid://5huc65ftr6x8" path="res://utils/mining/assets/mining_gems/mining_gem.gd" id="1_0224b"]
+[ext_resource type="Resource" uid="uid://da5tbxi127k7f" path="res://utils/mining/assets/mining_gems/big_gems/quartz.tres" id="2_pshy2"]
+[ext_resource type="Resource" uid="uid://ugi7i0evcrkl" path="res://utils/mining/assets/mining_gems/big_gems/ilmenite_titanium.tres" id="3_um0bo"]
+[ext_resource type="Script" uid="uid://2xgfqbtnnbpp" path="res://utils/mining/assets/mining_setup/mining_setup.gd" id="4_1nexi"]
+[ext_resource type="Resource" uid="uid://bj0tpv7x7bnfv" path="res://utils/mining/assets/mining_gems/big_gems/indium.tres" id="4_6b6vw"]
+[ext_resource type="Resource" uid="uid://ce3pk3pdvq61n" path="res://utils/mining/assets/mining_gems/big_gems/osmium.tres" id="5_kgo1l"]
+[ext_resource type="Resource" uid="uid://burj3k8r83vs8" path="res://utils/mining/assets/mining_gems/big_gems/platinum.tres" id="6_r20f2"]
+[ext_resource type="Resource" uid="uid://cfrl3ogy8mbqd" path="res://utils/mining/assets/mining_gems/big_gems/rhodium.tres" id="7_8kqtj"]
+[ext_resource type="Resource" uid="uid://q3a7408j4bsp" path="res://utils/mining/assets/mining_gems/big_gems/rhutenium.tres" id="8_kwei0"]
+
+[resource]
+script = ExtResource("4_1nexi")
+mining_gems = Array[ExtResource("1_0224b")]([ExtResource("2_pshy2"), ExtResource("3_um0bo"), ExtResource("4_6b6vw"), ExtResource("5_kgo1l"), ExtResource("6_r20f2"), ExtResource("7_8kqtj"), ExtResource("8_kwei0")])
+metadata/_custom_type_script = "uid://2xgfqbtnnbpp"
