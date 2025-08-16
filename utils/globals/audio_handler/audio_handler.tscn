@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://crh2k4ym5leo4"]
+[gd_scene load_steps=12 format=3 uid="uid://crh2k4ym5leo4"]
 
 [ext_resource type="Script" uid="uid://cu6p0gpk2s83m" path="res://utils/globals/audio_handler/audio_handler.gd" id="1_ne7en"]
+[ext_resource type="AudioStream" uid="uid://cceye4giwlhtt" path="res://assets/audio/sfx/mining/mine_1.wav" id="2_8ttts"]
+[ext_resource type="AudioStream" uid="uid://ce12qi10ix3a6" path="res://assets/audio/sfx/mining/mine_2.wav" id="3_1ooh8"]
+[ext_resource type="AudioStream" uid="uid://da1jcxnk7kax4" path="res://assets/audio/sfx/mining/mine_3.wav" id="4_wq5ea"]
+[ext_resource type="AudioStream" uid="uid://buppl6dsfar6a" path="res://assets/audio/sfx/mining/mine_4.wav" id="5_wr65s"]
+[ext_resource type="AudioStream" uid="uid://jj6kcca5v0gm" path="res://assets/audio/sfx/mining/mine_5.wav" id="6_alitj"]
+[ext_resource type="AudioStream" uid="uid://rowmqi5k5vl" path="res://assets/audio/music/moonhouse_loop.wav" id="7_1ooh8"]
+[ext_resource type="Script" uid="uid://c4gcp7j6phor7" path="res://utils/audio/audio_stream_player_linear_volume.gd" id="8_wq5ea"]
+[ext_resource type="AudioStream" uid="uid://q4ld1uamu6dl" path="res://assets/audio/music/moon_amb.wav" id="9_wr65s"]
+[ext_resource type="AudioStream" uid="uid://cspsp1du8qc2f" path="res://assets/audio/music/opening_amb.wav" id="10_alitj"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5puns"]
+streams_count = 5
+stream_0/stream = ExtResource("2_8ttts")
+stream_1/stream = ExtResource("3_1ooh8")
+stream_2/stream = ExtResource("4_wq5ea")
+stream_3/stream = ExtResource("5_wr65s")
+stream_4/stream = ExtResource("6_alitj")
 
 [node name="AudioHandler" type="Node"]
 script = ExtResource("1_ne7en")
+
+[node name="MiningSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_5puns")
+bus = &"Sfx"
+
+[node name="Moonhouse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1ooh8")
+bus = &"Music"
+script = ExtResource("8_wq5ea")
+loop_audio = true
+metadata/_custom_type_script = "uid://c4gcp7j6phor7"
+
+[node name="MoonAmb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_wr65s")
+script = ExtResource("8_wq5ea")
+loop_audio = true
+metadata/_custom_type_script = "uid://c4gcp7j6phor7"
+
+[node name="OpeningAmb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_alitj")
+script = ExtResource("8_wq5ea")
+loop_audio = true
+metadata/_custom_type_script = "uid://c4gcp7j6phor7"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btyonllpeycxt"]
+
+[ext_resource type="Script" uid="uid://c4gcp7j6phor7" path="res://utils/audio/audio_stream_player_linear_volume.gd" id="1_kv4y8"]
+
+[node name="AudioStreamPlayerLinearVolume" type="AudioStreamPlayer"]
+script = ExtResource("1_kv4y8")

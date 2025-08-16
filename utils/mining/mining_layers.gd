@@ -451,6 +451,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			finished_mining.emit()
 			return
 		
+		AudioHandler.mine.play()
 		#print("mining")
 		
 		match mining_mode:
