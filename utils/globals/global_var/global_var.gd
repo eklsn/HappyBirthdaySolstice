@@ -5,6 +5,7 @@ var room_manager : RoomManager
 var current_room : Room
 var plot = 0
 
+
 var save_data :Dictionary = {}
 
 
@@ -39,3 +40,9 @@ func play_home_kinda_2_meteor_minigame()->void:
 	
 	
 	
+
+var home_actually_finished : bool = false
+var home_actually_filler_counter : int = 0
+
+
+var still_hope_rocks_mined : int = 0

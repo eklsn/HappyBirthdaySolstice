@@ -434,6 +434,8 @@ func show_dialogue_balloon(resource: DialogueResource, title: String = "", extra
 
 ## Show a given balloon scene
 func show_dialogue_balloon_scene(balloon_scene, resource: DialogueResource, title: String = "", extra_game_states: Array = []) -> Node:
+	if not resource:
+		return
 	if balloon_scene is String:
 		balloon_scene = load(balloon_scene)
 	if balloon_scene is PackedScene:

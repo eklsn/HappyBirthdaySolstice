@@ -1,4 +1,6 @@
 ~ start
+do wait(0.5)
+#do Vfx.fade_out(0.7)
 SH-170: You got all the materials, beep-boop.  
 
 Solstice: Hell yeah! So, how much time will it take?  

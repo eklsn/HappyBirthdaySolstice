@@ -38,10 +38,12 @@ Solstice: Huh? How many?
 SH-170: The pickups require a lot of rare earths, and so does the amplifier, I have to create many of them from materials that are already rare in asteroids, with very low efficiency, beep-boop.  
 Solstice: Just print me a receipt like you did before.  
 
-# The receipt reads: 120 quartz crystals, 45 ilmenite, 30 indium, 15 platinum, 30 osmium, 60 ruthenium, 24 rhodium, 3g yttrium from lunar rock fragments, 1kg asteroid fragments.  
+
 do GlobalVar.player.walk_to(GlobalVar.current_room.shito.position+Vector2(30,0))
 do GlobalVar.player.walk_to(Vector2(522,190))
 do GlobalVar.player.set_sprite("idle_left")
+: The receipt reads: 120 quartz crystals, 45 ilmenite, 30 indium, 15 platinum, 30 osmium, 60 ruthenium, 24 rhodium.  
+
 Solstice: ... That's a lot.  
 SH-170: Sol, I also wanted to tell you something, beep-boop.  
 Solstice: Sure, what is it?  
@@ -52,12 +54,15 @@ SH-170: So... here's the receipt with all that's needed, beep-boop.
 do GlobalVar.player.walk_to(GlobalVar.current_room.shito.position+Vector2(30,0))
 do GlobalVar.player.walk_to(Vector2(522,190))
 do GlobalVar.player.set_sprite("idle_left")
+: The receipt reads: 120 quartz crystals, 45 ilmenite, 30 indium, 15 platinum, 30 osmium, 60 ruthenium, 24 rhodium.  
 Solstice: ... Are you kidding me? How is it even possible that a rocket requires the same insane amount of materials as a guitar set?!  
 SH-170: That's just how it is, beep-boop.  
 Solstice: Well, I don't want to go back to Earth, and I will get a guitar instead.  
 SH-170: ... I understand, beep-boop.  
 do Vfx.fade_in(0.7)
 # [[Still hope 2]]  
-
+set GlobalVar.plot = 4.95
+do SwitchRoomEffect.dialogue_switch_room("uid://bmpn8eoohc1t5",SwitchRoomEffect.RoomLocation.EAST)
+do Vfx.fade_out(0.7)
 
 => END

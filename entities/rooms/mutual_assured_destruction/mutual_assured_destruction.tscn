@@ -280,6 +280,10 @@ room_entrance_loc = 2
 [node name="RoomEntrance3" parent="RoomEntranceLocations" instance=ExtResource("3_jvjc0")]
 position = Vector2(-387, 273)
 
+[node name="RoomEntrance4" parent="RoomEntranceLocations" instance=ExtResource("3_jvjc0")]
+position = Vector2(319, 282)
+room_entrance_loc = 1
+
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = 233.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctqh8jqt4x25r"]
+[gd_scene load_steps=8 format=3 uid="uid://ctqh8jqt4x25r"]
 
 [ext_resource type="Script" uid="uid://djtd1nhynkpmg" path="res://entities/player/player.gd" id="1_4dohe"]
 [ext_resource type="PackedScene" uid="uid://bgk82wh11djgk" path="res://ui/menus/main_menu/main_menu.tscn" id="2_sglur"]
 [ext_resource type="SpriteFrames" uid="uid://bgsgl18vedeks" path="res://entities/player/assets/solstice/overworld/solstice_yellow/solstice_yellow_sprite_frames.tres" id="3_iys33"]
 [ext_resource type="Script" uid="uid://cfuamfg55pqg0" path="res://entities/player/camera_2d.gd" id="4_bls4j"]
+[ext_resource type="Script" uid="uid://gj56r3l1mbx8" path="res://entities/player/animated_sprite_2d.gd" id="4_fkugw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4dohe"]
 radius = 4.5
@@ -29,6 +30,7 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_iys33")
 animation = &"sitting_back"
 autoplay = "idle_down"
+script = ExtResource("4_fkugw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_bls4j")

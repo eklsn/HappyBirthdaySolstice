@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bdvl3rkeam20e"
+path="res://.godot/imported/still_home_filler.dialogue-e60c6314bfdb462d572a1cd0a1344a06.tres"
+
+[deps]
+
+source_file="res://dialogues/still_home_filler.dialogue"
+dest_files=["res://.godot/imported/still_home_filler.dialogue-e60c6314bfdb462d572a1cd0a1344a06.tres"]
+
+[params]
+
+defaults=true

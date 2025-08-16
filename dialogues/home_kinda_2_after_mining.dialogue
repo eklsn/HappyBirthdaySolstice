@@ -19,7 +19,7 @@ Solstice: Isn't this thing small?
 SH-170: The fabric lining on the inside allows the bag to manipulate and stretch space, so it can fit more items than it appears, beep-boop.  
 Solstice: So basically, you're Doraemon and this is his pocket, gotcha.  
 set GlobalVar.plot = 2.3
-
+do! GlobalVar.current_room.on_enter_room()
 
 # [[Home, kinda 3]]  
 

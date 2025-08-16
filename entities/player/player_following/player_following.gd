@@ -52,8 +52,9 @@ func _follow_player():
 	
 	# If we don't have enough history yet, follow the player directly
 	if position_history.size() <= HISTORY_STEPS_BACK:
+		pass
 		target_pos = target_player.global_position
-		target_speed = target_player.velocity.length() + 20
+		target_speed = target_player.velocity.length() + 10
 		last_dir = target_player.last_dir
 	else:
 		# Use historical position for delayed following

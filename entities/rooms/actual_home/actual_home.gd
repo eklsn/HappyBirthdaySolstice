@@ -23,7 +23,7 @@ func plotcheck() -> void:
 			GlobalVar.player.get_node("AnimatedSprite2D").sprite_frames = preload("uid://du46w21f7iwoh")
 			get_node("RoomEntranceLocations/RoomEntrance2").position = Vector2(522,190)
 	pass
-			
+	
 
 func on_enter_room()->void:
 	plotcheck()
@@ -35,12 +35,24 @@ func on_enter_room()->void:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, HOME_ACTUALLY_2)
 	if GlobalVar.plot == 5.0:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, STILL_HOPE_1)
+		print("ending 5.0")
 	if GlobalVar.plot == 5.1:
-		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, STILL_HOPE_2)
-		await DialogueManager.dialogue_ended
+		pass
+		#DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, STILL_HOPE_2)
+		#await DialogueManager.dialogue_ended
+		#DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_1)
+	
+	if GlobalVar.plot == 6.0:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_1)
+		
+	
 	if GlobalVar.plot == 6.3:
+		#print("starting birthday")
+		#await Vfx.fade_out()
+		await get_tree().process_frame
+		#if not DialogueManager.dialogue_playing:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_4)
+		
 		await DialogueManager.dialogue_ended
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, EPILOGUE)
 	await DialogueManager.dialogue_ended

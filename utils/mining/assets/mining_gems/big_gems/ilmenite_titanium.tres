@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_m87eq")
-gem_name = &"Ilmenite/titanium"
+gem_name = &"Ilmenite"
 gem_value = 0
 gem_shape_tile_map_pos_dict = Dictionary[Vector2i, Vector2i]({
 Vector2i(0, 0): Vector2i(0, 2),

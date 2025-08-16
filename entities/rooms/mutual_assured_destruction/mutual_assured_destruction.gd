@@ -30,7 +30,7 @@ const MINING_TILE_MAP_LAYER_METEORS : PackedScene = preload("uid://b601xibt52wdq
 @onready var shito_sit_position: Marker2D = $ShitoSitPosition
 @onready var dialogue_timer: Timer = $DialogueTimer
 
-const DIALOGUE_FILLER_WAIT_TIME : float = 4.0/10
+const DIALOGUE_FILLER_WAIT_TIME : float = 6.0
 
 var dialogue_counter : int = 0
 
@@ -94,7 +94,7 @@ func plotcheck() -> void:
 const HOME_KINDA_1_MINING_END :DialogueResource= preload("uid://db14hrgavernl")
 
 func on_enter_room()->void:
-	
+	#print("entered room" + " current plot:  " + str(GlobalVar.plot))
 	plotcheck()
 	if DialogueManager.dialogue_playing:
 		await DialogueManager.dialogue_ended
@@ -111,21 +111,75 @@ func on_enter_room()->void:
 		#dialogue_counter=5
 		dialogue_timer.start(DIALOGUE_FILLER_WAIT_TIME)
 	elif GlobalVar.plot == 2.05:
-		print("reached new mining")
 		GlobalVar.needed_gems.append_array([QUARTZ,QUARTZ,QUARTZ,QUARTZ,ILMENITE_TITANIUM])
 		GlobalVar.player.can_interact = true
 		await GlobalVar.gems_mined
 		GlobalVar.player.can_interact = false
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, HOME_KINDA_1_MINING_END)
 		
-		await DialogueManager.dialogue_ended
-		on_enter_room()
-		return
+		
+		
+		
+		
 		
 	if GlobalVar.plot == 2.3:
 		current_dialogue = HOME_KINDA_3
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_dialogue)
 		await DialogueManager.dialogue_ended
+		mining_layer.queue_free()
+		await get_tree().process_frame
+		mining_layer = MINING_TILE_MAP_LAYER_METEORS.instantiate()
+		add_child(mining_layer)
+		
+		for i in 25:
+			GlobalVar.needed_gems.append(QUARTZ)
+			
+			if i <10:
+				GlobalVar.needed_gems.append(ILMENITE_TITANIUM)
+			
+			if i<5:
+				GlobalVar.needed_gems.append(OSMIUM)
+				GlobalVar.needed_gems.append(RHUTENIUM)
+				
+			
+			if i<3:
+				GlobalVar.needed_gems.append(RHODIUM)
+				
+				GlobalVar.needed_gems.append(PLATINUM)
+				
+				
+			
+			
+		GlobalVar.player.can_interact = true
+		await GlobalVar.gems_mined
+		GlobalVar.player.can_interact = false
+		
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, load("uid://dsh7iyykcgstr"))
+		
+		
+		
+	
+	if GlobalVar.plot == 3.2:
+		mining_layer.queue_free()
+		await get_tree().process_frame
+		mining_layer = MINING_TILE_MAP_LAYER_METEORS.instantiate()
+		add_child(mining_layer)
+		
+		GlobalVar.needed_gems.append_array([QUARTZ,QUARTZ,QUARTZ])
+		
+		GlobalVar.needed_gems.append_array([ILMENITE_TITANIUM])
+		GlobalVar.needed_gems.append_array([RHODIUM])
+		GlobalVar.needed_gems.append_array([PLATINUM])
+		GlobalVar.player.can_interact = true
+		await GlobalVar.gems_mined
+		
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, load("uid://dg5ego65iqh2"))
+		GlobalVar.player.can_interact = false
+		
+		
+		
+	
+	
 	if GlobalVar.plot == 4:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, EVERY_ME_1)
 		await DialogueManager.dialogue_ended
@@ -133,10 +187,155 @@ func on_enter_room()->void:
 	if GlobalVar.plot == 4.3:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, EVERY_ME_3)
 		await DialogueManager.dialogue_ended
+		
+	
+	
+	if GlobalVar.plot == 4.95:
+		# 40 quartz crystals, 15 ilmenite, 10 indium, 5 platinum, 10 osmium, 20 ruthenium, 8 rhodium, 
+		
+		mining_layer.queue_free()
+		await get_tree().process_frame
+		mining_layer = MINING_TILE_MAP_LAYER_METEORS.instantiate()
+		add_child(mining_layer)
+		
+		
+		for i in 1: # NOTE set to 40
+			GlobalVar.needed_gems.append(QUARTZ)
+			
+			if i <15:
+				GlobalVar.needed_gems.append(ILMENITE_TITANIUM)
+			
+			if i <10:
+				GlobalVar.needed_gems.append(INDIUM)
+				GlobalVar.needed_gems.append(OSMIUM)
+			
+			if i <5:
+				GlobalVar.needed_gems.append(PLATINUM)
+			
+			if i <20:
+				GlobalVar.needed_gems.append(RHUTENIUM)
+				
+			
+			if i <8:
+				GlobalVar.needed_gems.append(RHODIUM)
+			
+		
+		
+		GlobalVar.player.can_interact = true
+		await GlobalVar.gems_mined
+		
+		
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, load("uid://da8vho6eten2l"))
+		GlobalVar.player.can_interact = false
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
 	if GlobalVar.plot == 6.2:
+		
+		
+		mining_layer.queue_free()
+		await get_tree().process_frame
+		mining_layer = MINING_TILE_MAP_LAYER_METEORS.instantiate()
+		add_child(mining_layer)
+		
+		for i in 1: # NOTE set to 40
+			GlobalVar.needed_gems.append(QUARTZ)
+			
+			if i <15:
+				GlobalVar.needed_gems.append(ILMENITE_TITANIUM)
+			
+			if i <10:
+				GlobalVar.needed_gems.append(INDIUM)
+				GlobalVar.needed_gems.append(OSMIUM)
+			
+			if i <5:
+				GlobalVar.needed_gems.append(PLATINUM)
+			
+			if i <20:
+				GlobalVar.needed_gems.append(RHUTENIUM)
+				
+			
+			if i <8:
+				GlobalVar.needed_gems.append(RHODIUM)
+		
+		
+		
+		GlobalVar.player.can_interact = true
+		await GlobalVar.gems_mined
+		
+		
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_2)
+		
+		
 		await DialogueManager.dialogue_ended
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_3)
+		#print("playing bday 3")
+		#await DialogueManager.dialogue_ended
+		#print("finished bday 3")
+		return
+	
+	if GlobalVar.plot == 6.25:
+		await get_tree().process_frame
+		
+		mining_layer.queue_free()
+		await get_tree().process_frame
+		mining_layer = MINING_TILE_MAP_LAYER_METEORS.instantiate()
+		add_child(mining_layer)
+		
+		
+		for i in 1: # NOTE set to 40
+			GlobalVar.needed_gems.append(QUARTZ)
+			
+			if i <15:
+				GlobalVar.needed_gems.append(ILMENITE_TITANIUM)
+			
+			if i <10:
+				GlobalVar.needed_gems.append(INDIUM)
+				GlobalVar.needed_gems.append(OSMIUM)
+			
+			if i <5:
+				GlobalVar.needed_gems.append(PLATINUM)
+			
+			if i <20:
+				GlobalVar.needed_gems.append(RHUTENIUM)
+				
+			
+			if i <8:
+				GlobalVar.needed_gems.append(RHODIUM)
+		
+		
+		
+		GlobalVar.player.can_interact = true
+		await GlobalVar.gems_mined
+		
+		
+		
+		
+		
+		GlobalVar.plot = 6.3
+		await Vfx.fade_in(0.7)
+		#print("switching room")
+		SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+		
+		
 
 
 

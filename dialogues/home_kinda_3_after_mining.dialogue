@@ -1,0 +1,17 @@
+~ start
+do Vfx.fade_in(0.7)
+# When all the materials are collected, Shito will say it's time to go back to Shito, and they walk back to the tent automatically.  
+set GlobalVar.plot = 3.0
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://cuje73oplrwyo").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+SH-170: Good job, nothing is missing. You must be tired, beep-boop.  
+Solstice: Indeed, I really want to take some rest.  
+SH-170: You can sleep while I go build the house, beep-boop.  
+Solstice: Alright, see you.  
+SH-170: Good rest, Sol. Beep-boop.
+
+# The screen fades to black, then back in.  
+
+# [[Home, actually 1]]  
+
+
+=> END

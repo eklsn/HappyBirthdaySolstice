@@ -31,6 +31,96 @@ func _ready() -> void:
 	
 	mining_gameplay.finished_mining.connect(on_finished_mining)
 	
+	on_mined()
+	
+	
+	
+	if not GlobalVar.plot ==  4.95 || GlobalVar.still_hope_rocks_mined > 5:
+		return
+	
+	GlobalVar.still_hope_rocks_mined+=1
+	
+	if GlobalVar.still_hope_rocks_mined == 5:
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, load("uid://bdvl3rkeam20e"))
+		await DialogueManager.dialogue_ended
+		
+	
+	
+	#mining_gameplay.mined.connect(on_mined)
+
+
+
+
+
+#Solstice: To think that I had to get to the Moon to break free of the expectations that humans forced on me. I'm even having a hard time realizing how much I've been conditioned by them.  
+#do wait(1.0)
+#Solstice: Just because they have the label of "mother" and "father" on them, they think they can plan the entire life of their children and constrain them into a shape that doesn't belong to them. It's disgusting.  
+#do wait(1.0)
+#Solstice: "Go study electronic engineering, Solstice, you'll make a lot of money!" Not only did I not make much money in the first place, but now my savings got nuked, too. What a waste of time.  
+#do wait(1.0)
+#Solstice: They always made everything sound like a suggestion, but it was just their way to order me to do what they wanted. You could see their personalities twist and become unbearable when things didn't go as they wanted.  
+#do wait(1.0)
+#Solstice: My human parents used me as a toy, and whoever was tasked with overseeing me from heaven just abandoned me, too. Wish they could throw a nuke up there too. They would survive, sadly.  
+#do wait(1.0)
+#Solstice: I just wanted to make music and enjoy playing with other people like me.  
+
+# When she has everything, one last line of dialogue triggers.  
+#do wait(3.0)
+#Solstice: I'm gonna turn things around.  
+#do wait(5.0)
+
+const HOME_ACTUALLY_FILLER_1 : DialogueResource = preload("uid://ciy80re3jf82n")
+const HOME_ACTUALLY_FILLER_2 : DialogueResource = preload("uid://caqlu0mr4ghg3")
+const HOME_ACTUALLY_FILLER_3 : DialogueResource = preload("uid://c8343w8j046s4")
+const HOME_ACTUALLY_FILLER_4  : DialogueResource= preload("uid://dmqd54v8w8eo6")
+const HOME_ACTUALLY_FILLER_5  : DialogueResource= preload("uid://beipt0ya0hnl7")
+const HOME_ACTUALLY_FILLER_6  : DialogueResource= preload("uid://dd5l3ksmtcxhi")
+const HOME_ACTUALLY_FILLER_FINAL  : DialogueResource= preload("uid://bro006osbydf1")
+
+func on_mined()->void:
+	
+	if not GlobalVar.plot == 3.2:
+		return
+	
+	if GlobalVar.home_actually_finished:
+		return
+		
+		
+	var filers : Array[DialogueResource] = [
+		HOME_ACTUALLY_FILLER_1,
+		HOME_ACTUALLY_FILLER_2,
+		HOME_ACTUALLY_FILLER_3,
+		HOME_ACTUALLY_FILLER_4,
+		HOME_ACTUALLY_FILLER_5,
+		HOME_ACTUALLY_FILLER_6,
+		
+	]
+	
+	if GlobalVar.home_actually_filler_counter > 5:
+		#GlobalVar.home_actually_finished = true
+		#DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX,HOME_ACTUALLY_FILLER_FINAL)
+		
+		return
+	
+	
+	
+	
+	
+	DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, filers[GlobalVar.home_actually_filler_counter])
+	
+	
+	
+	
+	
+	GlobalVar.home_actually_filler_counter+=1
+	
+	
+	
+	
+
+
+
+
 
 
 
@@ -84,6 +174,20 @@ func on_finished_mining()->void:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, MINING_DIALOGUE_END)
 		await DialogueManager.dialogue_ended
 		mined_enough = true
+		
+		
+		
+	
+	if GlobalVar.plot == 3.2 && not GlobalVar.home_actually_finished:
+		
+		
+		if GlobalVar.home_actually_filler_counter > 5:
+			GlobalVar.home_actually_finished = true
+			DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX,HOME_ACTUALLY_FILLER_FINAL)
+			await DialogueManager.dialogue_ended
+			mined_enough = true
+		else:
+			mined_enough = false
 		
 		
 		

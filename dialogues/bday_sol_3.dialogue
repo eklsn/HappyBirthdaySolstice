@@ -21,7 +21,8 @@ Sophie: I hope you'll find someone else, too, but I promise I'll always be here 
 # Flashback ends.  
 do wait(2.0)
 do Vfx.fade_in(1.5)
-set GlobalVar.plot = 6.3
+#set GlobalVar.plot = 6.3
+set GlobalVar.plot = -1:
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 do GlobalVar.player.set_sprite("sitting_back")
 do GlobalVar.current_room.shito.teleport(GlobalVar.current_room.shito_sit_position.global_position)
@@ -41,8 +42,12 @@ SH-170: That, too. I'm unsure about the origin of those memories, but I'm increa
 SH-170: I found a file named "printme.txt", but it's encrypted. Let me know if you can think of a password, beep-boop.  
 
 Solstice: That's so weird... I'll think about it.
-set GlobalVar.plot = 6.3
-do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do Vfx.fade_out(0.5)
+set GlobalVar.plot = 6.25:
+#do! GlobalVar.current_room.on_enter_room()
+
+#set GlobalVar.plot = 6.3
+#do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 # Player walks to the mining zone and gathers the last third of the resources:  
 # 40 quartz crystals, 15 ilmenite, 10 indium, 5 platinum, 10 osmium, 20 ruthenium, 8 rhodium, 1g yttrium from lunar rock fragments, 350g asteroid fragments.  
 

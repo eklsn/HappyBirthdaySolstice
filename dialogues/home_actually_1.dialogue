@@ -78,6 +78,8 @@ Solstice: Shito, [do GlobalVar.player.set_sprite("idle_down")] I have an order o
 do Vfx.fade_in(0.7)
 # The screen fades to black, and it fades back in with them looking for materials, with the receipt on screen.  
 set GlobalVar.plot = 3.2
+do SwitchRoomEffect.dialogue_switch_room("uid://bmpn8eoohc1t5",SwitchRoomEffect.RoomLocation.WEST)
+do Vfx.fade_out(0.7)
 # [[Home, actually 2]]  
 
 => END

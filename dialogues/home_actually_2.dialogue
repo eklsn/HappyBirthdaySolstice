@@ -3,23 +3,25 @@
 
 # Between a rock and another, some dialogues will trigger, telling some of Solstice's backstory. An easy way to make sure to have all the dialogues before completing the mining is to generate the last item after all the dialogues have been told.  
 
-Solstice: To think that I had to get to the Moon to break free of the expectations that humans forced on me. I'm even having a hard time realizing how much I've been conditioned by them.  
-do wait(1.0)
-Solstice: Just because they have the label of "mother" and "father" on them, they think they can plan the entire life of their children and constrain them into a shape that doesn't belong to them. It's disgusting.  
-do wait(1.0)
-Solstice: "Go study electronic engineering, Solstice, you'll make a lot of money!" Not only did I not make much money in the first place, but now my savings got nuked, too. What a waste of time.  
-do wait(1.0)
-Solstice: They always made everything sound like a suggestion, but it was just their way to order me to do what they wanted. You could see their personalities twist and become unbearable when things didn't go as they wanted.  
-do wait(1.0)
-Solstice: My human parents used me as a toy, and whoever was tasked with overseeing me from heaven just abandoned me, too. Wish they could throw a nuke up there too. They would survive, sadly.  
-do wait(1.0)
-Solstice: I just wanted to make music and enjoy playing with other people like me.  
+#Solstice: To think that I had to get to the Moon to break free of the expectations that humans forced on me. I'm even having a hard time realizing how much I've been conditioned by them.  
+#do wait(1.0)
+#Solstice: Just because they have the label of "mother" and "father" on them, they think they can plan the entire life of their children and constrain them into a shape that doesn't belong to them. It's disgusting.  
+#do wait(1.0)
+#Solstice: "Go study electronic engineering, Solstice, you'll make a lot of money!" Not only did I not make much money in the first place, but now my savings got nuked, too. What a waste of time.  
+#do wait(1.0)
+#Solstice: They always made everything sound like a suggestion, but it was just their way to order me to do what they wanted. You could see their personalities twist and become unbearable when things didn't go as they wanted.  
+#do wait(1.0)
+#Solstice: My human parents used me as a toy, and whoever was tasked with overseeing me from heaven just abandoned me, too. Wish they could throw a nuke up there too. They would survive, sadly.  
+#do wait(1.0)
+#Solstice: I just wanted to make music and enjoy playing with other people like me.  
 
 # When she has everything, one last line of dialogue triggers.  
-do wait(3.0)
-Solstice: I'm gonna turn things around.  
-do wait(5.0)
+#do wait(3.0)
+#Solstice: I'm gonna turn things around.  
+#do wait(5.0)
 # They walk toward the home, and the camera then fades to black, without fading back in.  
+do Vfx.fade_in(0.7)
+do SwitchRoomEffect.dialogue_switch_room("uid://bokfkigaovrmp")
 Solstice: Ok, so...
 Solstice: This gray works for the top, then this blue for the shirt. Let me make a tiny change to the skirt... yes, this is it!  
 Solstice: Now, one last thing. Someone had to come from heaven from time to time to make me look older, but this is the one thing I can do to my appearance.  

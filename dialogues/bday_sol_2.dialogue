@@ -1,9 +1,14 @@
 ~ start
 # The player walks outside of the home to gather the second third of the resources:
 # 40 quartz crystals, 15 ilmenite, 10 indium, 5 platinum, 10 osmium, 20 ruthenium, 8 rhodium, 1g yttrium from lunar rock fragments, 350g asteroid fragments.
-
+do Vfx.fade_in(1.0)
+do GlobalVar.player.teleport(Vector2(278,204))
+do GlobalVar.player.set_sprite("sitting_back")
+do GlobalVar.current_room.shito.teleport(GlobalVar.current_room.shito_sit_position.global_position)
+do GlobalVar.current_room.shito.set_sprite("sitting_back")
+do Vfx.fade_out(0.5)
 # After gathering, they walk back to face Earth.  
-do wait(2.0)
+do wait(1.0)
 SH-170: Sol, mind if I ask you what made you passionate about music?  
 
 Solstice: Hmm, it's kind of a long story... when I arrived on Earth and my adoptive family got me from the orphanage, I kept feeling alone, so I spent a good amount of time listening to radio. I didn't have any real preference, but it was a good companion.  

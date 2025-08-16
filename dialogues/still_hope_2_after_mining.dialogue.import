@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://da8vho6eten2l"
+path="res://.godot/imported/still_hope_2_after_mining.dialogue-5598f5ad7285d494ee3ddca1d5e7e2ce.tres"
+
+[deps]
+
+source_file="res://dialogues/still_hope_2_after_mining.dialogue"
+dest_files=["res://.godot/imported/still_hope_2_after_mining.dialogue-5598f5ad7285d494ee3ddca1d5e7e2ce.tres"]
+
+[params]
+
+defaults=true
