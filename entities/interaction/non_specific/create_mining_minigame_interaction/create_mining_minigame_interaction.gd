@@ -13,7 +13,7 @@ func interact()->void:
 	var mining_game : MiningMinigameSetup = load(MINING_GAME).instantiate()
 	mining_game.mining_setup = mining_setup
 	Vfx.add_child(mining_game)
-	
+	Vfx.move_child(mining_game,0)
 	holder.get_parent().queue_free()
 	
 	

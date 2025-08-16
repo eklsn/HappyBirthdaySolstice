@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bmpn8eoohc1t5"]
+[gd_scene load_steps=25 format=3 uid="uid://bmpn8eoohc1t5"]
 
 [ext_resource type="Script" uid="uid://brt4tlgyq3bqe" path="res://entities/rooms/mutual_assured_destruction/mutual_assured_destruction.gd" id="1_pip27"]
 [ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_d3fev"]
@@ -16,9 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://rxypwkti7fm1" path="res://entities/rooms/fire/fire3.png" id="13_50b1r"]
 [ext_resource type="Texture2D" uid="uid://lkb1qk5s78os" path="res://entities/rooms/fire/fire4.png" id="14_rofgv"]
 [ext_resource type="Texture2D" uid="uid://by2ptq3d3dche" path="res://entities/rooms/actual_home/assets/house.png" id="16_jpxvx"]
-[ext_resource type="PackedScene" uid="uid://dk4b1cd2w7sfh" path="res://utils/mining/assets/overworld/moon_rock.tscn" id="17_50b1r"]
-[ext_resource type="PackedScene" uid="uid://ctqh8jqt4x25r" path="res://entities/player/player.tscn" id="18_rofgv"]
-[ext_resource type="PackedScene" uid="uid://ro1he0okhemw" path="res://utils/mining/assets/overworld/meteor_fragment.tscn" id="19_ksw2m"]
+[ext_resource type="PackedScene" uid="uid://ds3hm0yxrqm4j" path="res://utils/mining/mining_layers/mining_tile_map_layer_moon_rocks.tscn" id="17_50b1r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpqdv"]
 texture = ExtResource("2_oq5u3")
@@ -135,13 +133,6 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }]
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rofgv"]
-scenes/1/scene = ExtResource("17_50b1r")
-scenes/2/scene = ExtResource("19_ksw2m")
-
-[sub_resource type="TileSet" id="TileSet_ksw2m"]
-sources/0 = SubResource("TileSetScenesCollectionSource_rofgv")
 
 [node name="MutualAssuredDestruction" type="Node2D"]
 y_sort_enabled = true
@@ -286,6 +277,9 @@ shape = SubResource("RectangleShape2D_e4dc0")
 position = Vector2(278, 204)
 room_entrance_loc = 2
 
+[node name="RoomEntrance3" parent="RoomEntranceLocations" instance=ExtResource("3_jvjc0")]
+position = Vector2(-387, 273)
+
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = 233.0
@@ -310,6 +304,7 @@ one_shot = true
 [node name="new3_flash" type="ColorRect" parent="."]
 unique_name_in_owner = true
 z_index = 100
+mouse_filter = 1
 color = Color(1, 1, 1, 0)
 script = SubResource("GDScript_e4dc0")
 
@@ -331,6 +326,7 @@ offset_left = -837.0
 offset_top = -157.0
 offset_right = 1013.0
 offset_bottom = 83.0
+mouse_filter = 1
 color = Color(0, 0, 0.160784, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="Parallax2D"]
@@ -557,6 +553,7 @@ z_index = -11
 offset_top = -53.0
 offset_right = 320.0
 offset_bottom = 186.0
+mouse_filter = 1
 color = Color(0.564706, 0.564706, 0.690196, 1)
 
 [node name="Tent" type="Sprite2D" parent="."]
@@ -578,15 +575,6 @@ position = Vector2(318, 182)
 scale = Vector2(2, 2)
 texture = ExtResource("16_jpxvx")
 
-[node name="Player" parent="." instance=ExtResource("18_rofgv")]
-position = Vector2(474, 288)
-
-[node name="MiningTileMapLayerMoonRocks" type="TileMapLayer" parent="."]
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("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")
-tile_set = SubResource("TileSet_ksw2m")
-
-[node name="MoonRock" parent="." instance=ExtResource("19_ksw2m")]
-position = Vector2(576, 280)
+[node name="MiningTileMapLayerMoonRocks" parent="." instance=ExtResource("17_50b1r")]
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

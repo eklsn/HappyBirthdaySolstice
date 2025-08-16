@@ -1,6 +1,18 @@
 extends Room
 
 const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
+
+
+var ILMENITE_TITANIUM :MiningGem= load("uid://ugi7i0evcrkl")
+var INDIUM :MiningGem= load("uid://bj0tpv7x7bnfv")
+var OSMIUM :MiningGem = load("uid://ce3pk3pdvq61n")
+var PLATINUM :MiningGem = load("uid://burj3k8r83vs8")
+var QUARTZ :MiningGem = load("uid://da5tbxi127k7f")
+var RHODIUM :MiningGem = load("uid://cfrl3ogy8mbqd")
+var RHUTENIUM :MiningGem = load("uid://q3a7408j4bsp")
+
+const NEW_BEGGINING_3_AFTER_MINING :DialogueResource  = preload("uid://lg8x7qf28q0v")
+
 #const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://cfc5t8u4mpmhq")
 #const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://musihwyk8sj4")
 #const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://blrsffblcjybk")
@@ -8,10 +20,9 @@ const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 var current_dialogue : Resource
 
 
-@onready var mining_tile_map_layer_moon_rocks: TileMapLayer = $MiningTileMapLayerMoonRocks
-
 const MINING_TILE_MAP_LAYER_METEORS : PackedScene = preload("uid://b601xibt52wdq")
 
+@onready var mining_layer: TileMapLayer = $MiningTileMapLayerMoonRocks
 
 
 @onready var shito: CharacterBody2D = %Shito
@@ -19,7 +30,7 @@ const MINING_TILE_MAP_LAYER_METEORS : PackedScene = preload("uid://b601xibt52wdq
 @onready var shito_sit_position: Marker2D = $ShitoSitPosition
 @onready var dialogue_timer: Timer = $DialogueTimer
 
-const DIALOGUE_FILLER_WAIT_TIME : float = 4.0
+const DIALOGUE_FILLER_WAIT_TIME : float = 4.0/10
 
 var dialogue_counter : int = 0
 
@@ -80,12 +91,16 @@ func plotcheck() -> void:
 			GlobalVar.plot = 5.1
 
 
+const HOME_KINDA_1_MINING_END :DialogueResource= preload("uid://db14hrgavernl")
 
 func on_enter_room()->void:
+	
 	plotcheck()
 	if DialogueManager.dialogue_playing:
 		await DialogueManager.dialogue_ended
+	
 	if GlobalVar.plot == 0:
+		GlobalVar.player.can_interact = false
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_dialogue)
 		await DialogueManager.dialogue_ended
 		var prev_pos : Vector2 = shito.global_position
@@ -95,6 +110,18 @@ func on_enter_room()->void:
 		shito.global_position = prev_pos
 		#dialogue_counter=5
 		dialogue_timer.start(DIALOGUE_FILLER_WAIT_TIME)
+	elif GlobalVar.plot == 2.05:
+		print("reached new mining")
+		GlobalVar.needed_gems.append_array([QUARTZ,QUARTZ,QUARTZ,QUARTZ,ILMENITE_TITANIUM])
+		GlobalVar.player.can_interact = true
+		await GlobalVar.gems_mined
+		GlobalVar.player.can_interact = false
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, HOME_KINDA_1_MINING_END)
+		
+		await DialogueManager.dialogue_ended
+		on_enter_room()
+		return
+		
 	if GlobalVar.plot == 2.3:
 		current_dialogue = HOME_KINDA_3
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_dialogue)
@@ -110,6 +137,9 @@ func on_enter_room()->void:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_2)
 		await DialogueManager.dialogue_ended
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_3)
+
+
+
 func _on_dialogue_timer_timeout() -> void:
 	var wait_time : float
 	if GlobalVar.plot < 1:
@@ -121,9 +151,43 @@ func _on_dialogue_timer_timeout() -> void:
 			0:
 				wait_time = 0.0
 				DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, NEW_BEGGINING_2)
+				await DialogueManager.dialogue_ended
+				GlobalVar.player.can_interact = true
+				
+				GlobalVar.needed_gems.append_array([QUARTZ,QUARTZ,QUARTZ])
+				await get_tree().process_frame
+				shito.follow_player = false
+				await GlobalVar.gems_mined
+				GlobalVar.player.can_interact = false
+				
+				dialogue_counter = 1
+				GlobalVar.plot = 1
+				_on_dialogue_timer_timeout()
+				shito.follow_player = true
+				
 			1:
 				wait_time = 0.0
 				DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, NEW_BEGGINING_3)
+				await DialogueManager.dialogue_ended
+				GlobalVar.player.can_interact = true
+				var needed_quartz : int = 13
+				for _i in needed_quartz:
+					
+					GlobalVar.needed_gems.append_array([QUARTZ])
+				
+				GlobalVar.needed_gems.append_array([ILMENITE_TITANIUM])
+				
+				await GlobalVar.gems_mined
+				
+				GlobalVar.player.can_interact = false
+				
+				
+				DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, NEW_BEGGINING_3_AFTER_MINING)
+				
+				
+				
+				
+				
 	
 	await DialogueManager.dialogue_ended
 	dialogue_counter+=1

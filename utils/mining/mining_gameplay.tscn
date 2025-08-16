@@ -92,6 +92,7 @@ offset_left = 608.0
 offset_top = 375.0
 offset_right = 625.0
 offset_bottom = 476.0
+focus_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_qeft8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_gs4in")
 value = 70.0

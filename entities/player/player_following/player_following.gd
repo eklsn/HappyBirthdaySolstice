@@ -41,7 +41,10 @@ func _physics_process(_delta: float):
 		_update_animation()
 
 func _follow_player():
-	if is_idle:
+	
+	
+	
+	if is_idle || not follow_player:
 		velocity = Vector2.ZERO
 		return
 	var target_pos: Vector2
@@ -50,7 +53,7 @@ func _follow_player():
 	# If we don't have enough history yet, follow the player directly
 	if position_history.size() <= HISTORY_STEPS_BACK:
 		target_pos = target_player.global_position
-		target_speed = target_player.velocity.length() + 50
+		target_speed = target_player.velocity.length() + 20
 		last_dir = target_player.last_dir
 	else:
 		# Use historical position for delayed following

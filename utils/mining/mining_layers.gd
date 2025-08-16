@@ -93,7 +93,7 @@ const PRECISE_DURABILITY_DAMAGE : int = 1
 const BROAD_DURABILITY_DAMAGE : int = 4
 
 
-const GEM_MIN_AMOUNT : int = 5
+const GEM_MIN_AMOUNT : int = 2
 const CHANCE_TO_PLACE_GEM_PER_TILE : float = 0.02
 
 const CHANCE_TO_PLACE_UNDESCTRUCTIBLE_TILE_SHAPE_PER_TILE : float = 0.09
@@ -139,6 +139,8 @@ var mining_mode : MiningModes:
 
 
 func _ready() -> void:
+	
+	
 	mining_bar.max_value = MINING_MAX_AMOUNT
 	mining_amount = MINING_MAX_AMOUNT
 	
@@ -149,7 +151,7 @@ func _ready() -> void:
 	switch_mining_mode_button.pressed.connect(on_switch_mining_mode)
 	find_gems_button.pressed.connect(func():finished_mining.emit() )
 	
-	#create_map() ## NOTE debug
+	create_map() ## NOTE debug
 
 
 func on_switch_mining_mode()->void:
@@ -195,12 +197,9 @@ func place_gems()->void:
 		for x : int in range(GRID_SIZE.x):
 			for y : int in range(GRID_SIZE.y):
 				if randf() < CHANCE_TO_PLACE_GEM_PER_TILE:
-					print(str(mining_gems))
 					
-					var random_gem = load("uid://ugi7i0evcrkl")
-					if random_gem is not MiningGem:
-						print(str(random_gem))
-						continue
+					var random_gem : MiningGem = mining_gems.pick_random()
+					
 					
 					_place_gem(Vector2i(x, y),random_gem)
 					#place_shape(Vector2i(x, y), UNDESTRUCTIBLE_TILE_CORDS, random_shape, undestructible_tiles)
@@ -451,6 +450,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if mining_amount <=0:
 			finished_mining.emit()
 			return
+		
+		#print("mining")
 		
 		match mining_mode:
 			MiningModes.PRECISE:

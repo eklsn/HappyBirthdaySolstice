@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://lg8x7qf28q0v"
+path="res://.godot/imported/new_beggining_3_after_mining.dialogue-cfeb6b8041483fa5389504b87dbb3c3b.tres"
+
+[deps]
+
+source_file="res://dialogues/new_beggining_3_after_mining.dialogue"
+dest_files=["res://.godot/imported/new_beggining_3_after_mining.dialogue-cfeb6b8041483fa5389504b87dbb3c3b.tres"]
+
+[params]
+
+defaults=true

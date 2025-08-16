@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://dtddfdb0fmn1s"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r67pb"]
 size = Vector2(13, 13)
 
-[node name="MoonRock" type="Node2D"]
+[node name="MeteorFragment" type="Node2D"]
 
 [node name="InteractOnPress" parent="." instance=ExtResource("1_xiyi8")]
 position = Vector2(0, 3)

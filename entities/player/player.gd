@@ -20,6 +20,7 @@ var menu : MainMenu
 var input_direction := Vector2.ZERO
 var is_running := false
 
+var can_interact : bool = true
 
 func _ready() -> void:
 	GlobalVar.player = self
@@ -50,6 +51,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func interact()->void:
+	if not can_interact:
+		return
 	var interactables : Array[Area2D] = interaction_area.get_overlapping_areas()
 	interactables = interactables.filter(func(area : Area2D)->bool: return area is AreaInteractOnPress)
 	

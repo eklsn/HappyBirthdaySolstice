@@ -7,5 +7,5 @@
 
 [resource]
 script = ExtResource("2_nv6nw")
-mining_gems = Array[ExtResource("1_qew4l")]([ExtResource("2_rmdhi"), ExtResource("3_b1r31"), ExtResource("2_rmdhi"), ExtResource("2_rmdhi"), ExtResource("2_rmdhi")])
+mining_gems = Array[ExtResource("1_qew4l")]([ExtResource("2_rmdhi"), ExtResource("3_b1r31"), ExtResource("2_rmdhi"), ExtResource("2_rmdhi"), ExtResource("2_rmdhi"), ExtResource("2_rmdhi")])
 metadata/_custom_type_script = "uid://2xgfqbtnnbpp"

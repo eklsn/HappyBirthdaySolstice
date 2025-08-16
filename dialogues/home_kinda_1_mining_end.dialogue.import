@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://db14hrgavernl"
+path="res://.godot/imported/home_kinda_1_mining_end.dialogue-e8d690a8e8a36b36f759f03e9ac1804b.tres"
+
+[deps]
+
+source_file="res://dialogues/home_kinda_1_mining_end.dialogue"
+dest_files=["res://.godot/imported/home_kinda_1_mining_end.dialogue-e8d690a8e8a36b36f759f03e9ac1804b.tres"]
+
+[params]
+
+defaults=true

@@ -3,15 +3,16 @@
 [ext_resource type="Script" uid="uid://bew6pkyksld3i" path="res://utils/globals/vfx/vfx.gd" id="1_xrf5y"]
 
 [node name="VFX" type="CanvasLayer"]
-layer = 2
+layer = 4
 script = ExtResource("1_xrf5y")
 
 [node name="BlackScreen" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 color = Color(0, 0, 0, 1)

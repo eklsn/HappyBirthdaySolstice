@@ -45,9 +45,9 @@ do wait(5.0)
 do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito.global_position - Vector2(50.0,0.0))
 #Shito buzzes and its eyes and screen flash, walking in circles three times. Then it stays still for 5 seconds, before giving the hammer to Sol.
 
-Solstice: The hammer's durability is limited, and hitting with more force damages it more, so when it gets too damaged, bring it to me with some quartz. I can use silica if you can't get any quartz, but I'll have to take a break again, beep-boop.
+#Solstice: The hammer's durability is limited, and hitting with more force damages it more, so when it gets too damaged, bring it to me with some quartz. I can use silica if you can't get any quartz, but I'll have to take a break again, beep-boop.
 
-Solstice: Fine, fine, do your thing while I break these rocks.
-
+#Solstice: Fine, fine, do your thing while I break these rocks.
+: Press "C" to open inventory
 #The player then walks to nearby rocks, and the mining minigame begins until enough quartz is collected.
 => END
