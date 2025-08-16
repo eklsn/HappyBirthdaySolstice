@@ -93,6 +93,9 @@ func plotcheck() -> void:
 
 const HOME_KINDA_1_MINING_END :DialogueResource= preload("uid://db14hrgavernl")
 
+const HOUSE_GEM_AMOUNT : int = 25 #25
+const ROCKET_GEM_AMOUNT : int = 15 #40
+
 func on_enter_room()->void:
 	#print("entered room" + " current plot:  " + str(GlobalVar.plot))
 	plotcheck()
@@ -131,7 +134,7 @@ func on_enter_room()->void:
 		mining_layer = MINING_TILE_MAP_LAYER_METEORS.instantiate()
 		add_child(mining_layer)
 		
-		for i in 25:
+		for i in HOUSE_GEM_AMOUNT:
 			GlobalVar.needed_gems.append(QUARTZ)
 			
 			if i <10:
@@ -199,7 +202,7 @@ func on_enter_room()->void:
 		add_child(mining_layer)
 		
 		
-		for i in 1: # NOTE set to 40
+		for i in ROCKET_GEM_AMOUNT: # NOTE set to 40
 			GlobalVar.needed_gems.append(QUARTZ)
 			
 			if i <15:
@@ -256,7 +259,7 @@ func on_enter_room()->void:
 		mining_layer = MINING_TILE_MAP_LAYER_METEORS.instantiate()
 		add_child(mining_layer)
 		
-		for i in 1: # NOTE set to 40
+		for i in ROCKET_GEM_AMOUNT: # NOTE set to 40
 			GlobalVar.needed_gems.append(QUARTZ)
 			
 			if i <15:
@@ -301,7 +304,7 @@ func on_enter_room()->void:
 		add_child(mining_layer)
 		
 		
-		for i in 1: # NOTE set to 40
+		for i in ROCKET_GEM_AMOUNT: # NOTE set to 40
 			GlobalVar.needed_gems.append(QUARTZ)
 			
 			if i <15:
