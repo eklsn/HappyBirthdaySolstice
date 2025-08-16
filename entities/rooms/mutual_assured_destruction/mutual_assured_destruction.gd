@@ -1,8 +1,9 @@
 extends Room
 
-#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
-const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://cfc5t8u4mpmhq")
+const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://xsjcuqwqpafb")
+#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://cfc5t8u4mpmhq")
 #const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://musihwyk8sj4")
+#const MUTUAL_ASSURED_DESTRUCTION :Resource = preload("uid://blrsffblcjybk")
 const MAIN_TEXTBOX = preload("uid://dllel4wxacax2")
 var current_dialogue : Resource
 
@@ -31,6 +32,10 @@ const EVERY_ME_1 : Resource = preload("uid://musihwyk8sj4")
 const EVERY_ME_2 : Resource = preload("uid://mxwgqrtred5l")
 const EVERY_ME_3 : Resource = preload("uid://cfc5t8u4mpmhq")
 
+const BDAY_SOL_2 : Resource = preload("uid://bydktk58t3yn0")
+const BDAY_SOL_3 : Resource = preload("uid://b4alfjwa4fp7")
+const BDAY_SOL_4 : Resource = preload("uid://crjaevbec63bh")
+const EPILOGUE : Resource = preload("uid://d2ahult5ql5be")
 var fillers : Array[Resource] = [
 	
 	NEW_BEGGINING_FILLER_1,
@@ -59,6 +64,7 @@ func plotcheck() -> void:
 			GlobalVar.player.position = Vector2(-386,203)
 		3.0:
 			get_node("Tent").visible = true
+			get_node("House").visible = true
 			get_node("RoomEntranceLocations").enabled = false
 			get_node("RoomEntranceLocations/RoomEntrance2").position = Vector2(-386,203)
 			GlobalVar.player.position = Vector2(-386,203)
@@ -90,8 +96,10 @@ func on_enter_room()->void:
 	if GlobalVar.plot == 4.3:
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, EVERY_ME_3)
 		await DialogueManager.dialogue_ended
-
-
+	if GlobalVar.plot == 6.2:
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_2)
+		await DialogueManager.dialogue_ended
+		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, BDAY_SOL_3)
 func _on_dialogue_timer_timeout() -> void:
 	var wait_time : float
 	if GlobalVar.plot < 1:

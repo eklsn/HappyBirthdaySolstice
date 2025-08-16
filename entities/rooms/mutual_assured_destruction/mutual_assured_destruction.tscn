@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bmpn8eoohc1t5"]
+[gd_scene load_steps=24 format=3 uid="uid://bmpn8eoohc1t5"]
 
 [ext_resource type="Script" uid="uid://brt4tlgyq3bqe" path="res://entities/rooms/mutual_assured_destruction/mutual_assured_destruction.gd" id="1_pip27"]
 [ext_resource type="PackedScene" uid="uid://dwelhfc1y7kn8" path="res://utils/scene_managing/room_manager/room_entrance_locations/room_entrance_locations.tscn" id="2_d3fev"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://driygse5jsdd8" path="res://entities/rooms/fire/fire2.png" id="12_jpxvx"]
 [ext_resource type="Texture2D" uid="uid://rxypwkti7fm1" path="res://entities/rooms/fire/fire3.png" id="13_50b1r"]
 [ext_resource type="Texture2D" uid="uid://lkb1qk5s78os" path="res://entities/rooms/fire/fire4.png" id="14_rofgv"]
+[ext_resource type="Texture2D" uid="uid://by2ptq3d3dche" path="res://entities/rooms/actual_home/assets/house.png" id="16_jpxvx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpqdv"]
 texture = ExtResource("2_oq5u3")
@@ -335,6 +336,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D7" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(44.5, -19.5)
 scale = Vector2(0.24, 0.24)
@@ -347,6 +349,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D8" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(44.5, -19.5)
 scale = Vector2(0.24, 0.24)
@@ -359,6 +362,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D9" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(67.5, -16.5)
 scale = Vector2(0.24, 0.24)
@@ -371,6 +375,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D10" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(28, -32.5)
 scale = Vector2(0.24, 0.24)
@@ -383,6 +388,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D11" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(256, -24.5)
 scale = Vector2(0.24, 0.24)
@@ -395,6 +401,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D12" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(256, -24.5)
 scale = Vector2(0.24, 0.24)
@@ -407,6 +414,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D13" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(256, -24.5)
 scale = Vector2(0.24, 0.24)
@@ -419,6 +427,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D14" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(308, -11)
 scale = Vector2(0.24, 0.24)
@@ -431,6 +440,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D15" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(254.5, -7)
 scale = Vector2(0.24, 0.24)
@@ -443,6 +453,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D16" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(254.5, -7)
 scale = Vector2(0.24, 0.24)
@@ -455,6 +466,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D2" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(106, -17.5)
 scale = Vector2(0.24, 0.24)
@@ -467,6 +479,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D3" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(141.5, -34)
 scale = Vector2(0.24, 0.24)
@@ -479,6 +492,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D4" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(208, -33)
 scale = Vector2(0.24, 0.24)
@@ -491,6 +505,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D5" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(225, -4)
 scale = Vector2(0.24, 0.24)
@@ -503,6 +518,7 @@ max_energy = 2.0
 max_scale = Vector2(1.2, 1.2)
 
 [node name="PointLight2D6" type="PointLight2D" parent="Parallax2D"]
+visible = false
 z_index = 14
 position = Vector2(264.5, -24)
 scale = Vector2(0.24, 0.24)
@@ -545,5 +561,11 @@ position = Vector2(276, 290)
 position = Vector2(361, 290)
 
 [node name="flashback" type="Node2D" parent="."]
+
+[node name="House" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(318, 182)
+scale = Vector2(2, 2)
+texture = ExtResource("16_jpxvx")
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]

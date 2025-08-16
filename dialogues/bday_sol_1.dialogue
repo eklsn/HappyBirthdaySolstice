@@ -2,16 +2,23 @@
 # The screen fades back in to the house.  
 
 # Shito walks to Sol as she wakes up.  
-
+do GlobalVar.current_room.shito.teleport(Vector2(349,550))
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(1.0)
+do GlobalVar.player.set_sprite("idle_down")
+do GlobalVar.current_room.shito.walk_to(Vector2(349,190))
+do GlobalVar.current_room.shito.set_sprite("idle_right")
 SH-170: Happy birthday, Solstice. Beep-boop.  
-
+do GlobalVar.player.set_sprite("idle_left")
+do GlobalVar.player.walk_to(GlobalVar.player.position-Vector2(60,0))
 Solstice: Huh? Oh, I lost the perception of time, is it the 21st of December? Thank you, though!  
 Solstice: Wait, how do you know about my human birthday?  
 
 SH-170: I don't know, it's just information I have. Maybe it's from government data, beep-boop.  
 
 Solstice: Oh, it makes sense, maybe you have some files about me in your database.  
-
+do GlobalVar.current_room.shito.walk_to(GlobalVar.player.position-Vector2(40,0))
+do GlobalVar.current_room.shito.walk_to(Vector2(349,190))
+do GlobalVar.current_room.shito.set_sprite("idle_right")
 SH-170: This is a present for you, I thought you might want to listen to some music, beep-boop.  
 
 Solstice: Whoa, it's been a while since I last saw a Discman! The album inside, too, you got the band right!  
@@ -28,7 +35,15 @@ SH-170: Do you miss her? Beep-boop.
 
 Solstice: ... Yeah, I think I do. I wonder if she's okay.  
 Solstice: Anyway, I think we should go get our resources for my stuff.  
-
+do wait(2.0)
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.5)
+set GlobalVar.plot = 6.2
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do GlobalVar.player.set_sprite("sitting_back")
+do GlobalVar.current_room.shito.teleport(GlobalVar.current_room.shito_sit_position.global_position)
+do GlobalVar.current_room.shito.set_sprite("sitting_back")
+do wait(0.5)
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(1.5)
 # [[Happy birthday, Solstice 2]]
 
 => END

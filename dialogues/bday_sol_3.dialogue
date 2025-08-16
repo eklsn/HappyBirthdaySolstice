@@ -1,6 +1,12 @@
 ~ start
 # Flashback scene on the roof:
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://dp700iwj4cdcf").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do GlobalVar.player.teleport(Vector2(1280,960))
+do GlobalVar.current_room.shito.teleport(Vector2(1280,960))
+do wait(1.0)
 
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(2.0)
 Sophie: Too bad that we have to go to different colleges, Sol, I would've loved to spend that time with you!  
 
 Solstice: Yeah, I'll go back to having no friends again...  
@@ -13,9 +19,18 @@ Sophie: That's the spirit! Still, I hope I'll get to stay by your side when you'
 Sophie: I hope you'll find someone else, too, but I promise I'll always be here for you!  
 
 # Flashback ends.  
-
+do wait(2.0)
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.5)
+set GlobalVar.plot = 6.3
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t5").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
+do GlobalVar.player.set_sprite("sitting_back")
+do GlobalVar.current_room.shito.teleport(GlobalVar.current_room.shito_sit_position.global_position)
+do GlobalVar.current_room.shito.set_sprite("sitting_back")
+do wait(0.5)
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_out(1.5)
+do wait(2.0)
 Solstice: I guess she didn't get to keep her promise... but well, I don't blame her, nothing we can do against nukes.  
-
+do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.5)
 # Player goes outside. Shito is waiting.  
 
 SH-170: Good morning, Sol. Beep-boop.  
@@ -25,8 +40,9 @@ Solstice: Hey, Shito. Charging your reactor or whatever?
 SH-170: That, too. I'm unsure about the origin of those memories, but I'm increasingly confident that Sophie may be involved in my development.  
 SH-170: I found a file named "printme.txt", but it's encrypted. Let me know if you can think of a password, beep-boop.  
 
-Solstice: That's so weird... I'll think about it.  
-
+Solstice: That's so weird... I'll think about it.
+set GlobalVar.plot = 6.3
+do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bokfkigaovrmp").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
 # Player walks to the mining zone and gathers the last third of the resources:  
 # 40 quartz crystals, 15 ilmenite, 10 indium, 5 platinum, 10 osmium, 20 ruthenium, 8 rhodium, 1g yttrium from lunar rock fragments, 350g asteroid fragments.  
 

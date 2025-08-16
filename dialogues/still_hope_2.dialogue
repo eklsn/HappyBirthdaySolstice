@@ -51,6 +51,10 @@ Solstice: Alright, screw you for being so tactless, but also, thank you, Shito. 
 
 SH-170: I can accept this much, beep-boop.  
 do Vfx.get_vfx("uid://dsvfi24mts60i").fade_in(1.0)
+set GlobalVar.plot = 6.0
+do GlobalVar.player.teleport(Vector2(569,183))
+do GlobalVar.player.set_sprite("idle_down")
+do wait(1.0)
 # The screen fades to black.  
 
 # [[Happy birthday, Solstice 1]]  

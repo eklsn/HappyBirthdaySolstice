@@ -152,6 +152,7 @@ position = Vector2(0.25, 12.75)
 shape = SubResource("RectangleShape2D_fpkie")
 
 [node name="Bed" type="Sprite2D" parent="."]
+z_index = -30
 position = Vector2(568, 177)
 scale = Vector2(2, 2)
 texture = ExtResource("10_box52")
@@ -272,6 +273,6 @@ position = Vector2(32, 20.5)
 shape = SubResource("RectangleShape2D_n5yms")
 
 [node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(349, 502)
+position = Vector2(569, 183)
 
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
