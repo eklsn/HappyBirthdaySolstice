@@ -26,7 +26,7 @@ func _ready() -> void:
 	GlobalVar.player = self
 	DialogueManager.dialogue_started.connect(func(_resource: DialogueResource): set_idle(true))
 	DialogueManager.dialogue_ended.connect(func(_resource: DialogueResource): set_idle(false))
-
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Menu handling

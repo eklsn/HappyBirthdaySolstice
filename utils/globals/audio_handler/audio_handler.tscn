@@ -24,6 +24,7 @@ script = ExtResource("1_ne7en")
 
 [node name="MiningSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_5puns")
+volume_db = -3.0
 bus = &"Sfx"
 
 [node name="Moonhouse" type="AudioStreamPlayer" parent="."]

@@ -4,7 +4,7 @@ var player : Player
 var room_manager : RoomManager
 var current_room : Room
 var plot = 0
-
+var change_outfit : bool = false
 
 var save_data :Dictionary = {}
 

@@ -2,6 +2,7 @@
 # The screen fades back in to the house.  
 
 # Shito walks to Sol as she wakes up.  
+do! AudioHandler.lerp_from_none_to_max(AudioHandler.moonhouse)
 do GlobalVar.current_room.shito.teleport(Vector2(349,550))
 do Vfx.fade_out(1.0)
 do GlobalVar.player.set_sprite("idle_down")
@@ -45,5 +46,6 @@ do GlobalVar.current_room.shito.set_sprite("sitting_back")
 do wait(0.5)
 do Vfx.fade_out(1.5)
 # [[Happy birthday, Solstice 2]]
+do! AudioHandler.lerp_to_none(AudioHandler.moonhouse)
 
 => END

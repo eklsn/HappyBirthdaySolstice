@@ -14,10 +14,10 @@ const VERY_SHORT_LERP_TIME := 1.0
 
 
 func _ready() -> void:
+	pass
+	#AudioHandler.lerp_to_none(AudioHandler.moonhouse)
 	
-	AudioHandler.lerp_to_none(AudioHandler.opening_amb)
-	
-	AudioHandler.lerp_from_none_to_max(AudioHandler.opening_amb)
+	#AudioHandler.lerp_from_none_to_max(AudioHandler.moonhouse)
 	
 	
 
@@ -38,6 +38,9 @@ func lerp_to_specific_volume(sound: AudioStreamPlayerLinearVolume, specific_volu
 		sound.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(sound, "volume_level",specific_volume_level,lerp_time)
+	
+	
+	
 
 func lerp_to_specific_volume_mult(sound: AudioStreamPlayerLinearVolume, specific_volume_mult: float, lerp_time: float = VERY_SHORT_LERP_TIME) ->void:
 	var tween = get_tree().create_tween()
@@ -52,12 +55,18 @@ func lerp_to_none(sound: AudioStreamPlayerLinearVolume) ->void:
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 	tween.tween_property(sound, "volume_level",0.001,VERY_SHORT_LERP_TIME)
 	await tween.finished
+	
+	if sound != moon_amb:
+		lerp_from_none_to_max(moon_amb)
+	
 	sound.stop()
 
 func lerp_from_none_to_max(sound : AudioStreamPlayerLinearVolume, lerp_time: float = VERY_SHORT_LERP_TIME) ->void: # sets the sounds volume db from 0 to 1
 	sound.hidden = false
 	sound.volume_level = 0.001
 	
+	if sound != moon_amb:
+		lerp_to_none(moon_amb)
 	
 	if !sound.playing:
 		sound.play()

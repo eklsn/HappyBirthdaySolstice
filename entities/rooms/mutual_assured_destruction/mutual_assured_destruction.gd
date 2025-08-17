@@ -348,7 +348,8 @@ func _on_dialogue_timer_timeout() -> void:
 		var current_filler : Resource = fillers[dialogue_counter]
 		wait_time = DIALOGUE_FILLER_WAIT_TIME
 		DialogueManager.show_dialogue_balloon_scene(MAIN_TEXTBOX, current_filler)
-	if GlobalVar.plot == 1:
+	if GlobalVar.plot == 1 && not DialogueManager.dialogue_playing:
+		
 		match dialogue_counter:
 			0:
 				wait_time = 0.0

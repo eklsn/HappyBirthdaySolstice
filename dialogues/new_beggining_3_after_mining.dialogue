@@ -3,8 +3,8 @@
 do Vfx.fade_in(0.7)
 set GlobalVar.plot = 2
 do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://cuje73oplrwyo").instantiate(), SwitchRoomEffect.RoomLocation.NORTH,GlobalVar.current_room)
-SH-170: Tent: synthesis complete, beep-boop.  
-Solstice: Please don't be bare inside.  
+SH-170: Tent: synthesis complete, beep-boop.  [#hide]
+Solstice: Please don't be bare inside.  [#hide]
 
 # The player moves inside the tent.  
 do GlobalVar.player.set_sprite("idle_up")

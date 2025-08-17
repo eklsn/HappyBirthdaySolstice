@@ -1,5 +1,6 @@
 ~ start
-# Waking up in the tent, Sol walks outside, finding a decently-sized house next to the tent.  
+# Waking up in the tent, Sol walks outside, finding a decently-sized house next to the tent. 
+do! AudioHandler.lerp_from_none_to_max(AudioHandler.moonhouse) 
 do GlobalVar.player.set_sprite("idle_down")
 do GlobalVar.player.teleport(Vector2(126,215))
 do wait(2.0)
@@ -80,6 +81,7 @@ do Vfx.fade_in(0.7)
 set GlobalVar.plot = 3.2
 do SwitchRoomEffect.dialogue_switch_room("uid://bmpn8eoohc1t5",SwitchRoomEffect.RoomLocation.WEST)
 do Vfx.fade_out(0.7)
+do! AudioHandler.lerp_to_none(AudioHandler.moonhouse)
 # [[Home, actually 2]]  
 
 => END

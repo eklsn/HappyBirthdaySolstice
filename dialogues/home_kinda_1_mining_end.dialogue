@@ -10,12 +10,12 @@ do Vfx.fade_out(0.7)
 
 # Shito buzzes and its eyes and screen flash for some time to synthesize the beds and a light, which appear after a fade.  
 
-Solstice: How does that light get power? We have no electricity.  
-SH-170: I'm powering it inductively, beep-boop.  
-Solstice: Oh, right, that works too. I hate the idea of having to sleep in these clothes, but I'd hate gathering more materials even more. I'll think about it another day. I want to rest for now.  
+Solstice: How does that light get power? We have no electricity.  [#hide] 
+SH-170: I'm powering it inductively, beep-boop.  [#hide]
+Solstice: Oh, right, that works too. I hate the idea of having to sleep in these clothes, but I'd hate gathering more materials even more. I'll think about it another day. I want to rest for now.  [#hide]
 do Vfx.fade_in(0.7)
-SH-170: Have a good rest, beep-boop.  
-Solstice: Yeah.  
+SH-170: Have a good rest, beep-boop.  [#hide]
+Solstice: Yeah.  [#hide]
 set GlobalVar.plot = 2.2
 do GlobalVar.current_room.plotcheck()
 # The light turns off and the screen fades to black to bring a new day.  

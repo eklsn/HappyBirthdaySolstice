@@ -28,6 +28,7 @@ do GlobalVar.player.set_sprite("idle_down")
 do GlobalVar.current_room.shito.walk_to(Vector2(349,190))
 do GlobalVar.current_room.shito.set_sprite("idle_right")
 do GlobalVar.player.set_sprite("idle_left")
+do! AudioHandler.lerp_from_none_to_max(AudioHandler.moonhouse)
 SH-170: I'm fully charged, you can ask me anything, beep-boop.  
 Solstice: I want an electric guitar, an amplifier, and everything I need to use them, like cables and all.  
 SH-170: That's gonna require a lot of materials, Sol. Beep-boop.
@@ -64,5 +65,5 @@ do Vfx.fade_in(0.7)
 set GlobalVar.plot = 4.95
 do SwitchRoomEffect.dialogue_switch_room("uid://bmpn8eoohc1t5",SwitchRoomEffect.RoomLocation.EAST)
 do Vfx.fade_out(0.7)
-
+do! AudioHandler.lerp_to_none(AudioHandler.moonhouse)
 => END

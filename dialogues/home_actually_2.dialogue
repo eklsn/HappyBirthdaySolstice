@@ -20,13 +20,16 @@
 #Solstice: I'm gonna turn things around.  
 #do wait(5.0)
 # They walk toward the home, and the camera then fades to black, without fading back in.  
+set GlobalVar.change_outfit = true
 do Vfx.fade_in(0.7)
 do SwitchRoomEffect.dialogue_switch_room("uid://bokfkigaovrmp")
-Solstice: Ok, so...
-Solstice: This gray works for the top, then this blue for the shirt. Let me make a tiny change to the skirt... yes, this is it!  
-Solstice: Now, one last thing. Someone had to come from heaven from time to time to make me look older, but this is the one thing I can do to my appearance.  
-Solstice: Focus, Sol, focus...  
-Solstice: Okay, I'm opening my eyes now.
+Solstice: Ok, so... [#hide]
+do! AudioHandler.lerp_from_none_to_max(AudioHandler.moonhouse)
+Solstice: This gray works for the top, then this blue for the shirt. Let me make a tiny change to the skirt... yes, this is it!  [#hide]
+Solstice: Now, one last thing. Someone had to come from heaven from time to time to make me look older, but this is the one thing I can do to my appearance.  [#hide]
+Solstice: Focus, Sol, focus...  [#hide]
+Solstice: Okay, I'm opening my eyes now.[#hide]
+do GlobalVar.player.anim._ready()
 do GlobalVar.player.set_sprite("idle_up") 
 do Vfx.fade_out(0.7)
 # The screen fades back in, with Sol with brown hair and in her new clothes standing before the mirror, where she sees her new appearance for the first time.  
@@ -46,4 +49,7 @@ do SwitchRoomEffect.switch_room(GlobalVar.room_manager, load("uid://bmpn8eoohc1t
 
 do GlobalVar.player.set_sprite("sitting_back")
 do Vfx.fade_out(0.7)
+do! AudioHandler.lerp_to_none(AudioHandler.moonhouse)
+
+
 => END

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dri1yjfng46kv"
-path="res://.godot/imported/Solstice_Bust.png-d496047756a9a3815eacbb1e8b94d564.ctex"
+uid="uid://dluoqqepmu4kl"
+path="res://.godot/imported/sophie_port.png-02bdefccd3fd449cf5f8af75919bacca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/assets/solstice/Solstice_Bust.png"
-dest_files=["res://.godot/imported/Solstice_Bust.png-d496047756a9a3815eacbb1e8b94d564.ctex"]
+source_file="res://assets/dialogue_busts/sophie_port.png"
+dest_files=["res://.godot/imported/sophie_port.png-02bdefccd3fd449cf5f8af75919bacca.ctex"]
 
 [params]
 

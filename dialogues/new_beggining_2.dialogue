@@ -48,6 +48,6 @@ do GlobalVar.current_room.shito.walk_to(GlobalVar.current_room.shito.global_posi
 #Solstice: The hammer's durability is limited, and hitting with more force damages it more, so when it gets too damaged, bring it to me with some quartz. I can use silica if you can't get any quartz, but I'll have to take a break again, beep-boop.
 
 #Solstice: Fine, fine, do your thing while I break these rocks.
-: Press "C" to open inventory
+: Mining begin: Press "Z" on rocks to mine them. Press "C" to open inventory to see needed amounts.
 #The player then walks to nearby rocks, and the mining minigame begins until enough quartz is collected.
 => END

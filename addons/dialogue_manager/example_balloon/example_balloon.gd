@@ -87,8 +87,50 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 
 
+@onready var bust_left: TextureRect = $Balloon/BustLeft
+@onready var bust_right: TextureRect = $Balloon/BustRight
+
+
+const SHITO_BUST : Texture2D = preload("uid://b7phlxv2nugby")
+const SOLSTICE_BUST  : Texture2D = preload("uid://dri1yjfng46kv")
+const SOLSTICE_BUST_BROWNHAIR  : Texture2D = preload("uid://b6lyl1yerpxd2")
+const SOPHIE_BUST  : Texture2D = preload("uid://dluoqqepmu4kl")
+const SOLSTICE_BUST_YOUNG  : Texture2D = preload("uid://tg0fos1mad0u")
+
+const DARK_MODULATE: Color = Color(0.5,0.5,0.5,0.9)
+
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
+	
+	bust_left.modulate = DARK_MODULATE
+	bust_right.modulate = DARK_MODULATE
+	
+	if dialogue_line.character == "Solstice":
+		bust_left.modulate = Color(1.0,1.0,1.0,1.0)
+		if dialogue_line.tags.has("young"):
+			bust_left.texture = SOLSTICE_BUST_YOUNG
+		elif GlobalVar.change_outfit:
+			bust_left.texture = SOLSTICE_BUST_BROWNHAIR
+		else:
+			bust_left.texture = SOLSTICE_BUST
+		
+	elif dialogue_line.character == "Friend" || dialogue_line.character == "Sophie":
+		bust_right.modulate = Color(1.0,1.0,1.0,1.0)
+		bust_right.texture = SOPHIE_BUST
+	elif dialogue_line.character == "SH-170":
+		bust_right.modulate = Color(1.0,1.0,1.0,1.0)
+		bust_right.texture = SHITO_BUST
+	
+	
+	if dialogue_line.tags.has("hide"):
+		bust_right.modulate = Color(0.0,0.0,0.0,0.0)
+		bust_left.modulate = Color(0.0,0.0,0.0,0.0)
+		
+	
+	
+	
+	
+	
 	
 	mutation_cooldown.stop()
 

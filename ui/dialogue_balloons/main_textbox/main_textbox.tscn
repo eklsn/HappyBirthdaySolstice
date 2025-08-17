@@ -36,13 +36,15 @@ color = Color(0, 0, 0, 1)
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.501961)
+modulate = Color(0.811765, 0.811765, 0.811765, 0.831373)
 layout_mode = 2
 offset_left = 60.0
-offset_top = 284.0
+offset_top = 308.0
 offset_right = 579.0
-offset_bottom = 307.0
+offset_bottom = 331.0
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_o7h1k")
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -79,13 +81,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 308
-theme_override_constants/margin_right = 60
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 330
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_uwjq4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
@@ -112,6 +115,21 @@ theme_override_font_sizes/bold_font_size = 20
 text = "\"They say that looking at the Earth from space can cause a cognitive shift and bring a state of awe that expands your personal boundaries and makes you feel one with Earth as a whole. "
 fit_content = false
 horizontal_alignment = 1
+
+[node name="BustLeft" type="TextureRect" parent="Balloon"]
+offset_left = 45.0
+offset_top = 202.0
+offset_right = 109.0
+offset_bottom = 266.0
+scale = Vector2(2, 2)
+
+[node name="BustRight" type="TextureRect" parent="Balloon"]
+offset_left = 473.0
+offset_top = 202.0
+offset_right = 537.0
+offset_bottom = 266.0
+scale = Vector2(2, 2)
+flip_h = true
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

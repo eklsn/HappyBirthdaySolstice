@@ -48,5 +48,5 @@ Solstice: Oh, shut up, this is my new beginning!
 
 
 Solstice: Let's look around for now, you don't get to walk on the Moon every day.
-
+do AudioHandler.lerp_to_none(AudioHandler.opening_amb)
 => END

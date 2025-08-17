@@ -1,4 +1,5 @@
 ~ start
+do! AudioHandler.lerp_from_none_to_max(AudioHandler.opening_amb)
 do Vfx.fade_in(0.05)
 do! Vfx.fade_out(1.5)
 do! GlobalVar.player.camera_2d.move_to_relative(Vector2(0.0,-80.0),1)
